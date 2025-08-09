@@ -1,160 +1,600 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
-  <meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty.">
-  <meta name="theme-color" content="#0d6efd">
-  <link rel="icon" href="favicon.png">
+  <meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty." />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="icon" href="favicon.png" />
 
-  <!-- DESIGN: colors sampled from the logo (adjust if needed) -->
   <style>
-    :root{
-      /* Brand from logo (three blue tones) */
-      --brand-900:#0a4f7a;   /* dark ring */
-      --brand-700:#1173a6;   /* mid blue */
-      --brand-500:#2ea3d4;   /* light accent */
-      --bg:#ffffff;
-      --text:#111111;        /* black text as requested */
-      --muted:#5a6270;
-      --surface:#f6f9fc;
-      --border:#e7edf3;
-      --radius:14px;
-      --shadow:0 6px 22px rgba(10,79,122,.10);
-      --shadow-sm:0 2px 8px rgba(10,79,122,.08);
+    :root {
+      --brand-900: #0a4f7a;
+      --brand-700: #1173a6;
+      --brand-500: #2ea3d4;
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #5a6270;
+      --surface: #f6f9fc;
+      --border: #e7edf3;
+      --radius: 14px;
+      --shadow: 0 6px 22px rgba(10, 79, 122, 0.1);
+      --shadow-sm: 0 2px 8px rgba(10, 79, 122, 0.08);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-      color:var(--text);background:var(--bg);line-height:1.6}
+
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
 
     /* Layout */
-    .container{max-width:1180px;margin:0 auto;padding:0 16px}
-    .narrow{max-width:880px}
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
-      backdrop-filter:saturate(160%) blur(10px); border-bottom:1px solid var(--border)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px}
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
-    .brand img{width:56px;height:56px;object-fit:contain}
-    .brand-title{display:flex;flex-direction:column;line-height:1.1}
-    .brand-title .name{font-weight:800;color:var(--brand-900);letter-spacing:.3px}
-    .brand-title .dept{font-weight:900; letter-spacing:.6px; color:var(--brand-700)}
-    nav a{margin:0 8px;color:var(--text);text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--brand-700)}
-    nav a.btn{border:1px solid var(--brand-700);padding:10px 14px;border-radius:10px}
-    .hero{padding:28px 0;background:linear-gradient(180deg, color-mix(in oklab,var(--brand-500) 10%,white), transparent 60%)}
-    .hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:24px;align-items:center}
-    .headline{margin:.2em 0 .4em;font-size:2.2rem}
-    .tag{display:inline-block;background:color-mix(in oklab,var(--brand-500) 15%,white);color:var(--brand-900);
-      border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-weight:700}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
-    .btn{display:inline-block;border:1px solid var(--brand-700);color:#fff;background:var(--brand-700);
-      padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:var(--shadow-sm)}
-    .btn:hover{background:var(--brand-900)}
-    .btn-outline{background:#fff;color:var(--brand-900);border-color:var(--brand-900)}
-    .note{color:var(--muted)}
-    .card{border:1px solid var(--border);background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-weight:700}
-    .highlight{color:var(--brand-900);font-weight:800}
-    .section{padding:28px 0}
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .narrow {
+      max-width: 880px;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 70px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      user-select: none;
+    }
+    .brand-title .name {
+      font-weight: 800;
+      color: var(--brand-900);
+      letter-spacing: 0.3px;
+      font-size: 1.35rem;
+      white-space: nowrap;
+    }
+    .brand-title .dept {
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      color: var(--brand-700);
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-top: -4px;
+      font-family: "Segoe UI Black", "Arial Black", sans-serif;
+    }
+    nav a {
+      margin: 0 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    nav a:hover {
+      color: var(--brand-700);
+    }
+    nav a.btn {
+      border: 1px solid var(--brand-700);
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+    .hero {
+      padding: 28px 0;
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--brand-500) 10%, white),
+        transparent 60%
+      );
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .headline {
+      margin: 0.2em 0 0.4em;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.15;
+      user-select: none;
+    }
+    .tag {
+      display: inline-block;
+      background: color-mix(in oklab, var(--brand-500) 15%, white);
+      color: var(--brand-900);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      user-select: none;
+      margin-bottom: 12px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 14px 0 24px;
+    }
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--brand-700);
+      color: #fff;
+      background: var(--brand-700);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      user-select: none;
+      transition: background-color 0.25s ease;
+    }
+    .btn:hover {
+      background: var(--brand-900);
+    }
+    .btn-outline {
+      background: #fff;
+      color: var(--brand-900);
+      border-color: var(--brand-900);
+      user-select: none;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.3;
+      margin-top: 8px;
+      max-width: 700px;
+      user-select: none;
+    }
+    .card {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      user-select: none;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      user-select: none;
+      cursor: default;
+    }
+    .highlight {
+      color: var(--brand-900);
+      font-weight: 800;
+      user-select: none;
+    }
+    .section {
+      padding: 28px 0;
+    }
 
-    /* Slideshow */
-    .slider{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border);background:#fff}
-    .slides{display:flex;transition:transform .6s ease}
-    .slide{min-width:100%;height:340px;background:#dfeffd url('clinic-placeholder.jpg') center/cover no-repeat}
-    .slider .controls{position:absolute;inset:auto 0 10px 0;display:flex;justify-content:center;gap:8px}
-    .dot{width:10px;height:10px;border-radius:50%;background:#c8d9e7;border:1px solid #9ab6c9;cursor:pointer}
-    .dot.active{background:var(--brand-700);border-color:var(--brand-900)}
-    .slider .navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#ffffffd9;border:1px solid var(--border);
-      width:42px;height:42px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
-    .slider .prev{left:10px}.slider .next{right:10px}
-
-    /* Hours frame */
-    .hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .hour-row{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border:1px dashed var(--border);border-radius:10px}
-    .warn{display:flex;align-items:center;gap:8px;color:#b80000;font-weight:800}
+    /* HOURS & MAP layout */
+    .hours-map-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 24px;
+      margin-top: 16px;
+      align-items: start;
+    }
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-weight: 700;
+      user-select: none;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      background: #fff;
+    }
+    .hours-table th,
+    .hours-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    .hours-table th {
+      background: var(--brand-500);
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+    .hours-table tr:last-child td {
+      border-bottom: none;
+    }
+    .address-map {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px 16px 8px;
+      user-select: none;
+      font-weight: 700;
+      text-align: center;
+      color: var(--brand-900);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .map {
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.3s ease;
+    }
+    .map:hover {
+      box-shadow: 0 10px 30px rgba(10, 79, 122, 0.3);
+    }
+    .map iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      border-radius: var(--radius);
+      pointer-events: none; /* disable pointer events, map opens on container */
+    }
 
     /* Aktuality */
-    .updates{display:grid;gap:12px}
-    .update{border-left:4px solid var(--brand-500);padding:10px 12px;background:#fff;border-radius:10px;border:1px solid var(--border)}
-    .update time{display:block;font-size:.92rem;color:var(--muted);margin-bottom:4px}
+    .updates {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+      max-width: 900px;
+      user-select: none;
+    }
+    .update {
+      border-left: 4px solid var(--brand-500);
+      padding: 10px 12px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+    .update time {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
 
-    /* Insurance grid */
-    .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .ins{height:84px;border:1px dashed var(--border);border-radius:12px;background:
-      linear-gradient(180deg,#f8fcff,#f4f8fb);display:grid;place-items:center;color:var(--muted);font-weight:700}
+    /* Insurance logos */
+    .insurances {
+      margin-top: 28px;
+      text-align: center;
+      user-select: none;
+    }
+    .insurances h2 {
+      margin-bottom: 14px;
+      color: var(--brand-900);
+      font-weight: 800;
+    }
+    .ins-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px 14px;
+      justify-items: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .insurance-logo {
+      background: linear-gradient(180deg, #f8fcff, #f4f8fb);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      width: 84px;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .insurance-logo img {
+      max-width: 72px;
+      max-height: 72px;
+      object-fit: contain;
+    }
+    .insurance-logo:hover {
+      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.3);
+    }
+    /* Adjust grid for 7 logos: top 4, bottom 3 centrally aligned */
+    .ins-grid.bottom-row {
+      grid-column: span 4;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+    }
 
-    /* Two columns */
-    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    .map iframe{width:100%;height:400px;border:0;border-radius:14px}
+    /* Doctor card layout */
+    .doctor-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      max-width: 900px;
+      margin: 28px auto 0;
+      align-items: center;
+    }
+    .doctor-photo-wrapper {
+      position: relative;
+      width: 220px;
+      flex-shrink: 0;
+    }
+    .doctor-tag {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-700);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      user-select: none;
+      pointer-events: none;
+      box-shadow: var(--shadow-sm);
+      max-width: 100%;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .doctor-photo {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: block;
+    }
+    .doctor-info {
+      flex: 1 1 320px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .doctor-info h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      user-select: none;
+    }
+    .doctor-info ul {
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .doctor-info ul li {
+      margin-bottom: 6px;
+      user-select: text;
+    }
+    .qr-section {
+      width: 140px;
+      flex-shrink: 0;
+      text-align: center;
+      user-select: none;
+    }
+    .qr-section p {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--brand-700);
+    }
+    .qr-section img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+    .qr-section img:hover {
+      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.3);
+    }
 
     /* Footer */
-    footer{border-top:1px solid var(--border);background:#fff;margin-top:28px}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:start;padding:22px 0}
-    .qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .qr{border:1px dashed var(--border);border-radius:10px;height:140px;display:grid;place-items:center;color:var(--muted);background:#fff}
-
-    /* Subpages (Služby, Ceník) */
-    .tabs{display:flex;gap:10px;margin:8px 0 16px}
-    .tab{border:1px solid var(--brand-700);padding:8px 12px;border-radius:999px;background:#fff;color:var(--brand-900);text-decoration:none;font-weight:700}
-    .price-table{border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
-    .price-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:12px 16px;border-top:1px solid var(--border)}
-    .price-row:nth-child(odd){background:#fbfdff}
-    .price-head{background:linear-gradient(180deg, #f0f7fd, #e9f2fa);font-weight:900}
-    .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:color-mix(in oklab,var(--brand-500) 20%,white);color:var(--brand-900);border:1px solid var(--border);font-weight:800}
+    footer {
+      border-top: 1px solid var(--border);
+      background: #fff;
+      margin-top: 28px;
+      user-select: none;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px 0;
+      max-width: 1180px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .footer-grid a {
+      color: var(--brand-700);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-grid a:hover {
+      text-decoration: underline;
+    }
+    .footer-company {
+      font-weight: 600;
+      color: var(--brand-900);
+    }
+    .footer-ico {
+      margin-top: 12px;
+    }
+    .footer-copyright {
+      max-width: 1180px;
+      margin: 0 auto 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
 
     /* Accessibility focus */
-    :focus-visible{outline:3px solid color-mix(in oklab,var(--brand-500) 50%,white);outline-offset:2px;border-radius:10px}
+    :focus-visible {
+      outline: 3px solid color-mix(in oklab, var(--brand-500) 50%, white);
+      outline-offset: 2px;
+      border-radius: 10px;
+    }
 
-    /* Mobile */
-    @media (max-width:980px){
-      .hero-grid,.grid-2{grid-template-columns:1fr}
-      .headline{font-size:1.8rem}
-      .slides .slide{height:260px}
-      .hours-grid{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr}
-      .ins-grid{grid-template-columns:repeat(2,1fr)}
+    /* Responsive */
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.6fr 1fr;
+        gap: 44px;
+      }
+      .hours-map-wrapper {
+        grid-template-columns: 1.1fr 1.6fr;
+      }
+      .ins-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 899px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .hours-map-wrapper {
+        display: block;
+      }
+      .map {
+        margin-top: 18px;
+      }
+      .ins-grid {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+      }
+      .doctor-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .doctor-info {
+        width: 100%;
+        margin-top: 16px;
+        text-align: center;
+      }
+      .qr-section {
+        margin-top: 24px;
+        width: 140px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   </style>
 
   <!-- JSON-LD: Clinic + Physician -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MedicalClinic",
-    "name":"ALDHABBI S.R.O – OČNÍ ORDINACE",
-    "telephone":"+420705128840",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Mlýnská 326/6",
-      "addressLocality":"Teplice",
-      "postalCode":"41501",
-      "addressCountry":"CZ"
-    },
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"07:00","closes":"12:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"12:30","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"15:00","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"15:00","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"07:00","closes":"12:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"12:30","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"12:00"}
-    ],
-    "medicalSpecialty":"Ophthalmologic",
-    "url":"https://example.cz"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "ALDHABBI S.R.O – OČNÍ ORDINACE",
+      "telephone": "+420705128840",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mlýnská 326/6",
+        "addressLocality": "Teplice",
+        "postalCode": "41501",
+        "addressCountry": "CZ"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "07:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "12:30",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "15:00",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "15:00",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "07:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "12:30",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "07:00",
+          "closes": "12:00"
+        }
+      ],
+      "medicalSpecialty": "Ophthalmologic",
+      "url": "https://example.cz"
+    }
   </script>
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Physician",
-    "name":"MUDr. Yahia Al‑Dhabbi",
-    "medicalSpecialty":"Ophthalmology",
-    "worksFor":{"@type":"MedicalClinic","name":"ALDHABBI S.R.O – OČNÍ ORDINACE"},
-    "address":{"@type":"PostalAddress","streetAddress":"Mlýnská 326/6","addressLocality":"Teplice","postalCode":"41501","addressCountry":"CZ"},
-    "telephone":"+420705128840"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "MUDr. Yahia Al‑Dhabbi",
+      "medicalSpecialty": "Ophthalmology",
+      "worksFor": { "@type": "MedicalClinic", "name": "ALDHABBI S.R.O – OČNÍ ORDINACE" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mlýnská 326/6",
+        "addressLocality": "Teplice",
+        "postalCode": "41501",
+        "addressCountry": "CZ"
+      },
+      "telephone": "+420705128840"
+    }
   </script>
 </head>
 <body>
@@ -163,7 +603,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="ALDHABBI S.R.O domů">
-        <img src="2025-Logo.png" alt="Logo ALDHABBI S.R.O">
+        <img src="2025-Logo.jpg" alt="Logo ALDHABBI S.R.O" />
         <span class="brand-title">
           <span class="name">ALDHABBI S.R.O</span>
           <span class="dept">OČNÍ ORDINACE</span>
@@ -185,94 +625,117 @@
     <div class="container hero-grid">
       <div>
         <span class="tag">Přijímáme nové pacienty</span>
-        <h1 class="headline">Komplexní oční péče v Teplicích</h1>
-        <p class="note">Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.</p>
-        <div class="cta-row">
-          <a href="tel:+420705128840" class="btn">Zavolat a objednat: +420 705 128 840</a>
-          <a href="#kontakt" class="btn btn-outline">Adresa & mapa</a>
-        </div>
+        <h1 class="headline">Oční ordinace – Teplice</h1>
+        <p class="note" style="margin-bottom: 24px;">
+          Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
+        </p>
 
-        <!-- HOURS CARD -->
-        <section aria-label="Ordinační doba" class="card" style="margin-top:14px">
-          <div class="warn">Rezervujte jen telefonicky. Prosím nepsat.</div>
-          <div class="hours-grid" id="hoursBox">
-            <!-- Filled by JS for easy updates and dynamic layout -->
-          </div>
-        </section>
+        <!-- ORDINAČNÍ DOBA & MAP -->
+        <div class="hours-map-wrapper">
+          <section aria-label="Ordinační doba" class="card" style="padding: 24px 18px;">
+            <table class="hours-table" aria-describedby="hoursDescription">
+              <thead>
+                <tr><th scope="col">Den</th><th scope="col">Čas</th></tr>
+              </thead>
+              <tbody id="hoursTableBody">
+                <!-- Filled by JavaScript -->
+              </tbody>
+            </table>
+            <p id="hoursDescription" class="note" style="margin-top: 12px; font-weight: 700; color: #b80000;">
+              Rezervujte jen telefonicky. Prosím nepsat.
+            </p>
+          </section>
+
+          <section class="map" tabindex="0" role="link" aria-label="Adresa a mapa - Mlýnská 326/6 Teplice" id="mapSection">
+            <div class="address-map">Mlýnská 326/6, Teplice, 41501</div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
+              width="600"
+              height="320"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa ordinace">
+            </iframe>
+          </section>
+        </div>
       </div>
-
-      <!-- DYNAMIC SLIDESHOW -->
-      <aside>
-        <div class="slider" id="slider" aria-label="Fotogalerie ordinace">
-          <div class="slides">
-            <div class="slide" style="background-image:url('clinic-1.jpg')" aria-label="Foto 1 – placeholder"></div>
-            <div class="slide" style="background-image:url('clinic-2.jpg')" aria-label="Foto 2 – placeholder"></div>
-            <div class="slide" style="background-image:url('clinic-3.jpg')" aria-label="Foto 3 – placeholder"></div>
-            <div class="slide" style="background-image:url('clinic-4.jpg')" aria-label="Foto 4 – placeholder"></div>
-            <div class="slide" style="background-image:url('clinic-5.jpg')" aria-label="Foto 5 – placeholder"></div>
-          </div>
-          <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
-          <button class="navbtn next" aria-label="Další snímek">›</button>
-          <div class="controls" aria-hidden="true"></div>
-        </div>
-        <p class="note" style="margin-top:8px">Přetáhněte prstem nebo použijte šipky.</p>
-      </aside>
     </div>
+
+    <!-- Dynamic slideshow below paragraph and cards, full width -->
+    <section aria-label="Fotogalerie ordinace" style="margin-top: 32px; width: 100%; max-width: 1180px; margin-left: auto; margin-right: auto;">
+      <div class="slider" id="slider" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #fff;">
+        <div class="slides" style="display: flex; transition: transform 0.6s ease;">
+          <div class="slide" style="min-width: 100%; height: 360px; background: #dfeffd url('clinic-1.jpg') center/cover no-repeat;" aria-label="Foto 1 – placeholder"></div>
+          <div class="slide" style="min-width: 100%; height: 360px; background: #dfeffd url('clinic-2.jpg') center/cover no-repeat;" aria-label="Foto 2 – placeholder"></div>
+          <div class="slide" style="min-width: 100%; height: 360px; background: #dfeffd url('clinic-3.jpg') center/cover no-repeat;" aria-label="Foto 3 – placeholder"></div>
+          <div class="slide" style="min-width: 100%; height: 360px; background: #dfeffd url('clinic-4.jpg') center/cover no-repeat;" aria-label="Foto 4 – placeholder"></div>
+          <div class="slide" style="min-width: 100%; height: 360px; background: #dfeffd url('clinic-5.jpg') center/cover no-repeat;" aria-label="Foto 5 – placeholder"></div>
+        </div>
+        <button class="navbtn prev" aria-label="Předchozí snímek" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); background: #ffffffd9; border: 1px solid var(--border); width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;">‹</button>
+        <button class="navbtn next" aria-label="Další snímek" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); background: #ffffffd9; border: 1px solid var(--border); width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;">›</button>
+        <div class="controls" aria-hidden="true" style="position:absolute; bottom:12px; left:50%; transform: translateX(-50%); display:flex; justify-content:center; gap:8px;"></div>
+      </div>
+      <p class="note" style="margin-top: 8px; user-select:none;">Přetáhněte prstem nebo použijte šipky.</p>
+    </section>
   </main>
 
   <!-- AKTUALITY -->
   <section id="aktuality" class="section">
     <div class="container">
       <h2>Aktuality</h2>
-      <div class="updates" id="updates">
-        <!-- Sample items; edit in JS block below or directly here -->
-        <article class="update">
+      <div class="updates" id="updates" aria-live="polite" role="region" aria-label="Aktuality kliniky">
+        <!-- Example update, editable via JS -->
+        <article class="update" tabindex="0">
           <time datetime="2025-08-01">1. 8. 2025</time>
           <strong>Provoz beze změn.</strong> Aktuální ordinační doba viz výše.
         </article>
       </div>
-      <p class="note">Zde budou např. dovolené a provozní změny.</p>
+    </div>
+  </section>
+
+  <!-- SMLUVNÍ POJIŠŤOVNY -->
+  <section id="pojistovny" class="section" style="background: var(--surface);">
+    <div class="container insurances" role="region" aria-label="Smluvní pojišťovny">
+      <h2>Smluvní pojišťovny</h2>
+      <div class="ins-grid" aria-describedby="insInfo" tabindex="0">
+        <!-- Ordered by size of customer base as requested -->
+        <div class="insurance-logo"><img src="vzp.png" alt="Všeobecná zdravotní pojišťovna (VZP)" /></div>
+        <div class="insurance-logo"><img src="zpmv.png" alt="Zdravotní pojišťovna Ministerstva vnitra (ZPMV)" /></div>
+        <div class="insurance-logo"><img src="zps.png" alt="Zdravotní pojišťovna Škoda (ZPS)" /></div>
+        <div class="insurance-logo"><img src="ozp.png" alt="Oborová zdravotní pojišťovna (OZP)" /></div>
+        <div class="insurance-logo"><img src="vozp.png" alt="Vojenská zdravotní pojišťovna (VOZP)" /></div>
+        <div class="insurance-logo"><img src="rbp.png" alt="Revírní bratrská pokladna (RBP)" /></div>
+        <div class="insurance-logo"><img src="cpzp.png" alt="Česká průmyslová zdravotní pojišťovna (ČPZP)" /></div>
+      </div>
+      <p id="insInfo" class="note" style="margin-top: 8px;">
+        Nahrajte obdélníkové obrázky log se stejnými názvy a nahraďte tyto zástupce.
+      </p>
     </div>
   </section>
 
   <!-- O NÁS -->
   <section id="o-nas" class="section">
-    <div class="container grid-2">
-      <div class="card">
-        <h2>MUDr. Yahia Al‑Dhabbi <span class="badge">Oční lékař</span></h2>
-        <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al‑Dhabbi" style="width:220px;height:auto;border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow-sm);margin:8px 0">
-        <ul>
-          <li>Vystudoval všeobecné lékařství na LF UP v Olomouci (1988).</li>
-          <li>Specializace v oboru oftalmologie I. stupně (LFUK FNKV, 1994).</li>
-          <li>Odborná a zdravotní způsobilost v oftalmologii.</li>
-          <li>Člen ČLK.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Kontakt</h3>
-        <p><span class="pill">Telefon:</span> <a class="btn" href="tel:+420705128840">+420 705 128 840</a></p>
-        <p><span class="pill">Adresa:</span> Mlýnská 326/6, Teplice, 41501</p>
-        <div class="qr-grid" style="margin-top:10px">
-          <a class="qr" href="https://qrcc/rjquibrmfkya" target="_blank" rel="noopener">QR kontakt (nahrajte obrázek)</a>
-          <a class="qr" href="https://qrcc/rjqs23m361qa" target="_blank" rel="noopener">QR navigace (nahrajte obrázek)</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POJIŠŤOVNY -->
-  <section id="pojistovny" class="section" style="background:var(--surface)">
     <div class="container">
-      <h2>Smluvní pojišťovny</h2>
-      <div class="ins-grid" aria-label="Loga pojišťoven">
-        <div class="ins">VZP</div>
-        <div class="ins">ZPŠ</div>
-        <div class="ins">OZP</div>
-        <div class="ins">VOZP</div>
-        <div class="ins">RBP</div>
-        <div class="ins">ČPZP</div>
+      <h2>O nás</h2>
+      <div class="doctor-section">
+        <div class="doctor-photo-wrapper">
+          <span class="doctor-tag" aria-label="Oční lékař">Oční lékař</span>
+          <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al‑Dhabbi" class="doctor-photo" loading="lazy" width="220" height="auto" />
+        </div>
+        <div class="doctor-info">
+          <h3>MUDr. Yahia Al‑Dhabbi</h3>
+          <ul>
+            <li>Vystudoval všeobecné lékařství na LF UP v Olomouci v roce 1988.</li>
+            <li>Specializace v oboru oftalmologie I. stupně (LFUK FNKV, 1994).</li>
+            <li>Odborná a zdravotní způsobilost v oftalmologii.</li>
+            <li>Člen ČLK.</li>
+          </ul>
+        </div>
+        <aside class="qr-section" aria-label="QR kód pro uložení kontaktu">
+          <p>Ulož mě</p>
+          <img src="2025QR.png" alt="QR kód pro uložení kontaktu" width="120" height="120" loading="lazy" />
+        </aside>
       </div>
-      <p class="note" style="margin-top:8px">Nahrajte obdélníkové obrázky log (3 nahoře, 3 dole) se stejnými názvy a nahraďte tyto zástupce.</p>
     </div>
   </section>
 
@@ -281,30 +744,9 @@
     <div class="container narrow">
       <h2>Služby</h2>
       <p>Podrobný přehled služeb najdete na samostatné stránce.</p>
-      <div class="tabs">
-        <a class="tab" href="sluzby.html">Zobrazit Služby</a>
-        <a class="tab" href="cenik.html">Zobrazit Ceník</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ADRESA + MAPA -->
-  <section id="kontakt" class="section">
-    <div class="container grid-2">
-      <div class="card">
-        <h2>Adresa a spojení</h2>
-        <p><strong>ALDHABBI S.R.O – OČNÍ ORDINACE</strong><br>
-          Mlýnská 326/6, Teplice, 41501</p>
-        <p class="warn">Rezervujte jen telefonicky. Prosím nepsat.</p>
-        <a href="tel:+420705128840" class="btn" style="margin-top:6px">Zavolat: +420 705 128 840</a>
-      </div>
-      <div class="map card">
-        <h3 style="margin-top:0">Mapa</h3>
-        <div>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
-                  width="600" height="450" style="border:0;" allowfullscreen=""
-                  loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa ordinace"></iframe>
-        </div>
+      <div class="cta-row" style="justify-content: flex-start;">
+        <a class="btn btn-outline" href="sluzby.html" aria-label="Zobrazit služební stránku">Zobrazit Služby</a>
+        <a class="btn btn-outline" href="cenik.html" aria-label="Zobrazit ceník">Zobrazit Ceník</a>
       </div>
     </div>
   </section>
@@ -313,160 +755,121 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <strong>ALDHABBI S.R.O – OČNÍ ORDINACE</strong><br>
-        Mlýnská 326/6, Teplice, 41501<br>
-        Tel: <a href="tel:+420705128840">+420 705 128 840</a>
+        <span class="footer-company">ALDHABBI S.R.O – OČNÍ ORDINACE</span><br />
+        Mlýnská 326/6, Teplice, 41501<br />
+        Tel: <a href="tel:+420705128840">+420 705 128 840</a><br />
+        Email: <a href="mailto:info@aldhabbi.cz">info@aldhabbi.cz</a><br />
+        <div class="footer-ico">IČO: 23313382</div>
       </div>
       <div>
-        <a href="#aktuality">Aktuality</a><br>
-        <a href="sluzby.html">Služby</a><br>
+        <a href="#aktuality">Aktuality</a><br />
+        <a href="sluzby.html">Služby</a><br />
         <a href="cenik.html">Ceník</a>
       </div>
-      <div>
-        <small>© <span id="year"></span> ALDHABBI S.R.O</small>
-      </div>
+      <div></div>
+    </div>
+    <div class="footer-copyright">
+      <small>© <span id="year"></span> ALDHABBI S.R.O</small>
     </div>
   </footer>
 
-  <!-- JS: dynamic hours, slider, updates -->
   <script>
-  // Colors sync to logo palette for interactive elements
-  document.querySelector(':root').style.setProperty('--brand-700', getComputedStyle(document.documentElement).getPropertyValue('--brand-700'));
+    // Fill ordinační doba table dynamically
+    const hours = [
+      { day: 'Pondělí', blocks: [['07:00', '12:00'], ['12:30', '17:30']] },
+      { day: 'Úterý', blocks: [['15:00', '17:30']] },
+      { day: 'Středa', blocks: [['15:00', '17:30']] },
+      { day: 'Čtvrtek', blocks: [['07:00', '12:00'], ['12:30', '17:30']] },
+      { day: 'Pátek', blocks: [['07:00', '12:00']] }
+    ];
 
-  // Ordinační doba (structured and rendered dynamically)
-  const hours = [
-    { day:'Pondělí', blocks:[['07:00','12:00'],['12:30','17:30']] },
-    { day:'Úterý',   blocks:[['15:00','17:30']] },
-    { day:'Středa',  blocks:[['15:00','17:30']] },
-    { day:'Čtvrtek', blocks:[['07:00','12:00'],['12:30','17:30']] },
-    { day:'Pátek',   blocks:[['07:00','12:00']] }
-  ];
-  const hoursBox = document.getElementById('hoursBox');
-  hours.forEach(h=>{
-    const row = document.createElement('div'); row.className='hour-row';
-    const left = document.createElement('strong'); left.textContent=h.day;
-    const right = document.createElement('span');
-    right.innerHTML = h.blocks.map(b => `${b[0]} – ${b[1]}`).join(' , ');
-    row.append(left,right); hoursBox.append(row);
-  });
-
-  // Aktuality (optional: edit here)
-  const updatesData = [
-    // Example: {date:'2025-08-01', text:'Dovolená 12.–16. 8. 2025. Akutní případy směřujte na spádovou pohotovost.'}
-  ];
-  const updates = document.getElementById('updates');
-  updatesData.forEach(u=>{
-    const art=document.createElement('article'); art.className='update';
-    const t=document.createElement('time'); t.dateTime=u.date; t.textContent = new Date(u.date).toLocaleDateString('cs-CZ');
-    const p=document.createElement('p'); p.textContent = u.text;
-    art.append(t,p); updates.prepend(art);
-  });
-
-  // Simple slider (5 photos)
-  (function(){
-    const slider = document.getElementById('slider');
-    const track = slider.querySelector('.slides');
-    const slides = [...slider.querySelectorAll('.slide')];
-    const dotsWrap = slider.querySelector('.controls');
-    let index=0, timer;
-
-    // Build dots
-    slides.forEach((_,i)=>{
-      const d=document.createElement('button'); d.className='dot'; d.ariaLabel=`Přejít na snímek ${i+1}`;
-      d.addEventListener('click', ()=>go(i));
-      dotsWrap.appendChild(d);
+    const tbody = document.getElementById('hoursTableBody');
+    hours.forEach(({ day, blocks }) => {
+      const tr = document.createElement('tr');
+      const tdDay = document.createElement('td');
+      tdDay.textContent = day;
+      const tdTime = document.createElement('td');
+      tdTime.textContent = blocks.map(b => b.join(' - ')).join(' , ');
+      tr.appendChild(tdDay);
+      tr.appendChild(tdTime);
+      tbody.appendChild(tr);
     });
-    const dots=[...dotsWrap.children];
 
-    function go(i){
-      index=(i+slides.length)%slides.length;
-      track.style.transform=`translateX(${-index*100}%)`;
-      dots.forEach((d,k)=>d.classList.toggle('active',k===index));
+    // Map interaction: open Google Maps app on mobile, regular Google Maps on desktop
+    const mapSection = document.getElementById('mapSection');
+    mapSection.addEventListener('click', () => {
+      const url = 'https://maps.google.com/?q=Mlýnská+326/6,+Teplice';
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        // Mobile - open app if possible
+        window.open(`geo:50.6392606,13.8323696?q=Mlýnská+326/6,+Teplice`, '_blank');
+        // fallback in case geo: does not work
+        setTimeout(() => window.open(url, '_blank'), 1000);
+      } else {
+        // Desktop
+        window.open(url, '_blank');
+      }
+    });
+
+    // Slideshow script
+    (function () {
+      const slider = document.getElementById('slider');
+      const slides = slider.querySelector('.slides');
+      const slideElements = slider.querySelectorAll('.slide');
+      const controls = slider.querySelector('.controls');
+      let index = 0,
+        timer;
+
+      // Build dots
+      slideElements.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'dot';
+        dot.ariaLabel = 'Přejít na snímek ' + (i + 1);
+        dot.addEventListener('click', () => go(i));
+        controls.appendChild(dot);
+      });
+      const dots = [...controls.children];
+
+      function go(i) {
+        index = (i + slideElements.length) % slideElements.length;
+        slides.style.transform = `translateX(${-index * 100}%)`;
+        dots.forEach((dot, k) => dot.classList.toggle('active', k === index));
+        restart();
+      }
+      function next() {
+        go(index + 1);
+      }
+      function prev() {
+        go(index - 1);
+      }
+      slider.querySelector('.next').onclick = next;
+      slider.querySelector('.prev').onclick = prev;
+
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
       restart();
-    }
-    function next(){ go(index+1) }
-    function prev(){ go(index-1) }
-    slider.querySelector('.next').onclick=next;
-    slider.querySelector('.prev').onclick=prev;
+      go(0);
 
-    // Auto-play
-    function restart(){ clearInterval(timer); timer=setInterval(next,5000) }
-    restart(); go(0);
+      // Swipe support
+      let startX = null;
+      slider.addEventListener('pointerdown', e => {
+        startX = e.clientX;
+      });
+      slider.addEventListener(
+        'pointerup',
+        e => {
+          if (startX === null) return;
+          const dx = e.clientX - startX;
+          if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
+          startX = null;
+        },
+        { passive: true }
+      );
+    })();
 
-    // Swipe support
-    let startX=null;
-    slider.addEventListener('pointerdown',e=>{startX=e.clientX});
-    slider.addEventListener('pointerup',e=>{
-      if(startX===null) return;
-      const dx=e.clientX-startX;
-      if(Math.abs(dx)>40) dx<0?next():prev();
-      startX=null;
-    },{passive:true});
-  })();
-
-  // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
+    // Year update
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-  <!-- SEPARATE PAGES: Služby & Ceník (simple client-side router for one-folder setup) -->
-  <!-- Create sluzby.html and cenik.html in the same folder using the templates below. -->
-
-  <!-- TEMPLATE: sluzby.html -->
-  <!--
-  <!doctype html><html lang="cs"><head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Služby – ALDHABBI S.R.O</title>
-    <link rel="icon" href="favicon.png">
-    <link rel="stylesheet" href="styles-inline.css"><!-- if you prefer, copy styles from main file -->
-  </head><body>
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="index.html"><img src="2025-Logo.jpg" alt=""><span class="brand-title"><span class="name">ALDHABBI S.R.O</span><span class="dept">OČNÍ ORDINACE</span></span></a>
-        <nav><a href="index.html#aktuality">Aktuality</a><a href="cenik.html">Ceník</a><a class="btn" href="tel:+420705128840">Zavolat</a></nav>
-      </div>
-    </header>
-    <main class="container narrow section">
-      <h1>Služby</h1>
-      <ul>
-        <li>Komplexní oční vyšetření</li>
-        <li>Předpis brýlí a kontaktních čoček</li>
-        <li>Akutní potíže</li>
-        <li>Dětská oftalmologie</li>
-        <li>Vyšetření barvocitu</li>
-        <li>Vyšetření pro řidičský průkaz</li>
-        <li>Administrativní potvrzení</li>
-        <!-- ponechte přesně jak máte na stávajícím webu -->
-      </ul>
-      <p class="warn">Rezervujte jen telefonicky. Prosím nepsat.</p>
-      <p><a href="tel:+420705128840" class="btn">Zavolat: +420 705 128 840</a></p>
-    </main>
-    <footer>…stejná patička jako na hlavní stránce…</footer>
-  </body></html>
-  -->
-
-  <!-- TEMPLATE: cenik.html -->
-  <!--
-  <!doctype html><html lang="cs"><head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Ceník – ALDHABBI S.R.O</title>
-    <link rel="icon" href="favicon.png">
-  </head><body>
-    <header class="site-header">…</header>
-    <main class="container narrow section">
-      <h1>Ceník</h1>
-      <div class="price-table">
-        <div class="price-row price-head"><div>Výkon</div><div>Cena</div></div>
-        <!-- nahraďte reálnými položkami -->
-        <div class="price-row"><div>Komplexní vyšetření</div><div>900 Kč</div></div>
-        <div class="price-row"><div>Předpis brýlí</div><div>500 Kč</div></div>
-        <div class="price-row"><div>Akutní ošetření</div><div>700 Kč</div></div>
-        <div class="price-row"><div>Řidičský průkaz</div><div>600 Kč</div></div>
-      </div>
-      <p class="note">Ceny pro samoplátce; konečná částka dle rozsahu.</p>
-      <p><a href="tel:+420705128840" class="btn">Objednat telefonicky</a></p>
-    </main>
-    <footer>…</footer>
-  </body></html>
-  -->
+</body>
 </html>
-
