@@ -1,600 +1,155 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
-  <meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty." />
-  <meta name="theme-color" content="#0d6efd" />
-  <link rel="icon" href="favicon.png" />
+  <meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty.">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="icon" href="favicon.png">
 
+  <!-- DESIGN: colors sampled from the logo (adjust if needed) -->
   <style>
-    :root {
-      --brand-900: #0a4f7a;
-      --brand-700: #1173a6;
-      --brand-500: #2ea3d4;
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #5a6270;
-      --surface: #f6f9fc;
-      --border: #e7edf3;
-      --radius: 14px;
-      --shadow: 0 6px 22px rgba(10, 79, 122, 0.1);
-      --shadow-sm: 0 2px 8px rgba(10, 79, 122, 0.08);
+    :root{
+      /* Brand from logo (three blue tones) */
+      --brand-900:#0a4f7a;   /* dark ring */
+      --brand-700:#1173a6;   /* mid blue */
+      --brand-500:#2ea3d4;   /* light accent */
+      --bg:#ffffff;
+      --text:#111111;        /* black text as requested */
+      --muted:#5a6270;
+      --surface:#f6f9fc;
+      --border:#e7edf3;
+      --radius:14px;
+      --shadow:0 6px 22px rgba(10,79,122,.10);
+      --shadow-sm:0 2px 8px rgba(10,79,122,.08);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text);background:var(--bg);line-height:1.6}
 
     /* Layout */
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    .narrow {
-      max-width: 880px;
-    }
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: saturate(160%) blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 70px;
-      flex-wrap: wrap;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-    .brand img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-    }
-    .brand-title {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-      user-select: none;
-    }
-    .brand-title .name {
-      font-weight: 800;
-      color: var(--brand-900);
-      letter-spacing: 0.3px;
-      font-size: 1.35rem;
-      white-space: nowrap;
-    }
-    .brand-title .dept {
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      color: var(--brand-700);
-      font-size: 1.6rem;
-      text-transform: uppercase;
-      line-height: 1.1;
-      margin-top: -4px;
-      font-family: "Segoe UI Black", "Arial Black", sans-serif;
-    }
-    nav a {
-      margin: 0 8px;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    nav a:hover {
-      color: var(--brand-700);
-    }
-    nav a.btn {
-      border: 1px solid var(--brand-700);
-      padding: 10px 14px;
-      border-radius: 10px;
-    }
-    .hero {
-      padding: 28px 0;
-      background: linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--brand-500) 10%, white),
-        transparent 60%
-      );
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-    .headline {
-      margin: 0.2em 0 0.4em;
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 1.15;
-      user-select: none;
-    }
-    .tag {
-      display: inline-block;
-      background: color-mix(in oklab, var(--brand-500) 15%, white);
-      color: var(--brand-900);
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      user-select: none;
-      margin-bottom: 12px;
-    }
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 14px 0 24px;
-    }
-    .btn {
-      display: inline-block;
-      border: 1px solid var(--brand-700);
-      color: #fff;
-      background: var(--brand-700);
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: var(--shadow-sm);
-      user-select: none;
-      transition: background-color 0.25s ease;
-    }
-    .btn:hover {
-      background: var(--brand-900);
-    }
-    .btn-outline {
-      background: #fff;
-      color: var(--brand-900);
-      border-color: var(--brand-900);
-      user-select: none;
-    }
-    .note {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.3;
-      margin-top: 8px;
-      max-width: 700px;
-      user-select: none;
-    }
-    .card {
-      border: 1px solid var(--border);
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      user-select: none;
-    }
-    .pill {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      font-weight: 700;
-      user-select: none;
-      cursor: default;
-    }
-    .highlight {
-      color: var(--brand-900);
-      font-weight: 800;
-      user-select: none;
-    }
-    .section {
-      padding: 28px 0;
-    }
-
-    /* HOURS & MAP layout */
-    .hours-map-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 24px;
-      margin-top: 16px;
-      align-items: start;
-    }
-    .hours-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-weight: 700;
-      user-select: none;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      background: #fff;
-    }
-    .hours-table th,
-    .hours-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-    }
-    .hours-table th {
-      background: var(--brand-500);
-      color: #fff;
-      letter-spacing: 0.02em;
-    }
-    .hours-table tr:last-child td {
-      border-bottom: none;
-    }
-    .address-map {
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 12px 16px 8px;
-      user-select: none;
-      font-weight: 700;
-      text-align: center;
-      color: var(--brand-900);
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-    .map {
-      border-radius: var(--radius);
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.3s ease;
-    }
-    .map:hover {
-      box-shadow: 0 10px 30px rgba(10, 79, 122, 0.3);
-    }
-    .map iframe {
-      width: 100%;
-      height: 320px;
-      border: none;
-      border-radius: var(--radius);
-      pointer-events: none; /* disable pointer events, map opens on container */
-    }
-
-    /* Aktuality */
-    .updates {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-      max-width: 900px;
-      user-select: none;
-    }
-    .update {
-      border-left: 4px solid var(--brand-500);
-      padding: 10px 12px;
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-size: 1rem;
-      line-height: 1.3;
-    }
-    .update time {
-      display: block;
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-
-    /* Insurance logos */
-    .insurances {
-      margin-top: 28px;
-      text-align: center;
-      user-select: none;
-    }
-    .insurances h2 {
-      margin-bottom: 14px;
-      color: var(--brand-900);
-      font-weight: 800;
-    }
-    .ins-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px 14px;
-      justify-items: center;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-    .insurance-logo {
-      background: linear-gradient(180deg, #f8fcff, #f4f8fb);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      width: 84px;
-      height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.3s ease;
-      overflow: hidden;
-    }
-    .insurance-logo img {
-      max-width: 72px;
-      max-height: 72px;
-      object-fit: contain;
-    }
-    .insurance-logo:hover {
-      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.3);
-    }
-    /* Adjust grid for 7 logos: top 4, bottom 3 centrally aligned */
-    .ins-grid.bottom-row {
-      grid-column: span 4;
-      grid-template-columns: repeat(3, 1fr);
-      justify-content: center;
-    }
-
-    /* Doctor card layout */
-    .doctor-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      max-width: 900px;
-      margin: 28px auto 0;
-      align-items: center;
-    }
-    .doctor-photo-wrapper {
-      position: relative;
-      width: 220px;
-      flex-shrink: 0;
-    }
-    .doctor-tag {
-      position: absolute;
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--brand-700);
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      user-select: none;
-      pointer-events: none;
-      box-shadow: var(--shadow-sm);
-      max-width: 100%;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .doctor-photo {
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      display: block;
-    }
-    .doctor-info {
-      flex: 1 1 320px;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-    .doctor-info h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      user-select: none;
-    }
-    .doctor-info ul {
-      padding-left: 20px;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .doctor-info ul li {
-      margin-bottom: 6px;
-      user-select: text;
-    }
-    .qr-section {
-      width: 140px;
-      flex-shrink: 0;
-      text-align: center;
-      user-select: none;
-    }
-    .qr-section p {
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--brand-700);
-    }
-    .qr-section img {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      border-radius: 14px;
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-    }
-    .qr-section img:hover {
-      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.3);
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      background: #fff;
-      margin-top: 28px;
-      user-select: none;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 16px;
-      align-items: start;
-      padding: 22px 0;
-      max-width: 1180px;
-      margin: 0 auto;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-    .footer-grid a {
-      color: var(--brand-700);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .footer-grid a:hover {
-      text-decoration: underline;
-    }
-    .footer-company {
-      font-weight: 600;
-      color: var(--brand-900);
-    }
-    .footer-ico {
-      margin-top: 12px;
-    }
-    .footer-copyright {
-      max-width: 1180px;
-      margin: 0 auto 12px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    /* Accessibility focus */
-    :focus-visible {
-      outline: 3px solid color-mix(in oklab, var(--brand-500) 50%, white);
-      outline-offset: 2px;
-      border-radius: 10px;
-    }
-
-    /* Responsive */
-    @media (min-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1.6fr 1fr;
-        gap: 44px;
-      }
-      .hours-map-wrapper {
-        grid-template-columns: 1.1fr 1.6fr;
-      }
-      .ins-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    @media (max-width: 899px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .hours-map-wrapper {
-        display: block;
-      }
-      .map {
-        margin-top: 18px;
-      }
-      .ins-grid {
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: center;
-      }
-      .doctor-section {
-        flex-direction: column;
-        align-items: center;
-      }
-      .doctor-info {
-        width: 100%;
-        margin-top: 16px;
-        text-align: center;
-      }
-      .qr-section {
-        margin-top: 24px;
-        width: 140px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .container{max-width:1180px;margin:0 auto;padding:0 16px}
+    .narrow{max-width:880px}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
+      backdrop-filter:saturate(160%) blur(10px); border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .brand img{width:56px;height:56px;object-fit:contain}
+    .brand-title{display:flex;flex-direction:column;line-height:1.1;user-select:none}
+    .brand-title .name{font-weight:800;color:var(--brand-900);letter-spacing:.3px;font-size:1.35rem;white-space:nowrap}
+    .brand-title .dept{font-weight:900; letter-spacing:.6px; color:var(--brand-700);font-size:1.6rem;text-transform:uppercase;line-height:1.1;margin-top:-4px;font-family:"Segoe UI Black", "Arial Black", sans-serif;}
+    nav a{margin:0 8px;color:var(--text);text-decoration:none;font-weight:600;white-space:nowrap}
+    nav a:hover{color:var(--brand-700)}
+    nav a.btn{border:1px solid var(--brand-700);padding:10px 14px;border-radius:10px}
+    .hero{padding:28px 0;background:linear-gradient(180deg,color-mix(in oklab,var(--brand-500) 10%,white),transparent 60%)}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
+    .headline{margin:.2em 0 .4em;font-size:2.4rem;font-weight:700;line-height:1.15;user-select:none}
+    .tag{display:inline-block;background:color-mix(in oklab,var(--brand-500) 15%,white);color:var(--brand-900);
+      border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-weight:700;user-select:none;margin-bottom:12px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 24px}
+    .btn{display:inline-block;border:1px solid var(--brand-700);color:#fff;background:var(--brand-700);
+      padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:var(--shadow-sm);user-select:none;transition:background-color .25s ease}
+    .btn:hover{background:var(--brand-900)}
+    .btn-outline{background:#fff;color:var(--brand-900);border-color:var(--brand-900);user-select:none}
+    .note{color:var(--muted);font-size:1rem;line-height:1.3;margin-top:8px;max-width:700px;user-select:none}
+    .card{border:1px solid var(--border);background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);user-select:none}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-weight:700;user-select:none;cursor:default}
+    .highlight{color:var(--brand-900);font-weight:800;user-select:none}
+    .section{padding:28px 0}
+    .hours-map-wrapper{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;margin-top:16px;align-items:start}
+    .hours-table{width:100%;border-collapse:collapse;font-weight:700;user-select:none;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);background:#fff}
+    .hours-table th, .hours-table td{padding:10px 16px;border-bottom:1px solid var(--border);text-align:left}
+    .hours-table th{background:var(--brand-500);color:#fff;letter-spacing:.02em}
+    .hours-table tr:last-child td{border-bottom:none}
+    .address-map{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:12px 16px 8px;user-select:none;font-weight:700;text-align:center;color:var(--brand-900);font-size:1.1rem;margin-bottom:12px}
+    .map{border-radius:var(--radius);overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);transition:box-shadow .3s ease}
+    .map:hover{box-shadow:0 10px 30px rgba(10,79,122,.3)}
+    .map iframe{width:100%;height:320px;border:none;border-radius:var(--radius);pointer-events:none}
+    .updates{display:grid;gap:12px;margin-top:16px;max-width:900px;user-select:none}
+    .update{border-left:4px solid var(--brand-500);padding:10px 12px;background:#fff;border-radius:10px;border:1px solid var(--border);font-size:1rem;line-height:1.3}
+    .update time{display:block;font-size:.92rem;color:var(--muted);margin-bottom:6px;font-weight:700}
+    .insurances{margin-top:28px;text-align:center;user-select:none}
+    .insurances h2{margin-bottom:14px;color:var(--brand-900);font-weight:800}
+    .ins-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 14px;justify-items:center;max-width:880px;margin:0 auto}
+    .insurance-logo{background:linear-gradient(180deg,#f8fcff,#f4f8fb);border:1px solid var(--border);border-radius:14px;width:84px;height:84px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:box-shadow .3s ease;overflow:hidden}
+    .insurance-logo img{max-width:72px;max-height:72px;object-fit:contain}
+    .insurance-logo:hover{box-shadow:0 10px 25px rgba(46,163,212,.3)}
+    .ins-grid.bottom-row{grid-column:span 4;grid-template-columns:repeat(3,1fr);justify-content:center}
+    .doctor-section{display:flex;flex-wrap:wrap;gap:24px;max-width:900px;margin:28px auto 0;align-items:center}
+    .doctor-photo-wrapper{position:relative;width:220px;flex-shrink:0}
+    .doctor-tag{position:absolute;top:16px;left:50%;transform:translateX(-50%);background:var(--brand-700);color:#fff;padding:6px 12px;border-radius:999px;font-weight:700;font-size:1rem;user-select:none;pointer-events:none;box-shadow:var(--shadow-sm);max-width:100%;text-align:center;white-space:nowrap}
+    .doctor-photo{width:100%;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow-sm);display:block}
+    .doctor-info{flex:1 1 320px;font-size:1rem;line-height:1.4}
+    .doctor-info h3{margin-top:0;margin-bottom:8px;font-size:1.5rem;font-weight:700;user-select:none}
+    .doctor-info ul{padding-left:20px;margin-top:0;margin-bottom:0}
+    .doctor-info ul li{margin-bottom:6px;user-select:text}
+    .qr-section{width:140px;flex-shrink:0;text-align:center;user-select:none}
+    .qr-section p{font-weight:700;margin-bottom:8px;color:var(--brand-700)}
+    .qr-section img{width:120px;height:120px;object-fit:contain;border-radius:14px;box-shadow:var(--shadow-sm);cursor:pointer;transition:box-shadow .3s ease}
+    .qr-section img:hover{box-shadow:0 10px 25px rgba(46,163,212,.3)}
+    footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;user-select:none}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:start;padding:22px 0;max-width:1180px;margin:0 auto;font-size:.95rem;color:var(--muted)}
+    .footer-grid a{color:var(--brand-700);text-decoration:none;font-weight:600}
+    .footer-grid a:hover{text-decoration:underline}
+    .footer-company{font-weight:600;color:var(--brand-900)}
+    .footer-ico{margin-top:12px}
+    .footer-copyright{max-width:1180px;margin:0 auto 12px;text-align:center;color:var(--muted);font-size:.85rem}
+    :focus-visible{outline:3px solid color-mix(in oklab,var(--brand-500) 50%,white);outline-offset:2px;border-radius:10px}
+    @media (min-width:900px){
+      .hero-grid{grid-template-columns:1.6fr 1fr;gap:44px}
+      .hours-map-wrapper{grid-template-columns:1.1fr 1.6fr}
+      .ins-grid{grid-template-columns:repeat(4,1fr)}
+    }
+    @media (max-width:899px){
+      .hero-grid{grid-template-columns:1fr}
+      .hours-map-wrapper{display:block}
+      .map{margin-top:18px}
+      .ins-grid{grid-template-columns:repeat(3,1fr);justify-content:center}
+      .doctor-section{flex-direction:column;align-items:center}
+      .doctor-info{width:100%;margin-top:16px;text-align:center}
+      .qr-section{margin-top:24px;width:140px;margin-left:auto;margin-right:auto}
     }
   </style>
 
   <!-- JSON-LD: Clinic + Physician -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalClinic",
-      "name": "ALDHABBI S.R.O – OČNÍ ORDINACE",
-      "telephone": "+420705128840",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Mlýnská 326/6",
-        "addressLocality": "Teplice",
-        "postalCode": "41501",
-        "addressCountry": "CZ"
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Monday",
-          "opens": "07:00",
-          "closes": "12:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Monday",
-          "opens": "12:30",
-          "closes": "17:30"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Tuesday",
-          "opens": "15:00",
-          "closes": "17:30"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Wednesday",
-          "opens": "15:00",
-          "closes": "17:30"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Thursday",
-          "opens": "07:00",
-          "closes": "12:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Thursday",
-          "opens": "12:30",
-          "closes": "17:30"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Friday",
-          "opens": "07:00",
-          "closes": "12:00"
-        }
-      ],
-      "medicalSpecialty": "Ophthalmologic",
-      "url": "https://example.cz"
-    }
+  {
+    "@context":"https://schema.org",
+    "@type":"MedicalClinic",
+    "name":"ALDHABBI S.R.O – OČNÍ ORDINACE",
+    "telephone":"+420705128840",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Mlýnská 326/6",
+      "addressLocality":"Teplice",
+      "postalCode":"41501",
+      "addressCountry":"CZ"
+    },
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"07:00","closes":"12:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"12:30","closes":"17:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"15:00","closes":"17:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"15:00","closes":"17:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"07:00","closes":"12:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"12:30","closes":"17:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"12:00"}
+    ],
+    "medicalSpecialty":"Ophthalmologic",
+    "url":"https://example.cz"
+  }
   </script>
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Physician",
-      "name": "MUDr. Yahia Al‑Dhabbi",
-      "medicalSpecialty": "Ophthalmology",
-      "worksFor": { "@type": "MedicalClinic", "name": "ALDHABBI S.R.O – OČNÍ ORDINACE" },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Mlýnská 326/6",
-        "addressLocality": "Teplice",
-        "postalCode": "41501",
-        "addressCountry": "CZ"
-      },
-      "telephone": "+420705128840"
-    }
+  {
+    "@context":"https://schema.org",
+    "@type":"Physician",
+    "name":"MUDr. Yahia Al‑Dhabbi",
+    "medicalSpecialty":"Ophthalmology",
+    "worksFor":{"@type":"MedicalClinic","name":"ALDHABBI S.R.O – OČNÍ ORDINACE"},
+    "address":{"@type":"PostalAddress","streetAddress":"Mlýnská 326/6","addressLocality":"Teplice","postalCode":"41501","addressCountry":"CZ"},
+    "telephone":"+420705128840"
+  }
   </script>
 </head>
 <body>
@@ -698,7 +253,6 @@
     <div class="container insurances" role="region" aria-label="Smluvní pojišťovny">
       <h2>Smluvní pojišťovny</h2>
       <div class="ins-grid" aria-describedby="insInfo" tabindex="0">
-        <!-- Ordered by size of customer base as requested -->
         <div class="insurance-logo"><img src="vzp.png" alt="Všeobecná zdravotní pojišťovna (VZP)" /></div>
         <div class="insurance-logo"><img src="zpmv.png" alt="Zdravotní pojišťovna Ministerstva vnitra (ZPMV)" /></div>
         <div class="insurance-logo"><img src="zps.png" alt="Zdravotní pojišťovna Škoda (ZPS)" /></div>
@@ -755,15 +309,15 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <span class="footer-company">ALDHABBI S.R.O – OČNÍ ORDINACE</span><br />
-        Mlýnská 326/6, Teplice, 41501<br />
-        Tel: <a href="tel:+420705128840">+420 705 128 840</a><br />
-        Email: <a href="mailto:info@aldhabbi.cz">info@aldhabbi.cz</a><br />
+        <span class="footer-company">ALDHABBI S.R.O – OČNÍ ORDINACE</span><br>
+        Mlýnská 326/6, Teplice, 41501<br>
+        Tel: <a href="tel:+420705128840">+420 705 128 840</a><br>
+        Email: <a href="mailto:info@aldhabbi.cz">info@aldhabbi.cz</a><br>
         <div class="footer-ico">IČO: 23313382</div>
       </div>
       <div>
-        <a href="#aktuality">Aktuality</a><br />
-        <a href="sluzby.html">Služby</a><br />
+        <a href="#aktuality">Aktuality</a><br>
+        <a href="sluzby.html">Služby</a><br>
         <a href="cenik.html">Ceník</a>
       </div>
       <div></div>
@@ -800,12 +354,9 @@
     mapSection.addEventListener('click', () => {
       const url = 'https://maps.google.com/?q=Mlýnská+326/6,+Teplice';
       if (/Mobi|Android/i.test(navigator.userAgent)) {
-        // Mobile - open app if possible
         window.open(`geo:50.6392606,13.8323696?q=Mlýnská+326/6,+Teplice`, '_blank');
-        // fallback in case geo: does not work
         setTimeout(() => window.open(url, '_blank'), 1000);
       } else {
-        // Desktop
         window.open(url, '_blank');
       }
     });
@@ -819,7 +370,6 @@
       let index = 0,
         timer;
 
-      // Build dots
       slideElements.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'dot';
@@ -835,12 +385,8 @@
         dots.forEach((dot, k) => dot.classList.toggle('active', k === index));
         restart();
       }
-      function next() {
-        go(index + 1);
-      }
-      function prev() {
-        go(index - 1);
-      }
+      function next() { go(index + 1); }
+      function prev() { go(index - 1); }
       slider.querySelector('.next').onclick = next;
       slider.querySelector('.prev').onclick = prev;
 
@@ -848,24 +394,16 @@
         clearInterval(timer);
         timer = setInterval(next, 5000);
       }
-      restart();
-      go(0);
+      restart(); go(0);
 
-      // Swipe support
       let startX = null;
-      slider.addEventListener('pointerdown', e => {
-        startX = e.clientX;
-      });
-      slider.addEventListener(
-        'pointerup',
-        e => {
-          if (startX === null) return;
-          const dx = e.clientX - startX;
-          if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-          startX = null;
-        },
-        { passive: true }
-      );
+      slider.addEventListener('pointerdown', e => { startX = e.clientX; });
+      slider.addEventListener('pointerup', e => {
+        if (startX === null) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
+        startX = null;
+      }, { passive: true });
     })();
 
     // Year update
