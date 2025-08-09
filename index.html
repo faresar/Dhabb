@@ -4,139 +4,296 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Oční ordinace MUDr. Yahia Al‑Dhabbi – Teplice</title>
-  <meta name="description" content="Oční vyšetření, recepty na brýle a čočky, akutní potíže. Rychlé objednání telefonem, přátelská péče v Teplicích.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="styles.css">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Komplexní oční vyšetření, recepty na brýle a čočky, akutní potíže. Objednání telefonicky. Teplice.">
   <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#0d6efd">
+  <meta name="format-detection" content="telephone=no">
+  <style>
+    :root{
+      --bg:#ffffff;--text:#0b1320;--muted:#5a6270;--brand:#0d6efd;--brand-600:#0b5ed7;
+      --surface:#f5f7fb;--border:#e6e9ef;--success:#198754;--danger:#dc3545;
+      --radius:12px;--shadow:0 1px 2px rgba(16,24,40,.05)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text);background:var(--bg);line-height:1.6}
+    img{max-width:100%;height:auto;display:block}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .narrow{max-width:820px}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+    .brand{font-weight:800;color:var(--text);letter-spacing:.2px}
+    nav a{margin:0 8px}
+    nav a.active{font-weight:600}
+    .btn{display:inline-block;border:1px solid var(--brand);color:var(--brand);padding:10px 14px;border-radius:10px;
+      font-weight:600;transition:.2s ease;background:#fff}
+    .btn:hover{background:var(--surface);text-decoration:none}
+    .btn-primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .btn-primary:hover{background:var(--brand-600)}
+    .btn-outline{border-color:var(--border);color:var(--text)}
+    .hero{padding:48px 0;background:linear-gradient(180deg,#f8fbff,transparent)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+    .hero h1{margin:.1em 0 .2em;font-size:2.1rem;line-height:1.2}
+    .usp{display:flex;gap:16px;flex-wrap:wrap;padding:0;margin:14px 0;list-style:none;color:var(--muted)}
+    .card{border:1px solid var(--border);background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .hours{padding-left:18px;margin:8px 0}
+    .services{padding:32px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .feature{display:block;border:1px solid var(--border);border-radius:var(--radius);padding:16px;background:#fff}
+    .feature h3{margin-top:0}
+    .insurance{padding:28px 0;background:var(--surface)}
+    .map-embed{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .map-embed iframe{width:100%;height:360px;border:0}
+    .site-footer{border-top:1px solid var(--border);padding:28px 0;margin-top:40px;background:#fff}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:start}
+    .address{color:var(--muted)}
+    .price-table{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .price-table .row{display:grid;grid-template-columns:2fr 1fr;border-top:1px solid var(--border);padding:12px 16px}
+    .price-table .row.header{background:var(--surface);font-weight:600;border-top:0}
+    .note{color:var(--muted);margin:12px 0}
+    .about{display:grid;grid-template-columns:180px 1fr;gap:20px;align-items:start}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+    /* Accessibility */
+    :focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 55%,white);outline-offset:2px;border-radius:8px}
+    /* Mobile */
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .hero h1{font-size:1.7rem}
+    }
+  </style>
+
+  <!-- Structured data: Local medical clinic + physician. Replace placeholders with real data. -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Oční ordinace MUDr. Yahia Al‑Dhabbi",
-    "image": "https://example.com/clinic.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Ulice 123",
-      "addressLocality": "Teplice",
-      "postalCode": "415 01",
-      "addressCountry": "CZ"
+    "@context":"https://schema.org",
+    "@type":"MedicalClinic",
+    "name":"Oční ordinace MUDr. Yahia Al‑Dhabbi",
+    "image":"clinic.jpg",
+    "telephone":"+420 000 000 000",
+    "url":"https://www.your-domain.cz",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"TODO ulice a číslo",
+      "addressLocality":"Teplice",
+      "postalCode":"TODO PSČ",
+      "addressCountry":"CZ"
     },
-    "telephone": "+420 123 456 789",
-    "url": "https://example.com",
-    "openingHours": ["Mo 08:00-16:00","Tu 08:00-16:00","We 08:00-16:00","Th 10:00-18:00","Fr 08:00-14:00"],
-    "medicalSpecialty": "Ophthalmologic",
-    "geo": {"@type":"GeoCoordinates","latitude":50.640,"longitude":13.825}
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday"],"opens":"08:00","closes":"16:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"10:00","closes":"18:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:00","closes":"14:00"}
+    ],
+    "medicalSpecialty":"Ophthalmologic",
+    "department":"Oční",
+    "geo":{"@type":"GeoCoordinates","latitude":50.640,"longitude":13.825},
+    "sameAs":[]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Physician",
+    "name":"MUDr. Yahia Al‑Dhabbi",
+    "medicalSpecialty":"Ophthalmology",
+    "worksFor":{"@type":"MedicalClinic","name":"Oční ordinace MUDr. Yahia Al‑Dhabbi"},
+    "telephone":"+420 000 000 000",
+    "address":{"@type":"PostalAddress","streetAddress":"TODO","addressLocality":"Teplice","postalCode":"TODO","addressCountry":"CZ"}
   }
   </script>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html">MUDr. Al‑Dhabbi</a>
+      <a class="brand" href="#top">MUDr. Al‑Dhabbi</a>
       <nav aria-label="Hlavní menu">
-        <a href="services.html">Služby</a>
-        <a href="pricing.html">Ceník</a>
-        <a href="about.html">O nás</a>
-        <a href="contact.html" class="btn">Kontakt</a>
+        <a href="#sluzby">Služby</a>
+        <a href="#cenik">Ceník</a>
+        <a href="#o-nas">O nás</a>
+        <a href="#kontakt" class="btn">Kontakt</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Oční péče v Teplicích – rychle a srozumitelně</h1>
-          <p>Komplexní oční vyšetření, recepty na brýle a čočky, řešení akutních potíží. Objednání telefonicky.</p>
+        <div>
+          <h1 id="hero-title">Oční péče v Teplicích – přehledně a s důrazem na kvalitu</h1>
+          <p>Komplexní oční vyšetření, předpis brýlí a kontaktních čoček, řešení akutních potíží. Objednání pouze telefonicky.</p>
           <div class="cta-row">
-            <a href="tel:+420123456789" class="btn btn-primary">Zavolat a objednat: +420 123 456 789</a>
-            <a href="contact.html" class="btn btn-secondary">Kontakty a mapa</a>
+            <a href="tel:+420000000000" class="btn btn-primary">Zavolat a objednat: +420 000 000 000</a>
+            <a href="#kontakt" class="btn btn-outline">Adresa a mapa</a>
           </div>
-          <ul class="usp">
+          <ul class="usp" aria-label="Výhody">
             <li>Krátké čekací doby</li>
-            <li>Moderní přístroje</li>
+            <li>Moderní diagnostika</li>
             <li>Přátelský přístup</li>
           </ul>
         </div>
-        <div class="hero-card">
-          <div class="card">
-            <h2>Ordinační hodiny</h2>
-            <ul class="hours">
-              <li>Po–St: 8:00–16:00</li>
-              <li>Čt: 10:00–18:00</li>
-              <li>Pá: 8:00–14:00</li>
-            </ul>
-            <p class="address">Ulice 123, 415 01 Teplice</p>
-            <div class="cta-row">
-              <a href="tel:+420123456789" class="btn btn-primary">Zavolat</a>
-              <a href="https://maps.google.com/?q=Ulice%20123%20Teplice" class="btn btn-outline">Navigovat</a>
-            </div>
+        <aside class="card" aria-label="Ordinační informace">
+          <h2 style="margin-top:0">Ordinační hodiny</h2>
+          <ul class="hours">
+            <li>Po–St: 8:00–16:00</li>
+            <li>Čt: 10:00–18:00</li>
+            <li>Pá: 8:00–14:00</li>
+          </ul>
+          <p class="address">TODO Ulice a číslo, 415 01 Teplice</p>
+          <div class="cta-row">
+            <a href="tel:+420000000000" class="btn btn-primary">Zavolat</a>
+            <a href="https://maps.google.com/?q=TODO%20Ulice%20Teplice" class="btn btn-outline" rel="noopener">Navigovat</a>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section class="services-preview">
+    <!-- SERVICES -->
+    <section id="sluzby" class="services" aria-labelledby="services-title">
       <div class="container">
-        <h2>Co pro vás uděláme</h2>
+        <h2 id="services-title">Služby</h2>
         <div class="grid-3">
-          <a class="feature" href="services.html#vysetreni">
-            <h3>Komplexní vyšetření</h3>
-            <p>Prevence, zraková ostrost, nitrooční tlak, předpisy.</p>
-          </a>
-          <a class="feature" href="services.html#akutni">
+          <article class="feature" id="vysetreni">
+            <h3>Komplexní oční vyšetření</h3>
+            <p>Prevence, měření zrakové ostrosti, nitrooční tlak, přední a zadní segment, dle potřeby fundus foto.</p>
+          </article>
+          <article class="feature" id="predpis">
+            <h3>Předpis brýlí a kontaktních čoček</h3>
+            <p>Objektivní i subjektivní refrakce, doporučení čoček, poučení o nošení a péči.</p>
+          </article>
+          <article class="feature" id="akutni">
             <h3>Akutní potíže</h3>
-            <p>Zánět, bolest, úrazy, cizí tělesa.</p>
-          </a>
-          <a class="feature" href="services.html#deti">
+            <p>Zánět spojivek, bolest, cizí těleso, náhlé zhoršení vidění. Při urgence volejte.</p>
+          </article>
+        </div>
+        <div class="grid-3" style="margin-top:16px">
+          <article class="feature" id="deti">
             <h3>Dětská oftalmologie</h3>
-            <p>Screening, tupozrakost, kontroly.</p>
-          </a>
+            <p>Screening, tupozrakost, kontroly a doporučení pro rodiče.</p>
+          </article>
+          <article class="feature" id="ostatni">
+            <h3>Další vyšetření</h3>
+            <ul>
+              <li>Vyšetření barvocitu</li>
+              <li>Řidičský průkaz</li>
+              <li>Administrativní potvrzení</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <h3>Pojišťovny a platby</h3>
+            <p>Přijímáme hlavní zdravotní pojišťovny. Samoplátci vítáni. Platba kartou možná.</p>
+          </article>
+        </div>
+        <p class="note">Objednání probíhá telefonicky: <a class="btn btn-primary" href="tel:+420000000000">+420 000 000 000</a></p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="cenik" class="container narrow" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Ceník</h2>
+      <p>Ceny pro samoplátce. Některé výkony jsou hrazeny z pojištění – ověřte při objednání.</p>
+      <div class="price-table" role="table" aria-label="Ceník výkonů">
+        <div class="row header" role="row">
+          <div role="columnheader">Výkon</div>
+          <div role="columnheader">Cena</div>
+        </div>
+        <!-- TODO: Nahraďte skutečnými položkami z dhabbi.cz -->
+        <div class="row" role="row"><div role="cell">Komplexní vyšetření</div><div role="cell">900 Kč</div></div>
+        <div class="row" role="row"><div role="cell">Předpis brýlí</div><div role="cell">500 Kč</div></div>
+        <div class="row" role="row"><div role="cell">Akutní ošetření</div><div role="cell">700 Kč</div></div>
+        <div class="row" role="row"><div role="cell">Řidičský průkaz</div><div role="cell">600 Kč</div></div>
+      </div>
+      <p class="note">Ceny jsou orientační; konečná částka závisí na rozsahu vyšetření.</p>
+      <p><a class="btn btn-primary" href="tel:+420000000000">Objednat telefonicky</a></p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="o-nas" class="container narrow" aria-labelledby="about-title" style="margin-top:28px">
+      <h2 id="about-title">O nás</h2>
+      <div class="about">
+        <img src="doctor.jpg" alt="MUDr. Yahia Al‑Dhabbi" loading="lazy" width="320" height="320" style="border-radius:10px;border:1px solid var(--border)">
+        <div>
+          <h3>MUDr. Yahia Al‑Dhabbi</h3>
+          <p><!-- TODO: Přidejte biografii a zkušenosti dle dhabbi.cz -->Oční lékař s praxí v klinické oftalmologii. Důraz na srozumitelnou komunikaci a kvalitní péči.</p>
+          <ul>
+            <li>Člen odborných společností</li>
+            <li>Moderní diagnostické vybavení</li>
+            <li>Empatický přístup k dětem i dospělým</li>
+          </ul>
+          <p>Objednání probíhá telefonicky:&nbsp;<a class="btn btn-primary" href="tel:+420000000000">+420 000 000 000</a></p>
         </div>
       </div>
     </section>
 
-    <section class="insurance">
-      <div class="container">
-        <h2>Pojišťovny a platby</h2>
-        <p>Přijímáme hlavní zdravotní pojišťovny. Samoplátci vítáni. Platební karta možná.</p>
-        <a href="pricing.html" class="btn btn-outline">Zobrazit ceník</a>
-      </div>
-    </section>
-
-    <section class="map">
-      <div class="container">
-        <h2>Kde nás najdete</h2>
-        <div class="map-embed">
-          <iframe title="Mapa ordinace" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Ulice%20123%2C%20Teplice&output=embed"></iframe>
+    <!-- CONTACT -->
+    <section id="kontakt" class="container narrow" aria-labelledby="contact-title" style="margin-top:28px">
+      <h2 id="contact-title">Kontakt</h2>
+      <div class="card">
+        <p><strong>Telefon:</strong> <a class="btn btn-primary" href="tel:+420000000000">+420 000 000 000</a></p>
+        <p><strong>Email:</strong> <a href="mailto:TODO@example.com">TODO@example.com</a></p>
+        <h3>Adresa</h3>
+        <p>TODO Ulice a číslo, 415 01 Teplice</p>
+        <h3>Ordinační hodiny</h3>
+        <ul class="hours">
+          <li>Po–St: 8:00–16:00</li>
+          <li>Čt: 10:00–18:00</li>
+          <li>Pá: 8:00–14:00</li>
+        </ul>
+        <div class="cta-row">
+          <a href="tel:+420000000000" class="btn btn-primary">Zavolat</a>
+          <a href="https://maps.google.com/?q=TODO%20Ulice%20Teplice" class="btn btn-outline" rel="noopener">Navigovat</a>
         </div>
+      </div>
+      <div class="map-embed" style="margin-top:16px">
+        <iframe title="Mapa ordinace" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=TODO%2C%20Teplice&output=embed"></iframe>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
       <div>
-        <strong>MUDr. Yahia Al‑Dhabbi</strong><br>
-        Ulice 123, 415 01 Teplice<br>
-        Tel: <a href="tel:+420123456789">+420 123 456 789</a><br>
-        Email: <a href="mailto:ordinace@example.com">ordinace@example.com</a>
+        <strong>Oční ordinace MUDr. Yahia Al‑Dhabbi</strong><br>
+        <span class="address">TODO Ulice a číslo, 415 01 Teplice</span><br>
+        Tel: <a href="tel:+420000000000">+420 000 000 000</a><br>
+        Email: <a href="mailto:TODO@example.com">TODO@example.com</a>
       </div>
       <div>
-        <a href="about.html">O nás</a><br>
-        <a href="services.html">Služby</a><br>
-        <a href="pricing.html">Ceník</a><br>
-        <a href="contact.html">Kontakt</a>
+        <a href="#o-nas">O nás</a><br>
+        <a href="#sluzby">Služby</a><br>
+        <a href="#cenik">Ceník</a><br>
+        <a href="#kontakt">Kontakt</a>
       </div>
       <div class="legal">
-        <a href="#">Zásady ochrany osobních údajů</a><br>
-        <small>IČO 12345678</small>
+        <a href="#gdpr">Zásady ochrany osobních údajů</a><br>
+        <small>IČO: TODO</small>
       </div>
     </div>
+    <div class="container" style="margin-top:8px">
+      <small>© <span id="year"></span> Oční ordinace MUDr. Yahia Al‑Dhabbi</small>
+    </div>
   </footer>
-  <script src="main.js" defer></script>
+
+  <script>
+    // Active nav highlighting based on hash
+    (function(){
+      const setActive = () => {
+        const hash = location.hash || '#top';
+        document.querySelectorAll('header nav a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
+      };
+      window.addEventListener('hashchange', setActive);
+      setActive();
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
-
