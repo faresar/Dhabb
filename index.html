@@ -53,6 +53,7 @@
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: saturate(160%) blur(10px);
       border-bottom: 1px solid var(--border);
+      user-select: none;
     }
     .nav {
       display: flex;
@@ -61,42 +62,40 @@
       gap: 16px;
       min-height: 70px;
       flex-wrap: wrap;
+      padding: 0 10px;
     }
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
       text-decoration: none;
-      user-select: none;
     }
     .brand img {
       width: 56px;
       height: 56px;
       object-fit: contain;
+      display: block;
     }
     .brand-title {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
       user-select: none;
-    }
-    .brand-title .name {
       font-weight: 800;
       color: var(--brand-900);
-      letter-spacing: 0.3px;
       font-size: 1.35rem;
       white-space: nowrap;
+      margin-top: 6px;
     }
     .brand-title .dept {
       font-weight: 900;
       letter-spacing: 0.6px;
       color: var(--brand-700);
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       text-transform: uppercase;
       line-height: 1.1;
-      margin-top: -4px;
       font-family: "Segoe UI Black", "Arial Black", sans-serif;
-      user-select: none;
+      margin-top: -3px;
     }
     nav a {
       margin: 0 8px;
@@ -112,28 +111,27 @@
       border: 1px solid var(--brand-700);
       padding: 10px 14px;
       border-radius: 10px;
+      background: var(--brand-700);
+      color: #fff;
+      transition: background-color 0.25s ease;
+    }
+    nav a.btn:hover {
+      background: var(--brand-900);
     }
 
     /* HERO SECTION */
     .hero {
-      padding: 28px 0;
+      padding: 28px 0 0 0;
       background: linear-gradient(
         180deg,
         color-mix(in oklab, var(--brand-500) 10%, white),
         transparent 60%
       );
     }
-    .hero-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      align-items: start;
-    }
-    .headline {
-      margin: 0.2em 0 0.4em;
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 1.15;
+    .hero-content {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
       user-select: none;
     }
     .tag {
@@ -144,45 +142,24 @@
       padding: 6px 10px;
       border-radius: 999px;
       font-weight: 700;
-      user-select: none;
       margin-bottom: 12px;
+      white-space: nowrap;
+    }
+    .headline {
+      margin: 0 0 16px 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.15;
     }
     .note {
       color: var(--muted);
       font-size: 1rem;
       line-height: 1.3;
-      margin-top: 8px;
+      margin-bottom: 24px;
       max-width: 700px;
-      user-select: none;
     }
     .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 14px 0 24px;
-    }
-    .btn {
-      display: inline-block;
-      border: 1px solid var(--brand-700);
-      color: #fff;
-      background: var(--brand-700);
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: var(--shadow-sm);
-      user-select: none;
-      transition: background-color 0.25s ease;
-      white-space: nowrap;
-    }
-    .btn:hover {
-      background: var(--brand-900);
-    }
-    .btn-outline {
-      background: #fff;
-      color: var(--brand-900);
-      border-color: var(--brand-900);
-      user-select: none;
+      margin-bottom: 32px;
     }
 
     /* SLIDESHOW */
@@ -194,7 +171,7 @@
       background: #fff;
       width: 100%;
       max-width: 1180px;
-      margin: 0 auto 32px auto;
+      margin: 0 auto;
       user-select: none;
     }
     .slides {
@@ -234,6 +211,7 @@
       cursor: pointer;
       user-select: none;
       transform: translateY(-50%);
+      z-index: 1;
     }
     .navbtn.prev {
       left: 10px;
@@ -250,6 +228,7 @@
       justify-content: center;
       gap: 8px;
       user-select: none;
+      z-index: 1;
     }
     .dot {
       width: 10px;
@@ -267,22 +246,31 @@
     /* ORDINAČNÍ DOBA + MAP */
     .hours-map-wrapper {
       display: flex;
-      flex-wrap: wrap;
+      align-items: stretch;
       gap: 24px;
-      align-items: flex-start;
-      margin-top: 0;
+      max-width: 1180px;
+      margin: 0 auto 40px auto;
+      user-select: none;
+    }
+    .hours-card {
+      max-width: 320px;
+      flex-shrink: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 18px 18px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .hours-table {
       width: 100%;
-      max-width: 320px;
       border-collapse: collapse;
       font-weight: 700;
-      user-select: none;
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      background: #fff;
-      flex-shrink: 0;
+      flex-grow: 1;
     }
     .hours-table th,
     .hours-table td {
@@ -298,71 +286,68 @@
     .hours-table tr:last-child td {
       border-bottom: none;
     }
-    .card {
-      border: 1px solid var(--border);
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      user-select: none;
-    }
     #hoursDescription {
       margin-top: 12px;
       font-weight: 700;
       color: #b80000;
+      font-size: 0.95rem;
     }
 
-    .address-map {
-      max-width: 530px;
+    .map-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
       background: #fff;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 12px 16px 8px;
-      user-select: none;
+      cursor: pointer;
+      max-width: 540px;
+      min-width: 300px;
+    }
+    .address-map {
+      padding: 12px 16px 8px 16px;
       font-weight: 700;
       text-align: center;
       color: var(--brand-900);
       font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-    .map {
-      border-radius: var(--radius);
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.3s ease;
-      flex-shrink: 0;
-      width: 100%;
-      max-width: 530px;
+      border-bottom: 1px solid var(--border);
       user-select: none;
     }
-    .map:hover {
-      box-shadow: 0 10px 30px rgba(10, 79, 122, 0.3);
+    .map {
+      flex-grow: 1;
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+      box-shadow: none;
     }
     .map iframe {
       width: 100%;
-      height: 320px;
+      height: 100%;
+      min-height: 320px;
       border: none;
-      border-radius: var(--radius);
+      border-radius: 0 0 var(--radius) var(--radius);
       pointer-events: auto;
     }
 
     /* AKTUALITY */
     .updates {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-      max-width: 900px;
-      user-select: none;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .updates > h2 {
+      margin-bottom: 20px;
+      color: var(--brand-900);
+      font-weight: 800;
     }
     .update {
       border-left: 4px solid var(--brand-500);
-      padding: 10px 12px;
+      padding: 10px 16px;
       background: #fff;
       border-radius: 10px;
       border: 1px solid var(--border);
       font-size: 1rem;
       line-height: 1.3;
+      margin-bottom: 16px;
     }
     .update time {
       display: block;
@@ -374,9 +359,11 @@
 
     /* INSURANCE LOGOS */
     .insurances {
-      margin-top: 28px;
+      margin: 0 auto 40px auto;
+      max-width: 1180px;
       text-align: center;
       user-select: none;
+      padding: 0 16px;
     }
     .insurances h2 {
       margin-bottom: 14px;
@@ -386,7 +373,7 @@
     .ins-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px 14px;
+      gap: 24px 24px;
       justify-items: center;
       max-width: 880px;
       margin: 0 auto;
@@ -395,8 +382,8 @@
       background: linear-gradient(180deg, #f8fcff, #f4f8fb);
       border: 1px solid var(--border);
       border-radius: 14px;
-      width: 84px;
-      height: 84px;
+      width: 110px;
+      height: 110px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -405,34 +392,36 @@
       overflow: hidden;
     }
     .insurance-logo img {
-      max-width: 72px;
-      max-height: 72px;
+      max-width: 96px;
+      max-height: 96px;
       object-fit: contain;
     }
     .insurance-logo:hover {
-      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.3);
+      box-shadow: 0 12px 30px rgba(46, 163, 212, 0.4);
     }
 
     /* DOCTOR SECTION */
     .doctor-section {
       display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      max-width: 900px;
-      margin: 28px auto 0;
-      align-items: center;
+      flex-wrap: nowrap;
+      max-width: 1180px;
+      margin: 0 auto 40px auto;
+      padding: 0 16px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 30px;
     }
     .doctor-photo-wrapper {
       position: relative;
       width: 220px;
       flex-shrink: 0;
       user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .doctor-tag {
-      position: absolute;
-      top: -28px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-bottom: 8px;
       background: var(--brand-700);
       color: #fff;
       padding: 6px 14px;
@@ -442,53 +431,61 @@
       user-select: none;
       pointer-events: none;
       box-shadow: var(--shadow-sm);
-      max-width: 100%;
-      text-align: center;
       white-space: nowrap;
-      letter-spacing: 0.05em;
       font-family: "Segoe UI Black", "Arial Black", sans-serif;
+      text-align: center;
+      width: 100%;
+      max-width: 220px;
     }
     .doctor-photo {
-      width: 100%;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
+      width: 220px;
+      height: auto;
       display: block;
     }
     .doctor-info {
-      flex: 1 1 320px;
       font-size: 1rem;
       line-height: 1.4;
       user-select: text;
+      flex: 1 1 auto;
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .doctor-info h3 {
-      margin-top: 12px;
-      margin-bottom: 8px;
+      margin: 0 0 12px 0;
       font-size: 1.5rem;
       font-weight: 700;
       user-select: none;
     }
     .doctor-info ul {
       padding-left: 20px;
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 0;
     }
     .doctor-info ul li {
       margin-bottom: 6px;
-      user-select: text;
     }
     .qr-section {
       width: 220px;
       flex-shrink: 0;
       text-align: center;
       user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 42px;
+      gap: 6px;
     }
     .qr-section p {
       font-weight: 700;
-      margin-bottom: 12px;
       color: var(--brand-700);
       font-size: 1.25rem;
       user-select: none;
+      margin: 0;
     }
     .qr-section img {
       width: 220px;
@@ -500,7 +497,55 @@
       transition: box-shadow 0.3s ease;
     }
     .qr-section img:hover {
-      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.3);
+      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.4);
+    }
+
+    /* SLUZBY Section */
+    #sluzby-section {
+      max-width: 1180px;
+      margin: 0 auto 40px auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+    }
+    #sluzby-section h2 {
+      font-weight: 800;
+      color: var(--brand-900);
+      margin-bottom: 10px;
+    }
+    #sluzby-info {
+      flex: 1;
+      font-size: 1rem;
+      color: var(--text);
+      user-select: none;
+      margin-top: 6px;
+    }
+    #sluzby-link {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    #sluzby-link a {
+      border: 1px solid var(--brand-700);
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--brand-700);
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+      width: 160px;
+      user-select: none;
+    }
+    #sluzby-link a:hover {
+      background: var(--brand-700);
+      color: #fff;
     }
 
     /* FOOTER */
@@ -551,58 +596,60 @@
       border-radius: 10px;
     }
 
-    @media (min-width: 900px) {
-      .hero-grid {
-        flex-direction: row;
-      }
-      .hours-map-wrapper {
-        flex-wrap: nowrap;
-      }
-      .ins-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    @media (max-width: 899px) {
-      .hero-grid {
-        flex-direction: column;
-      }
+    /* Responsive */
+    @media (max-width: 900px) {
       .hours-map-wrapper {
         flex-direction: column;
+        align-items: center;
       }
-      .map {
-        margin-top: 18px;
-        max-width: 100% !important;
-        width: 100% !important;
-      }
-      .ins-grid {
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: center;
+      .hours-card,
+      .map-container {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 24px;
       }
       .doctor-section {
         flex-direction: column;
         align-items: center;
       }
+      .doctor-photo-wrapper {
+        width: 220px;
+      }
       .doctor-info {
         width: 100%;
         margin-top: 16px;
         text-align: center;
+        justify-content: start;
       }
       .qr-section {
+        width: 220px;
         margin-top: 24px;
-        width: 220px !important;
         margin-left: auto;
         margin-right: auto;
       }
-      nav a {
-        margin: 6px 8px;
+      #sluzby-section {
+        flex-direction: column-reverse;
+        gap: 24px;
+      }
+      #sluzby-link a {
+        width: 100%;
       }
       nav {
         justify-content: center;
       }
+      nav a {
+        margin: 6px 8px;
+      }
+    }
+
+    @media (min-width: 901px) {
+      #sluzby-section {
+        flex-direction: row;
+      }
     }
   </style>
 
-  <!-- JSON-LD: Clinic + Physician -->
+  <!-- JSON-LD: Clinic + Physician (unchanged) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -666,126 +713,117 @@
 
   <!-- HERO -->
   <main id="top" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="tag">Přijímáme nové pacienty</span>
-        <h1 class="headline">Oční ordinace – Teplice</h1>
-        <p class="note" style="margin-bottom: 24px;">
-          Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
-        </p>
+    <div class="hero-content">
+      <span class="tag">Přijímáme nové pacienty</span>
+      <h1 class="headline">Oční ordinace – Teplice</h1>
+      <p class="note">
+        Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
+      </p>
+    </div>
 
-        <!-- DYNAMIC SLIDESHOW -->
-        <section aria-label="Fotogalerie ordinace" class="slider" id="slider">
-          <div class="slides">
-            <div class="slide" aria-label="Foto 1 – placeholder"></div>
-            <div class="slide" aria-label="Foto 2 – placeholder"></div>
-            <div class="slide" aria-label="Foto 3 – placeholder"></div>
-            <div class="slide" aria-label="Foto 4 – placeholder"></div>
-            <div class="slide" aria-label="Foto 5 – placeholder"></div>
-          </div>
-          <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
-          <button class="navbtn next" aria-label="Další snímek">›</button>
-          <div class="controls" aria-hidden="true"></div>
-        </section>
-
-        <!-- ORDINAČNÍ DOBA & MAP -->
-        <div class="hours-map-wrapper">
-          <section aria-label="Ordinační doba" class="card" style="padding: 24px 18px;">
-            <table class="hours-table" aria-describedby="hoursDescription">
-              <thead>
-                <tr><th scope="col">Den</th><th scope="col">Čas</th></tr>
-              </thead>
-              <tbody id="hoursTableBody"></tbody>
-            </table>
-            <p id="hoursDescription" class="note" style="margin-top: 12px; font-weight: 700; color: #b80000;">
-              Rezervujte jen telefonicky. Prosím nepsat.
-            </p>
-          </section>
-
-          <section class="map" tabindex="0" role="link" aria-label="Adresa a mapa - Mlýnská 326/6 Teplice" id="mapSection">
-            <div class="address-map">Mlýnská 326/6, Teplice, 41501</div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
-              width="600"
-              height="320"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa ordinace"
-              allowfullscreen
-              ></iframe>
-          </section>
-        </div>
+    <!-- DYNAMIC SLIDESHOW -->
+    <section aria-label="Fotogalerie ordinace" class="slider" id="slider">
+      <div class="slides">
+        <div class="slide" aria-label="Foto 1 – placeholder"></div>
+        <div class="slide" aria-label="Foto 2 – placeholder"></div>
+        <div class="slide" aria-label="Foto 3 – placeholder"></div>
+        <div class="slide" aria-label="Foto 4 – placeholder"></div>
+        <div class="slide" aria-label="Foto 5 – placeholder"></div>
       </div>
+      <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
+      <button class="navbtn next" aria-label="Další snímek">›</button>
+      <div class="controls" aria-hidden="true"></div>
+    </section>
+
+    <!-- ORDINAČNÍ DOBA & MAP -->
+    <div class="hours-map-wrapper">
+      <section aria-label="Ordinační doba" class="hours-card">
+        <table class="hours-table" aria-describedby="hoursDescription">
+          <thead>
+            <tr><th scope="col">Den</th><th scope="col">Čas</th></tr>
+          </thead>
+          <tbody id="hoursTableBody"></tbody>
+        </table>
+        <p id="hoursDescription">Rezervujte jen telefonicky. Prosím nepsat.</p>
+      </section>
+
+      <section class="map-container" tabindex="0" role="link" aria-label="Adresa a mapa - Mlýnská 326/6 Teplice" id="mapSection">
+        <div class="address-map">Mlýnská 326/6, Teplice, 41501</div>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
+            width="100%"
+            height="320"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa ordinace"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
     </div>
   </main>
 
   <!-- AKTUALITY -->
-  <section id="aktuality" class="section" style="margin-top: 40px;">
-    <div class="container">
-      <h2>Aktuality</h2>
-      <div class="updates" id="updates" aria-live="polite" role="region" aria-label="Aktuality kliniky">
-        <article class="update" tabindex="0">
-          <time datetime="2025-08-01">1. 8. 2025</time>
-          <strong>Provoz beze změn.</strong> Aktuální ordinační doba viz výše.
-        </article>
-      </div>
+  <section id="aktuality" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
+    <h2>Aktuality</h2>
+    <div class="updates" id="updates" aria-live="polite" role="region" aria-label="Aktuality kliniky">
+      <article class="update" tabindex="0">
+        <time datetime="2025-08-01">1. 8. 2025</time>
+        <strong>Provoz beze změn.</strong> Aktuální ordinační doba viz výše.
+      </article>
     </div>
   </section>
 
   <!-- SMLUVNÍ POJIŠŤOVNY -->
-  <section id="pojistovny" class="section" style="background: var(--surface); margin-top: 40px;">
-    <div class="container insurances" role="region" aria-label="Smluvní pojišťovny">
-      <h2>Smluvní pojišťovny</h2>
-      <div class="ins-grid" aria-describedby="insInfo" tabindex="0">
-        <div class="insurance-logo"><img src="vzp.png" alt="Všeobecná zdravotní pojišťovna (VZP)" /></div>
-        <div class="insurance-logo"><img src="zpmv.png" alt="Zdravotní pojišťovna Ministerstva vnitra (ZPMV)" /></div>
-        <div class="insurance-logo"><img src="zps.png" alt="Zdravotní pojišťovna Škoda (ZPS)" /></div>
-        <div class="insurance-logo"><img src="ozp.png" alt="Oborová zdravotní pojišťovna (OZP)" /></div>
-        <div class="insurance-logo"><img src="vozp.png" alt="Vojenská zdravotní pojišťovna (VOZP)" /></div>
-        <div class="insurance-logo"><img src="rbp.png" alt="Revírní bratrská pokladna (RBP)" /></div>
-        <div class="insurance-logo"><img src="cpzp.png" alt="Česká průmyslová zdravotní pojišťovna (ČPZP)" /></div>
-      </div>
-      <p id="insInfo" class="note" style="margin-top: 8px;">
-        Nahrajte obdélníkové obrázky log se stejnými názvy a nahraďte tyto zástupce.
-      </p>
+  <section id="pojistovny" class="section" style="background: var(--surface); max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
+    <h2>Smluvní pojišťovny</h2>
+    <div class="ins-grid" aria-describedby="insInfo" tabindex="0">
+      <div class="insurance-logo"><img src="vzp.png" alt="Všeobecná zdravotní pojišťovna (VZP)" /></div>
+      <div class="insurance-logo"><img src="zpmv.png" alt="Zdravotní pojišťovna Ministerstva vnitra (ZPMV)" /></div>
+      <div class="insurance-logo"><img src="zps.png" alt="Zdravotní pojišťovna Škoda (ZPS)" /></div>
+      <div class="insurance-logo"><img src="ozp.png" alt="Oborová zdravotní pojišťovna (OZP)" /></div>
+      <div class="insurance-logo"><img src="vozp.png" alt="Vojenská zdravotní pojišťovna (VOZP)" /></div>
+      <div class="insurance-logo"><img src="rbp.png" alt="Revírní bratrská pokladna (RBP)" /></div>
+      <div class="insurance-logo"><img src="cpzp.png" alt="Česká průmyslová zdravotní pojišťovna (ČPZP)" /></div>
     </div>
+    <p id="insInfo" class="note" style="margin-top: 8px;">
+      Nahrajte obdélníkové obrázky log se stejnými názvy a nahraďte tyto zástupce.
+    </p>
   </section>
 
   <!-- O NÁS -->
-  <section id="o-nas" class="section" style="margin-top: 40px;">
-    <div class="container">
-      <h2>O nás</h2>
-      <div class="doctor-section">
-        <div class="doctor-photo-wrapper">
-          <span class="doctor-tag" aria-label="Oční lékař">Oční lékař</span>
-          <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al‑Dhabbi" class="doctor-photo" loading="lazy" width="220" height="auto" />
-        </div>
-        <div class="doctor-info">
-          <h3>MUDr. Yahia Al‑Dhabbi</h3>
-          <ul>
-            <li>Vystudoval všeobecné lékařství na LF UP v Olomouci v roce 1988.</li>
-            <li>Specializace v oboru oftalmologie I. stupně (LFUK FNKV, 1994).</li>
-            <li>Odborná a zdravotní způsobilost v oftalmologii.</li>
-            <li>Člen ČLK.</li>
-          </ul>
-        </div>
-        <aside class="qr-section" aria-label="QR kód pro uložení kontaktu">
-          <p>Ulož mě</p>
-          <img src="2025QR.png" alt="QR kód pro uložení kontaktu" width="220" height="220" loading="lazy" />
-        </aside>
+  <section id="o-nas" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
+    <h2>O nás</h2>
+    <div class="doctor-section">
+      <div class="doctor-photo-wrapper">
+        <span class="doctor-tag" aria-label="Oční lékař">Oční lékař</span>
+        <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al‑Dhabbi" class="doctor-photo" loading="lazy" width="220" height="auto" />
+        <h3 style="margin: 12px 0 0 0; font-size: 1.25rem; font-weight: 700; user-select:none; text-align:center;">MUDr. Yahia Al‑Dhabbi</h3>
       </div>
+      <div class="doctor-info" style="padding-left: 0;">
+        <ul>
+          <li>Vystudoval všeobecné lékařství na LF UP v Olomouci v roce 1988.</li>
+          <li>Specializace v oboru oftalmologie I. stupně (LFUK FNKV, 1994).</li>
+          <li>Odborná a zdravotní způsobilost v oftalmologii.</li>
+          <li>Člen ČLK.</li>
+        </ul>
+      </div>
+      <aside class="qr-section" aria-label="QR kód pro uložení kontaktu">
+        <p>Ulož mě</p>
+        <img src="https://qrcc.me/rk7a00zk0lpy" alt="QR kód pro uložení kontaktu" width="220" height="220" loading="lazy" />
+      </aside>
     </div>
   </section>
 
-  <!-- SLUZBY PREVIEW + LINKS -->
-  <section id="sluzby" class="section" style="margin-top: 40px;">
-    <div class="container narrow">
-      <h2>Služby</h2>
-      <p>Podrobný přehled služeb najdete na samostatné stránce.</p>
-      <div class="cta-row" style="justify-content: flex-start;">
-        <a class="btn btn-outline" href="sluzby.html" aria-label="Zobrazit služební stránku">Zobrazit Služby</a>
-        <a class="btn btn-outline" href="cenik.html" aria-label="Zobrazit ceník">Zobrazit Ceník</a>
-      </div>
+  <!-- SLUZBY Section -->
+  <section id="sluzby-section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
+    <div id="sluzby-info">
+      <h2>Dalsi informace</h2>
+    </div>
+    <div id="sluzby-link">
+      <a href="sluzby.html" aria-label="Zobrazit služební stránku">Zobrazit Služby</a>
+      <a href="cenik.html" aria-label="Zobrazit ceník">Zobrazit Ceník</a>
     </div>
   </section>
 
@@ -838,12 +876,9 @@
     mapSection.addEventListener('click', () => {
       const url = 'https://maps.google.com/?q=Mlýnská+326/6,+Teplice';
       if (/Mobi|Android/i.test(navigator.userAgent)) {
-        // Mobile - open app if possible
         window.open(`geo:50.6392606,13.8323696?q=Mlýnská+326/6,+Teplice`, '_blank');
-        // fallback in case geo: does not work
         setTimeout(() => window.open(url, '_blank'), 1000);
       } else {
-        // Desktop
         window.open(url, '_blank');
       }
     });
@@ -884,7 +919,6 @@
       restart();
       go(0);
 
-      // Swipe support
       let startX = null;
       slider.addEventListener('pointerdown', e => { startX = e.clientX; });
       slider.addEventListener('pointerup', e => {
