@@ -97,7 +97,10 @@ nav a:hover{color:var(--brand-700)}
   .left-section{width:auto;min-width:300px}
 }
 
-.right-section{display:flex;flex-direction:column;gap:8px;width:100%}
+.right-section{display:grid;gap:8px;width:100%}
+@media(min-width:768px){
+  .right-section{grid-template-rows:1fr auto}
+}
 
 .cta-row{display:flex;flex-direction:column;gap:12px;margin-bottom:12px}
 @media(min-width:480px){.cta-row{flex-direction:row;flex-wrap:wrap}}
@@ -145,17 +148,17 @@ nav a:hover{color:var(--brand-700)}
 .accessibility-note{font-size:clamp(0.85rem,2.2vw,0.9rem);color:var(--muted);line-height:1.4;
                    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
                    padding:12px;box-shadow:var(--shadow-sm);
-                   height:62px;display:flex;align-items:center}
+                   min-height:62px;display:flex;align-items:center}
  
 /* ---------- CONTENT SECTIONS ---------- */
-.content-section{padding-block:clmp(24px,5vw,34px)}
+.content-section{padding-block:clamp(24px,5vw,34px)}
 .section-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
-               margin-bottom:20px;text-align:left}
-.full-width-content{width:100%}
+               margin-bottom:20px;text-align:center}
+.centered-content{display:flex;justify-content:center}
 
 /* ---------- AKTUALITY ---------- */
 .aktuality-content{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-                   padding:clamp(16px,3vw,20px);box-shadow:var(--shadow);width:100%}
+                   padding:clamp(16px,3vw,20px);box-shadow:var(--shadow);max-width:800px;width:100%}
 .aktuality-content ul{list-style:none;padding:0}
 .aktuality-content li{margin-bottom:12px;padding-left:20px;position:relative;
                       font-size:clamp(0.9rem,2.2vw,1rem);line-height:1.5}
@@ -296,7 +299,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
       <!-- RIGHT SECTION -->
       <div class="right-section">
         <!-- SLIDER CARD -->
-        <div class="card" style="padding:0;overflow:hidden;flex-grow:1">
+        <div class="card" style="padding:0;overflow:hidden">
           <div class="slider loading" id="slider" aria-label="Fotogalerie ordinace">
             <div class="slides">
               <div class="slide" style="background-image:url('clinic-1.jpg')"></div>
@@ -326,7 +329,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 <section id="aktuality" class="content-section">
   <div class="container">
     <h2 class="section-title">Aktuality</h2>
-    <div class="full-width-content">
+    <div class="centered-content">
       <div class="aktuality-content">
         <ul>
           <li><strong>Dovolená:</strong> 8-17.8 (Telefonické objednání v této době je možné)</li>
