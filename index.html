@@ -24,12 +24,12 @@
 }
 
 /* ---------- FONT IMPORTS ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap');
  
 /* ---------- RESET ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+body{font-family:'Roboto',system-ui,-apple-system,"Segoe UI",Ubuntu,"Helvetica Neue",Arial;
      line-height:1.6;color:var(--text);background:var(--bg);overflow-x:hidden}
  
 /* ---------- LAYOUT ---------- */
@@ -79,7 +79,7 @@ nav a:hover{color:var(--brand-700)}
 @media(min-width:768px){.hero-grid{grid-template-columns:1fr;align-items:center}}
  
 .hero-content{margin-bottom:24px}
-.headline{font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-block:.2em .1em;line-height:1.2;font-weight:900;color:var(--brand-900);letter-spacing:-0.02em}
+.headline{font-family:'Roboto',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-block:.2em .1em;line-height:1.2;font-weight:700;color:var(--brand-900);letter-spacing:-0.01em}
 .address{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--muted);font-weight:500;margin-bottom:18px;margin-top:4px}
 .tag{display:inline-block;background:color-mix(in oklab,var(--brand-500) 15%,white);
      color:var(--brand-900);border:1px solid var(--border);
@@ -97,10 +97,7 @@ nav a:hover{color:var(--brand-700)}
   .left-section{width:auto;min-width:300px}
 }
 
-.right-section{display:grid;gap:8px;width:100%}
-@media(min-width:768px){
-  .right-section{grid-template-rows:1fr auto}
-}
+.right-section{display:flex;flex-direction:column;gap:8px;width:100%}
 
 .cta-row{display:flex;flex-direction:column;gap:12px;margin-bottom:12px}
 @media(min-width:480px){.cta-row{flex-direction:row;flex-wrap:wrap}}
@@ -148,10 +145,10 @@ nav a:hover{color:var(--brand-700)}
 .accessibility-note{font-size:clamp(0.85rem,2.2vw,0.9rem);color:var(--muted);line-height:1.4;
                    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
                    padding:12px;box-shadow:var(--shadow-sm);
-                   min-height:62px;display:flex;align-items:center}
+                   height:62px;display:flex;align-items:center}
  
 /* ---------- CONTENT SECTIONS ---------- */
-.content-section{padding-block:clamp(24px,5vw,34px)}
+.content-section{padding-block:clmp(24px,5vw,34px)}
 .section-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
                margin-bottom:20px;text-align:left}
 .full-width-content{width:100%}
@@ -299,7 +296,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
       <!-- RIGHT SECTION -->
       <div class="right-section">
         <!-- SLIDER CARD -->
-        <div class="card" style="padding:0;overflow:hidden">
+        <div class="card" style="padding:0;overflow:hidden;flex-grow:1">
           <div class="slider loading" id="slider" aria-label="Fotogalerie ordinace">
             <div class="slides">
               <div class="slide" style="background-image:url('clinic-1.jpg')"></div>
