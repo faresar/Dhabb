@@ -43,37 +43,20 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
 .brand img{height:48px;object-fit:contain;width:auto}
  
 /* ---------- NAV ---------- */
-nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-nav a{font-weight:600;color:var(--text);text-decoration:none;white-space:nowrap;position:relative}
-nav a:hover{color:var(--brand-700)}
+.nav-container{display:flex;align-items:center;gap:24px;flex:1;justify-content:space-between}
 
-/* Internal/anchor links - with underline */
-nav a[href^="#"]{
-  border-bottom:2px solid transparent;
-  transition:all 0.3s ease;
-}
-nav a[href^="#"]:hover{
-  border-bottom-color:var(--brand-500);
-}
-nav a[href^="#"]:before{
-  content:"§";
-  font-size:0.8em;
-  opacity:0.6;
-  margin-right:4px;
-}
+/* Internal navigation - center with light blue background */
+.nav-internal{display:flex;align-items:center;gap:8px;background:color-mix(in oklab,var(--brand-500) 20%,white);
+               padding:8px 16px;border-radius:20px;margin-left:auto;margin-right:auto}
+.nav-internal a{font-weight:600;color:var(--brand-900);text-decoration:none;white-space:nowrap;
+                padding:6px 12px;border-radius:12px;transition:all 0.3s ease}
+.nav-internal a:hover{background:color-mix(in oklab,var(--brand-500) 30%,white);color:var(--brand-900)}
 
-/* External links - with arrow */
-nav a:not([href^="#"]):not([href^="/"]):not([href*="ocni-ordinace"]):after{
-  content:"→";
-  margin-left:4px;
-  font-size:0.9em;
-  opacity:0.7;
-  transition:all 0.3s ease;
-}
-nav a:not([href^="#"]):not([href^="/"]):not([href*="ocni-ordinace"]):hover:after{
-  opacity:1;
-  transform:translateX(2px);
-}
+/* External navigation - right side with darker color */
+.nav-external{display:flex;align-items:center;gap:12px;margin-left:auto}
+.nav-external a{font-weight:600;color:var(--brand-900);text-decoration:none;white-space:nowrap;
+                transition:all 0.3s ease}
+.nav-external a:hover{color:var(--brand-700)}
 
 .btn{padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-block;
      min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center}
@@ -90,15 +73,15 @@ nav a:not([href^="#"]):not([href^="/"]):not([href*="ocni-ordinace"]):hover:after
 
 @media(max-width:768px){
   .nav{position:relative}
-  nav{position:fixed;inset:0 0 auto auto;width:280px;max-width:85%;
-      background:#fff;height:100dvh;flex-direction:column;justify-content:flex-start;
-      padding:80px 20px 20px;transform:translateX(100%);transition:transform .3s ease;
-      box-shadow:var(--shadow);z-index:50}
-  nav.open{transform:translateX(0)}
-  nav a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px}
-  nav a:hover{background:var(--surface)}
+  .nav-container{position:fixed;inset:0 0 auto auto;width:280px;max-width:85%;
+                 background:#fff;height:100dvh;flex-direction:column;justify-content:flex-start;
+                 padding:80px 20px 20px;transform:translateX(100%);transition:transform .3s ease;
+                 box-shadow:var(--shadow);z-index:50}
+  .nav-container.open{transform:translateX(0)}
+  .nav-internal,.nav-external{flex-direction:column;background:transparent;padding:0;margin:0}
+  .nav-internal a,.nav-external a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center}
+  .nav-internal a:hover,.nav-external a:hover{background:var(--surface)}
   .menu-toggle{display:flex;align-items:center;justify-content:center}
-  .btn{width:100%;justify-content:center}
 }
  
 /* ---------- HERO ---------- */
@@ -242,7 +225,8 @@ nav a:not([href^="#"]):not([href^="/"]):not([href*="ocni-ordinace"]):hover:after
 
 .qr-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
          padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center}
-.qr-title{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);margin-bottom:20px}
+.qr-title{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);
+           margin-bottom:20px;text-align:center}
 .qr-code{width:240px;height:240px;object-fit:contain;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
 
 /* Mobile-only clickable QR */
@@ -342,14 +326,21 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
     <div class="menu-overlay"></div>
  
-    <nav aria-label="Hlavní menu">
-      <a href="#aktuality">Aktuality</a>
-      <a href="#lekar">Lékař</a>
-      <a href="#pojistovny">Pojišťovny</a>
-      <a href="#mapa">Mapa</a>
-      <a href="sluzby.html">Služby</a>
-      <a href="cenik.html">Ceník</a>
-    </nav>
+    <div class="nav-container">
+      <!-- INTERNAL NAVIGATION - CENTER WITH LIGHT BLUE -->
+      <nav class="nav-internal" aria-label="Sekce stránky">
+        <a href="#aktuality">Aktuality</a>
+        <a href="#lekar">Lékař</a>
+        <a href="#pojistovny">Pojišťovny</a>
+        <a href="#mapa">Mapa</a>
+      </nav>
+
+      <!-- EXTERNAL NAVIGATION - RIGHT SIDE DARKER -->
+      <nav class="nav-external" aria-label="Externí stránky">
+        <a href="sluzby.html">Služby</a>
+        <a href="cenik.html">Ceník</a>
+      </nav>
+    </div>
   </div>
 </header>
  
@@ -526,11 +517,11 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 <script>
 /* ----------- HAMBURGER TOGGLE ----------- */
 const toggleBtn=document.querySelector('.menu-toggle');
-const nav=document.querySelector('nav');
+const navContainer=document.querySelector('.nav-container');
 const overlay=document.querySelector('.menu-overlay');
 
 function toggleMenu(){
-  const isOpen=nav.classList.toggle('open');
+  const isOpen=navContainer.classList.toggle('open');
   overlay.classList.toggle('open',isOpen);
   toggleBtn.setAttribute('aria-expanded',isOpen);
   document.body.style.overflow=isOpen?'hidden':'';
@@ -541,7 +532,7 @@ overlay.addEventListener('click',toggleMenu);
 
 // Close menu on escape
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&nav.classList.contains('open')){
+  if(e.key==='Escape'&&navContainer.classList.contains('open')){
     toggleMenu();
   }
 });
