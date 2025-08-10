@@ -24,7 +24,7 @@
 }
 
 /* ---------- FONT IMPORTS ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
  
 /* ---------- RESET ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -50,7 +50,7 @@ nav a:hover{color:var(--brand-700)}
      min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center}
 .btn-solid{background:var(--brand-700);color:#fff;border:1px solid var(--brand-700);box-shadow:var(--shadow-sm)}
 .btn-solid:hover{background:var(--brand-900)}
-.btn-outline{background:#fff;border:1px solid var(--brand-700);color:var(--brand-700)}
+.btn-outline{background:#fff;border:1px solid var(--border);color:var(--brand-700)}
 .btn-outline:hover{background:var(--brand-700);color:#fff}
  
 /* ---------- MOBILE MENU ---------- */
@@ -79,7 +79,7 @@ nav a:hover{color:var(--brand-700)}
 @media(min-width:768px){.hero-grid{grid-template-columns:1fr;align-items:center}}
  
 .hero-content{margin-bottom:24px}
-.headline{font-family:'Merriweather',serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-block:.2em .1em;line-height:1.2;font-weight:700;color:var(--brand-900);letter-spacing:-0.01em}
+.headline{font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-block:.2em .1em;line-height:1.2;font-weight:700;color:var(--brand-900);letter-spacing:-0.01em}
 .address{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--muted);font-weight:500;margin-bottom:18px;margin-top:4px}
 .tag{display:inline-block;background:color-mix(in oklab,var(--brand-500) 15%,white);
      color:var(--brand-900);border:1px solid var(--border);
@@ -153,7 +153,7 @@ nav a:hover{color:var(--brand-700)}
 /* ---------- CONTENT SECTIONS ---------- */
 .content-section{padding-block:clamp(24px,5vw,34px)}
 .section-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
-               margin-bottom:20px;text-align:left}
+               margin-bottom:20px;text-align:center}
 .full-width-content{width:100%}
 
 /* ---------- AKTUALITY ---------- */
@@ -191,6 +191,36 @@ nav a:hover{color:var(--brand-700)}
   .insurance-single{grid-column:1}
   .insurance-grid{gap:20px}
 }
+
+/* ---------- DOCTOR SECTION ---------- */
+.doctor-section{padding-block:clamp(24px,5vw,34px)}
+.doctor-grid{display:grid;gap:20px;max-width:1000px;margin:0 auto}
+@media(min-width:768px){.doctor-grid{grid-template-columns:1fr 1fr}}
+
+.doctor-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+             padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
+.doctor-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;
+              margin-bottom:16px;border:3px solid var(--brand-500);box-shadow:var(--shadow-sm)}
+.doctor-name{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:700;color:var(--brand-900);margin-bottom:8px}
+.doctor-title{display:inline-block;background:var(--brand-700);color:#fff;
+              padding:4px 12px;border-radius:20px;font-size:clamp(0.85rem,2vw,0.9rem);
+              font-weight:600;margin-bottom:16px}
+.doctor-info{text-align:left;width:100%}
+.doctor-info ul{list-style:none;padding:0}
+.doctor-info li{margin-bottom:8px;padding-left:16px;position:relative;
+                font-size:clamp(0.85rem,2.2vw,0.95rem);line-height:1.4}
+.doctor-info li::before{content:'•';position:absolute;left:0;color:var(--brand-700);font-weight:bold}
+
+.qr-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+         padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
+.qr-title{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);margin-bottom:16px}
+.qr-code{width:200px;height:200px;object-fit:contain;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+
+/* ---------- MAP SECTION ---------- */
+.map-section{padding-block:clamp(24px,5vw,34px);background:var(--surface)}
+.map-container{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+               overflow:hidden;box-shadow:var(--shadow);max-width:1000px;margin:0 auto}
+.map-container iframe{border:0;display:block}
  
 /* ---------- SECTIONS ---------- */
 .section{padding-block:clamp(24px,5vw,34px)}
@@ -235,6 +265,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
   .main-layout{grid-template-columns:1fr!important}
   .left-section{order:2}
   .right-section{order:1}
+  .doctor-grid{grid-template-columns:1fr!important}
 }
 
 /* Loading state */
@@ -367,6 +398,51 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
   </div>
 </section>
 
+<!-- DOCTOR SECTION -->
+<section class="doctor-section">
+  <div class="container">
+    <div class="doctor-grid">
+      <!-- DOCTOR CARD -->
+      <div class="doctor-card">
+        <img src="yahia-vatar.jpg" alt="MUDr. Yahia Al-Dhabbi" class="doctor-photo">
+        <h3 class="doctor-name">MUDr. Yahia Al-Dhabbi</h3>
+        <span class="doctor-title">Oční lékař</span>
+        <div class="doctor-info">
+          <ul>
+            <li>Vystudoval jsem z všeobecné lékařské fakulty Palackého v Olomouci v r. 1988.</li>
+            <li>Specializoval jsem v oboru oftalmologie I. stupně z LFUK FNKV v Praze v roce 1994.</li>
+            <li>Odborná a zdravotní způsobilost v oftalmologie.</li>
+            <li>Člen ČLK.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- QR CARD -->
+      <div class="qr-card">
+        <h3 class="qr-title">Naskenujte a uložte kontakt</h3>
+        <img src="2025QR.png" alt="QR kód pro kontakt" class="qr-code">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
+        width="100%"
+        height="320"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa ordinace"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="container footer-grid">
@@ -484,7 +560,7 @@ hours.forEach(h=>{
  slider.addEventListener('touchstart',e=>{
    if(slider.classList.contains('loading'))return;
    startX=e.touches[0].clientX;
-   startY=e.touches[0].clientY;
+   startY=e.touches[0.clientY;
    isDragging=false;
    clearInterval(timer);
  },{passive:true});
