@@ -1,98 +1,151 @@
 <!doctype html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
+  <title>ALDHABBI S.R.O – Eye Clinic | Teplice</title>
+  <meta name="description" content="ALDHABBI S.R.O – Eye Clinic in Teplice. Book by phone only: +420 705 128 840. Accepting new patients.">
   <link rel="icon" href="favicon.png">
-  <!-- … PONECHÁNO: CSS proměnné, reset, layout … -->
 
+  <!-- ─── CSS ─── -->
   <style>
-  /* ►► NOVÉ / UPRAVENÉ ČÁSTI ◄◄ */
+  :root{
+    --brand-900:#0a4f7a; --brand-700:#1173a6; --brand-500:#2ea3d4;
+    --bg:#fff; --text:#111; --muted:#5a6270; --surface:#f6f9fc; --border:#e7edf3;
+    --radius:14px; --shadow:0 6px 22px rgba(10,79,122,.10); --shadow-sm:0 2px 8px rgba(10,79,122,.08);
+  }
 
-  /* 1) Logo: jen obrázek, bez textu */
-  .brand{gap:0}              /* zruší mezeru */
-  .brand img{width:160px;}   /* větší logo dle přání */
-  .brand-title{display:none} /* skrývá původní text */
+  /* reset */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+       line-height:1.6;color:var(--text);background:var(--bg)}
 
-  /* 2) Navigace: bez tlačítek „Kontakt“ a „Zavolat“ */
-  nav a.btn,
-  nav a[href^="tel"]{display:none}
+  /* layout helpers */
+  .container{max-width:1180px;margin-inline:auto;padding-inline:16px}
+  .section{padding-block:34px}
 
-  /* 3) Nadpis v hero sekci */
-  .headline{margin:.15em 0 .25em;
-            font-size:clamp(1.6rem,3vw+1rem,2.2rem)}
+  /* header */
+  .site-header{position:sticky;top:0;z-index:50;background:#fffefef5;
+               backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;min-height:70px}
 
-  /* 4) CTA tlačítko – tel. číslo uvnitř textu */
-  .cta-row .btn-solid{white-space:normal}
+  /* logo (image only) */
+  .brand{display:flex;gap:0;align-items:center;text-decoration:none}
+  .brand img{width:160px;height:auto;object-fit:contain}
+  .brand-title{display:none}
 
-  /* 5) Slider + Hours card – vedle sebe, stejná šířka */
+  /* nav */
+  nav{display:flex;gap:12px;align-items:center}
+  nav a{font-weight:600;color:var(--text);text-decoration:none}
+  nav a:hover{color:var(--brand-700)}
+
+  /* burger */
+  .menu-toggle{display:none;background:none;border:0;font-size:1.9rem;color:var(--brand-900)}
+  @media(max-width:760px){
+    nav{position:fixed;inset:0 0 auto auto;width:240px;max-width:80%;height:100dvh;
+        flex-direction:column;justify-content:flex-start;padding:80px 20px 20px;
+        background:#fff;transform:translateX(110%);transition:.3s}
+    nav.open{transform:none}
+    nav a{margin-block:6px}
+    .menu-toggle{display:block}
+  }
+
+  /* hero */
+  .hero{padding-block:28px;background:linear-gradient(180deg,
+        color-mix(in oklab,var(--brand-500) 10%,white),transparent 60%)}
+  .hero-grid{display:grid;gap:24px}
   .hero-flex{display:flex;flex-wrap:wrap;gap:24px}
-  .hero-flex>*{flex:1 1 300px;}  /* rovnocenné boxy */
+  .hero-flex>*{flex:1 1 300px}
 
-  /* 6) Větší slideshow */
-  .slide{aspect-ratio:4/3;}         /* vyšší poměr */
-  @media(min-width:981px){.slide{aspect-ratio:16/9;}}
+  .headline{font-size:clamp(1.6rem,3vw+1rem,2.2rem);margin-block:.15em .25em}
+  .tag{display:inline-block;padding:6px 10px;border-radius:999px;
+       background:color-mix(in oklab,var(--brand-500) 15%,white);color:var(--brand-900);
+       border:1px solid var(--border);font-weight:700}
+  .note{color:var(--muted);font-size:.9rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-block:14px}
+  .btn{display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}
+  .btn-solid{background:var(--brand-700);color:#fff;border:1px solid var(--brand-700);box-shadow:var(--shadow-sm)}
+  .btn-solid:hover{background:var(--brand-900)}
 
-  /* 7) Skrýt text pod sliderem */
-  .slider-note{display:none}
+  /* cards */
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .warn{display:flex;align-items:center;gap:8px;color:#b80000;font-weight:800;font-size:.96rem}
 
-  /* 8) Plynulé spuštění po načtení všech snímků */
-  .slides.loading{opacity:.4;transition:opacity .3s ease}
+  /* hours */
+  .hours-grid{display:grid;gap:8px;margin-top:8px}
+  .hour-row{display:flex;justify-content:space-between;border:1px dashed var(--border);
+            border-radius:10px;padding:6px 10px;font-size:.95rem}
+
+  /* slider */
+  .slider{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border)}
+  .slides{display:flex;transition:transform .5s ease}
+  .slides.loading{opacity:.4;transition:opacity .3s}
+  .slide{min-width:100%;aspect-ratio:4/3;background:#dfeffd center/cover no-repeat}
+  @media(min-width:981px){.slide{aspect-ratio:16/9}}
+  .navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#ffffffd9;border:1px solid var(--border);
+          width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;cursor:pointer}
+  .prev{left:10px}.next{right:10px}
+  .controls{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+  .dot{width:10px;height:10px;border-radius:50%;background:#c8d9e7;border:1px solid #9ab6c9;cursor:pointer}
+  .dot.active{background:var(--brand-700);border-color:var(--brand-900)}
+
+  /* footer */
+  footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;font-size:.9rem}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;padding-block:22px}
+  .footer-grid>div{flex:1 min(200px,100%)}
+
+  /* accessibility */
+  :focus-visible{outline:3px solid color-mix(in oklab,var(--brand-500) 50%,white);outline-offset:2px;border-radius:10px}
   </style>
 </head>
-<body>
 
-<!-- ═════════ HEADER ═════════ -->
+<body>
+<!-- ─── HEADER ─── -->
 <header class="site-header">
   <div class="container nav">
-    <!-- 1) Nové logo (použijte svůj soubor) -->
-    <a class="brand" href="#top" aria-label="Domů">
-      <img src="2025-logo-2.jpg" alt="ALDHABBI logo">
+    <a class="brand" href="#top" aria-label="Home">
+      <img src="new-logo.png" alt="ALDHABBI logo"><!-- replace with your file -->
     </a>
 
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
 
-    <!-- 2) Menu bez Kontakt/Zavolat -->
-    <nav aria-label="Hlavní menu">
-      <a href="#aktuality">Aktuality</a>
-      <a href="#sluzby">Služby</a>
-      <a href="#cenik">Ceník</a>
-      <a href="#pojistovny">Pojišťovny</a>
+    <!-- links trimmed per request -->
+    <nav aria-label="Main menu">
+      <a href="#news">News</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#insurance">Insurance</a>
     </nav>
   </div>
 </header>
 
-<!-- ═════════ HERO ═════════ -->
+<!-- ─── HERO ─── -->
 <main id="top" class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="tag">Přijímáme nové pacienty</span>
-
-      <!-- 3) Nový nadpis + adresa -->
-      <h1 class="headline">Oční ordinace – Teplice</h1>
+      <span class="tag">Accepting new patients</span>
+      <h1 class="headline">Eye Clinic – Teplice</h1>
       <p class="note">Mlýnská 326/6, Teplice 41501</p>
 
-      <!-- 4) CTA s tel. číslem uvnitř -->
       <div class="cta-row">
         <a href="tel:+420705128840" class="btn btn-solid">
-          Zavolat a objednat: +420 705 128 840
+          Call to book: +420 705 128 840
         </a>
       </div>
 
-      <!-- 5) FLEX box pro Hours + Slider -->
+      <!-- equal-width flex row -->
       <div class="hero-flex">
-        <!-- HOURS CARD -->
-        <section aria-label="Ordinační doba" class="card">
-          <div class="warn">Rezervujte jen telefonicky. Prosím nepsat.</div>
+        <!-- opening hours -->
+        <section aria-label="Office hours" class="card">
+          <div class="warn">Booking by phone only. Please do not email.</div>
           <div class="hours-grid" id="hoursBox"></div>
         </section>
 
-        <!-- SLIDER -->
+        <!-- slideshow -->
         <aside>
-          <div class="slider card" id="slider" aria-label="Fotogalerie ordinace">
+          <div class="slider card" id="slider" aria-label="Clinic photo gallery">
             <div class="slides loading">
-              <!-- 7 snímků místo 5 -->
               <div class="slide" style="background-image:url('clinic-1.jpg')"></div>
               <div class="slide" style="background-image:url('clinic-2.jpg')"></div>
               <div class="slide" style="background-image:url('clinic-3.jpg')"></div>
@@ -101,14 +154,14 @@
               <div class="slide" style="background-image:url('clinic-6.jpg')"></div>
               <div class="slide" style="background-image:url('clinic-7.jpg')"></div>
             </div>
-            <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
-            <button class="navbtn next" aria-label="Další snímek">›</button>
+            <button class="navbtn prev" aria-label="Previous slide">‹</button>
+            <button class="navbtn next" aria-label="Next slide">›</button>
             <div class="controls" aria-hidden="true"></div>
           </div>
 
-          <!-- 6) Nová poznámka pod sliderem -->
+          <!-- accessibility notice replaces swipe hint -->
           <p class="note" style="margin-top:8px">
-            Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
+            The clinic is on the first floor with no elevator, which may limit accessibility for visitors with reduced mobility.
           </p>
         </aside>
       </div>
@@ -116,11 +169,33 @@
   </div>
 </main>
 
-<!-- … DALŠÍ SEKCE BEZ ZMĚN … -->
+<!-- ─── REMAINDER OF PAGE (news, services, etc.) ─── -->
+<section id="news" class="section"><div class="container"><h2>News</h2><!-- … --></div></section>
+<section id="services" class="section"><div class="container"><h2>Services</h2><!-- … --></div></section>
+<section id="pricing" class="section"><div class="container"><h2>Pricing</h2><!-- … --></div></section>
+<section id="insurance" class="section" style="background:var(--surface)">
+  <div class="container"><h2>Contracted insurance companies</h2><!-- … --></div>
+</section>
 
-<!-- ═════════ FOOTER + SCRIPTS (beze změn kromě slideru) ═════════ -->
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <strong>ALDHABBI S.R.O – Eye Clinic</strong><br>
+      Mlýnská 326/6, Teplice 41501<br>
+      Tel: <a href="tel:+420705128840">+420 705 128 840</a>
+    </div>
+    <div>
+      <a href="#news">News</a><br>
+      <a href="#insurance">Insurance</a>
+    </div>
+    <div>© <span id="year"></span> ALDHABBI S.R.O</div>
+  </div>
+</footer>
+
+<!-- ─── JS ─── -->
 <script>
-/* 1) Hamburger beze změn */
+/* burger */
 const toggleBtn=document.querySelector('.menu-toggle');
 const nav=document.querySelector('nav');
 toggleBtn.addEventListener('click',()=>{
@@ -128,9 +203,23 @@ toggleBtn.addEventListener('click',()=>{
   toggleBtn.setAttribute('aria-expanded',nav.classList.contains('open'));
 });
 
-/* 2) Hours box beze změn – viz původní kód */
+/* dynamic hours */
+const hoursData=[
+  {d:'Monday',b:[['07:00','12:00'],['12:30','17:30']]},
+  {d:'Tuesday',b:[['15:00','17:30']]},
+  {d:'Wednesday',b:[['15:00','17:30']]},
+  {d:'Thursday',b:[['07:00','12:00'],['12:30','17:30']]},
+  {d:'Friday',b:[['07:00','12:00']]}
+];
+const box=document.getElementById('hoursBox');
+hoursData.forEach(h=>{
+  const row=document.createElement('div');
+  row.className='hour-row';
+  row.innerHTML=`<strong>${h.d}</strong><span>${h.b.map(b=>b.join('–')).join(', ')}</span>`;
+  box.append(row);
+});
 
-/* 3) SLIDER – 7 fotek & start až po načtení */
+/* slider (7 slides, start after load) */
 (function(){
   const slider=document.getElementById('slider');
   const track=slider.querySelector('.slides');
@@ -138,21 +227,21 @@ toggleBtn.addEventListener('click',()=>{
   const dotsWrap=slider.querySelector('.controls');
   let i=0,timer,loaded=0;
 
-  /* vytvoř tečky */
+  /* dots */
   slides.forEach((_,idx)=>{
     const d=document.createElement('button');
     d.className='dot'; d.onclick=()=>go(idx); dotsWrap.append(d);
   });
   const dots=[...dotsWrap.children];
 
-  /* počkej na načtení každého pozadí */
+  /* wait for images */
   slides.forEach(sl=>{
     const img=new Image();
-    img.src=sl.style.backgroundImage.slice(5,-2); // vyjme URL()
+    img.src=sl.style.backgroundImage.slice(5,-2);
     img.onload=img.onerror=()=>{
       if(++loaded===slides.length){
         track.classList.remove('loading');
-        go(0);    // spusť animaci až teď
+        go(0);
       }
     };
   });
@@ -169,6 +258,9 @@ toggleBtn.addEventListener('click',()=>{
   slider.querySelector('.prev').onclick=prev;
   function reset(){clearInterval(timer); timer=setInterval(next,5000)}
 })();
+
+/* year */
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
