@@ -126,9 +126,9 @@ nav a:hover{color:var(--brand-700)}
  
 /* ---------- SLIDER ---------- */
 .slider{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#fff;
-        touch-action:pan-x;height:250px;width:100%}
-@media(max-width:768px){.slider{height:200px}}
-@media(max-width:480px){.slider{height:160px}}
+        touch-action:pan-x;height:350px;width:100%}
+@media(max-width:768px){.slider{height:280px}}
+@media(max-width:480px){.slider{height:220px}}
 
 .slides{display:flex;transition:transform .5s ease;height:100%}
 .slide{min-width:100%;height:100%;background:#dfeffd center/cover no-repeat}
@@ -154,11 +154,13 @@ nav a:hover{color:var(--brand-700)}
 .content-section{padding-block:clamp(24px,5vw,34px)}
 .section-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
                margin-bottom:20px;text-align:center}
-.centered-content{display:flex;justify-content:center}
+.content-grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:768px){.content-grid{grid-template-columns:1fr 1fr;align-items:start}}
 
 /* ---------- AKTUALITY ---------- */
 .aktuality-content{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-                   padding:clamp(16px,3vw,20px);box-shadow:var(--shadow);max-width:800px;width:100%}
+                   padding:clamp(16px,3vw,20px);box-shadow:var(--shadow)}
+.aktuality-placeholder{background:transparent}
 .aktuality-content ul{list-style:none;padding:0}
 .aktuality-content li{margin-bottom:12px;padding-left:20px;position:relative;
                       font-size:clamp(0.9rem,2.2vw,1rem);line-height:1.5}
@@ -235,6 +237,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
   .main-layout{grid-template-columns:1fr!important}
   .left-section{order:2}
   .right-section{order:1}
+  .content-grid{grid-template-columns:1fr!important}
 }
 
 /* Loading state */
@@ -329,13 +332,14 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 <section id="aktuality" class="content-section">
   <div class="container">
     <h2 class="section-title">Aktuality</h2>
-    <div class="centered-content">
+    <div class="content-grid">
       <div class="aktuality-content">
         <ul>
           <li><strong>Dovolená:</strong> 8-17.8 (Telefonické objednání v této době je možné)</li>
           <li>V případě akutních potíží se prosím obraťte na Všeobecnou ambulanci Očního oddělení Nemocnice Teplice - pavilon A, 4. podlaží, telefon 417519570.</li>
         </ul>
       </div>
+      <div class="aktuality-placeholder"></div>
     </div>
   </div>
 </section>
