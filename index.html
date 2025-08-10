@@ -1,943 +1,234 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
-  <meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty." />
-  <meta name="theme-color" content="#0d6efd" />
-  <link rel="icon" href="favicon.png" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oční ordinace MUDr. Yahia Al-Dhabbi – Teplice</title>
   <style>
     :root {
-      --brand-900: #0a4f7a;
-      --brand-700: #1173a6;
-      --brand-500: #2ea3d4;
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #5a6270;
-      --surface: #f6f9fc;
-      --border: #e7edf3;
-      --radius: 0; /* sharp edges for slideshow */
-      --shadow: 0 6px 22px rgba(10, 79, 122, 0.1);
-      --shadow-sm: 0 2px 8px rgba(10, 79, 122, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
+      --blue1: #054a6c;
+      --blue2: #157bb5;
+      --blue3: #4fc0e1;
+      --blue4: #033051;
+      --white: #fff;
+      --shadow: 0 2px 24px -8px rgba(0,0,0,0.13);
     }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--white);
+      color: #111;
     }
-
-    /* Layout */
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: saturate(160%) blur(10px);
-      border-bottom: 1px solid var(--border);
-      user-select: none;
-      padding: 0 20px;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 70px;
-      flex-wrap: nowrap;
-      gap: 12px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      user-select: none;
-      flex: 1 1 auto;
-    }
-    .brand img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-      display: block;
-    }
-    .brand-title {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-      user-select: none;
-      font-weight: 600;
-      color: var(--brand-900);
-      font-size: 1rem;
-      white-space: nowrap;
-      margin-top: 6px;
-      letter-spacing: 0.02em;
-    }
-    .brand-title .dept {
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      color: var(--brand-700);
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      line-height: 1.1;
-      font-family: "Segoe UI Black", "Arial Black", sans-serif;
-      margin-top: -3px;
-      user-select: none;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      white-space: nowrap;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
-      user-select: none;
-    }
-    nav a:hover {
-      color: var(--brand-700);
-      background-color: #e8f0fa;
-      border-color: var(--brand-700);
-    }
-
-    /* Phone call container above ordinační doba */
-    .phone-call-container {
-      max-width: 1180px;
-      margin: 24px auto 0 auto;
-      padding: 12px 20px;
-      border: 1px solid var(--brand-700);
-      background: var(--brand-700);
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      user-select: none;
-      cursor: pointer;
-      text-decoration: none;
-      width: fit-content;
-    }
-    .phone-call-container:hover {
-      background: var(--brand-900);
-      border-color: var(--brand-900);
-      text-decoration: none;
-      color: #fff;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      padding: 28px 0 0 0;
-      background: transparent;
-    }
-    .hero-content {
-      max-width: 1180px;
-      margin: 0 auto 48px auto;
-      padding: 0 16px;
-      user-select: none;
-    }
-    .tag {
-      display: inline-block;
-      background: color-mix(in oklab, var(--brand-500) 15%, white);
-      color: var(--brand-900);
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      white-space: nowrap;
-      user-select: none;
-    }
-    .headline {
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      user-select: none;
-    }
-    .note {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.3;
-      margin-bottom: 24px;
-      max-width: 700px;
-      user-select: none;
-    }
-
-    /* SLIDESHOW */
-    .slider {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0;
-      border: 1px solid var(--border);
-      background: #fff;
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      user-select: none;
-      height: 480px; /* increased height */
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.6s ease;
-      height: 100%;
-    }
-    .slide {
-      min-width: 100%;
-      background: #dfeffd center/cover no-repeat;
-      height: 100%;
-    }
-    .slide:nth-child(1) {
-      background-image: url('clinic-1.jpg');
-    }
-    .slide:nth-child(2) {
-      background-image: url('clinic-2.jpg');
-    }
-    .slide:nth-child(3) {
-      background-image: url('clinic-3.jpg');
-    }
-    .slide:nth-child(4) {
-      background-image: url('clinic-4.jpg');
-    }
-    .slide:nth-child(5) {
-      background-image: url('clinic-5.jpg');
-    }
-    .navbtn {
-      position: absolute;
-      top: 50%;
-      background: #ffffffd9;
-      border: 1px solid var(--border);
-      width: 42px;
-      height: 42px;
-      border-radius: 0; /* sharp edges */
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      user-select: none;
-      transform: translateY(-50%);
-      z-index: 1;
-    }
-    .navbtn.prev {
-      left: 10px;
-    }
-    .navbtn.next {
-      right: 10px;
-    }
-    .controls {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      user-select: none;
-      z-index: 1;
-    }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #c8d9e7;
-      border: 1px solid #9ab6c9;
-      cursor: pointer;
-    }
-    .dot.active {
-      background: var(--brand-700);
-      border-color: var(--brand-900);
-    }
-
-    /* ORDINAČNÍ DOBA + MAP */
-    .hours-map-wrapper {
-      display: flex;
-      align-items: stretch;
-      gap: 24px;
-      max-width: 1180px;
-      margin: 0 auto 40px auto;
-      padding: 0 16px;
-      user-select: none;
-    }
-    .hours-card {
-      width: 50%;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 18px 18px 18px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-weight: 700;
-      font-size: 15px;
-      box-sizing: border-box;
-    }
-    .hours-table {
-      width: 100%;
-      border-collapse: collapse;
-      border-radius: var(--radius);
-      overflow: hidden;
-      flex-grow: 1;
-      table-layout: fixed;
-    }
-    .hours-table th,
-    .hours-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
+    header {
+      background: linear-gradient(90deg, var(--blue1) 55%, var(--blue2) 100%);
+      color: var(--white);
+      padding: 1.5rem 0;
       text-align: center;
-      width: 50%;
+      box-shadow: var(--shadow);
+    }
+    header img {
+      height: 74px;
       vertical-align: middle;
     }
-    .hours-table th {
-      background: var(--brand-500);
-      color: #fff;
-      letter-spacing: 0.02em;
+    header h1 {
+      margin: 0.7rem 0 0.25rem 0;
+      font-size: 1.9rem;
+      letter-spacing: 1px;
     }
-    .hours-table td:first-child {
-      text-align: left;
-      padding-left: 18px;
-      font-weight: 600;
-    }
-    .hours-table tr:last-child td {
-      border-bottom: none;
-    }
-    #hoursDescription {
-      margin-top: 12px;
-      font-weight: 700;
-      color: #b80000;
-      font-size: 1rem;
-      text-align: center;
-      user-select: none;
-    }
-
-    .map-container {
-      width: 50%;
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 1rem;
       display: flex;
-      flex-direction: column;
-      background: #fff;
-      border-radius: 0;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    @media (max-width: 800px) {
+      .container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+    .section {
+      background: var(--white);
+      border-radius: 1rem;
       box-shadow: var(--shadow);
-      cursor: pointer;
-      border: 1px solid var(--border);
-      padding-bottom: 12px;
-      box-sizing: border-box;
+      padding: 1.2rem;
+      flex: 1 1 340px;
+      min-width: 260px;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.2s;
     }
-    .address-map {
-      padding: 12px 16px 8px 16px;
-      font-weight: 700;
-      text-align: center;
-      color: var(--brand-900);
-      font-size: 1.3rem;
-      border-bottom: 1px solid var(--border);
-      user-select: none;
-    }
-    .map {
-      flex-grow: 1;
-      overflow: hidden;
-      box-shadow: none;
-      border-radius: 0;
-      margin-top: 0;
-      height: 350px;
-    }
-    .map iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      pointer-events: auto;
-      border-radius: 0 0 var(--radius) var(--radius);
-    }
-
-    /* AKTUALITY */
-    .updates {
-      max-width: 1180px;
-      margin: 0 auto 40px auto;
-      padding: 0 16px;
-      user-select: none;
-    }
-    .updates > h2 {
-      margin-bottom: 20px;
-      color: var(--brand-900);
-      font-weight: 800;
-    }
-    .update {
-      border-left: 4px solid var(--brand-500);
-      padding: 10px 16px;
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-size: 1rem;
-      line-height: 1.3;
-      margin-bottom: 16px;
-    }
-    .update time {
-      display: block;
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-
-    /* INSURANCE LOGOS */
-    .insurances {
-      margin: 0 auto 40px auto;
-      max-width: 1180px;
-      text-align: center;
-      user-select: none;
-      padding: 0 16px;
-      background: transparent;
-    }
-    .insurances h2 {
-      margin-bottom: 18px;
-      color: var(--brand-900);
-      font-weight: 800;
-    }
-    .ins-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px 48px;
-      justify-items: center;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-    .insurance-logo {
-      background: linear-gradient(180deg, #f8fcff, #f4f8fb);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      width: 220px;
-      height: 110px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.3s ease;
-      overflow: hidden;
-    }
-    .insurance-logo img {
-      max-width: 190px;
-      max-height: 85px;
-      object-fit: contain;
-    }
-    .insurance-logo:hover {
-      box-shadow: 0 12px 30px rgba(46, 163, 212, 0.4);
-    }
-
-    /* DOCTOR SECTION */
-    .doctor-section {
-      display: flex;
-      max-width: 1180px;
-      margin: 0 auto 40px auto;
-      padding: 0 16px;
-      gap: 30px;
-      user-select: none;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-    .doctor-photo-wrapper {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 220px;
-    }
-    .doctor-tag {
-      order: 2;
-      margin-top: 8px;
-      background: var(--brand-700);
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1.25rem;
-      user-select: none;
-      pointer-events: none;
-      box-shadow: var(--shadow-sm);
-      white-space: nowrap;
-      font-family: "Segoe UI Black", "Arial Black", sans-serif;
-      text-align: center;
-      width: 100%;
-      max-width: 220px;
-    }
-    .doctor-photo {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      width: 220px;
-      height: auto;
-      display: block;
-      order: 1;
-    }
-    .doctor-name {
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin: 12px 0 0 0;
-      user-select: none;
-    }
-    .doctor-info {
-      flex: 1 1 auto;
-      font-size: 1rem;
-      line-height: 1.4;
-      padding-top: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      order: 3;
-    }
-    .doctor-info ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-    .doctor-info ul li {
-      margin-bottom: 6px;
-    }
-    .qr-section {
-      width: 220px;
-      flex-shrink: 0;
-      text-align: center;
-      user-select: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 6px;
-      padding-top: 42px;
-    }
-    .qr-section p {
-      font-weight: 700;
-      color: var(--brand-700);
-      font-size: 1.25rem;
-      user-select: none;
-      margin: 0;
-    }
-    .qr-section img {
-      width: 220px;
+    /* Photo slideshow */
+    #slideshow {
+      position: relative;
       height: 220px;
-      object-fit: contain;
-      border-radius: 14px;
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
+      overflow: hidden;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
     }
-    .qr-section img:hover {
-      box-shadow: 0 10px 25px rgba(46, 163, 212, 0.4);
+    #slideshow img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 1rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.7s;
     }
-
-    /* SLUZBY Section */
-    #sluzby-section {
-      max-width: 1180px;
-      margin: 0 auto 40px auto;
-      padding: 0 16px;
+    #slideshow img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    /* Opening hours */
+    table.ordinace {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+    table.ordinace th, table.ordinace td {
+      border: none;
+      padding: 0.45rem 0.6rem;
+      text-align: left;
+      font-size: 1.08rem;
+    }
+    table.ordinace tr:nth-child(even) {
+      background: var(--blue3);
+      color: var(--blue4);
+    }
+    table.ordinace tr:nth-child(odd) {
+      background: var(--white);
+    }
+    .team-member {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 48px;
-      user-select: none;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
     }
-    #sluzby-info {
-      font-size: 1rem;
-      color: var(--text);
+    .team-member img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--blue1);
+      margin-right: 0.3rem;
+      background: var(--blue3);
     }
-    #sluzby-info h2 {
-      font-weight: 800;
-      color: var(--brand-900);
-      margin-bottom: 10px;
-    }
-    #sluzby-link {
-      display: flex;
-      gap: 16px;
-    }
-    #sluzby-link a {
-      border: 1px solid var(--brand-700);
-      padding: 10px 20px;
-      border-radius: 12px;
-      background: #fff;
-      color: var(--brand-700);
-      font-weight: 700;
-      text-decoration: none;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: background-color 0.25s ease, color 0.25s ease;
-      white-space: nowrap;
-      user-select: none;
-      min-width: 140px;
-    }
-    #sluzby-link a:hover {
-      background: var(--brand-700);
-      color: #fff;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      background: #fff;
-      margin: 0 auto 20px auto;
-      max-width: 1180px;
-      user-select: none;
-      padding: 12px 16px;
-      text-align: center;
-    }
-    footer a.back-to-top {
-      display: inline-block;
-      border: 1px solid var(--brand-700);
-      background: var(--brand-700);
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 10px 24px;
-      border-radius: 12px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
-      user-select: none;
-    }
-    footer a.back-to-top:hover {
-      background: var(--brand-900);
-      border-color: var(--brand-900);
-    }
-
-    /* Accessibility focus */
-    :focus-visible {
-      outline: 3px solid color-mix(in oklab, var(--brand-500) 50%, white);
-      outline-offset: 2px;
-      border-radius: 10px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .nav {
-        justify-content: space-between;
-      }
-      .phone-call-container {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-      }
-      .hours-map-wrapper {
+    @media (max-width: 600px) {
+      .team-member {
         flex-direction: column;
-        align-items: center;
-        margin-bottom: 40px;
-        padding: 0 16px;
+        align-items: flex-start;
       }
-      .hours-card,
+      #slideshow {
+        height: 160px;
+      }
+      #slideshow img {
+        height: 160px;
+      }
+    }
+    /* Map */
+    .map-container {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1rem;
+      box-shadow: 0 1px 8px -2px var(--blue1);
+    }
+    @media (max-width: 600px) {
       .map-container {
-        max-width: 100%;
-        width: 100%;
-        margin-bottom: 24px;
+        height: 160px;
       }
-      .doctor-section {
-        flex-direction: column;
-        align-items: center;
-      }
-      .doctor-photo-wrapper {
-        width: 220px;
-      }
-      .doctor-info {
-        width: 100%;
-        margin-top: 16px;
-        text-align: center;
-        justify-content: start;
-      }
-      .qr-section {
-        width: 220px;
-        margin-top: 24px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      #sluzby-section {
-        flex-direction: column;
-        gap: 24px;
-      }
-      #sluzby-link {
-        justify-content: flex-start;
-      }
-      #sluzby-link a {
-        width: 100%;
-        min-width: 0;
-      }
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--blue2);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .section-title i {
+      font-size: 1.25rem;
+      margin-right: 5px;
+    }
+    .highlight {
+      color: var(--blue3);
+      font-weight: bold;
     }
   </style>
-
-  <!-- JSON-LD: Clinic + Physician -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MedicalClinic",
-    "name":"ALDHABBI S.R.O – OČNÍ ORDINACE",
-    "telephone":"+420705128840",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Mlýnská 326/6",
-      "addressLocality":"Teplice",
-      "postalCode":"41501",
-      "addressCountry":"CZ"
-    },
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"07:00","closes":"12:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"12:30","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"15:00","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"15:00","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"07:00","closes":"12:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"12:30","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"12:00"}
-    ],
-    "medicalSpecialty":"Ophthalmologic",
-    "url":"https://example.cz"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Physician",
-    "name":"MUDr. Yahia Al‑Dhabbi",
-    "medicalSpecialty":"Ophthalmology",
-    "worksFor":{"@type":"MedicalClinic","name":"ALDHABBI S.R.O – OČNÍ ORDINACE"},
-    "address":{"@type":"PostalAddress","streetAddress":"Mlýnská 326/6","addressLocality":"Teplice","postalCode":"41501","addressCountry":"CZ"},
-    "telephone":"+420705128840"
-  }
-  </script>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="ALDHABBI S.R.O domů">
-        <img src="2025-Logo.png" alt="Logo ALDHABBI S.R.O" />
-        <span class="brand-title">
-          <span class="name">ALDHABBI S.R.O</span>
-          <span class="dept">OČNÍ ORDINACE</span>
-        </span>
-      </a>
-      <nav aria-label="Hlavní menu">
-        <a href="#aktuality">Aktuality</a>
-        <a href="#sluzby">Služby</a>
-        <a href="#cenik">Ceník</a>
-        <a href="#pojistovny">Pojišťovny</a>
-      </nav>
-      <a href="tel:+420705128840" class="phone-call-container" aria-label="Volejte +420 705 128 840">Volejte: +420 705 128 840</a>
-    </div>
+  <header>
+    <img src="2025-Logo.jpg" alt="Logo Oční ordinace Muhdr. Yahia Al-Dhabbi">
+    <h1>Oční ordinace MUDr. Yahia Al-Dhabbi</h1>
+    <div style="font-size:1.15rem;">Teplice &nbsp;|&nbsp; Kvalitní péče o vaše oči</div>
   </header>
-
-  <!-- HERO -->
-  <main id="top" class="hero">
-    <div class="hero-content">
-      <span class="tag">Přijímáme nové pacienty</span>
-      <h1 class="headline">Oční ordinace – Teplice</h1>
-      <p class="note">
-        Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
-      </p>
-    </div>
-
-    <!-- DYNAMIC SLIDESHOW -->
-    <section aria-label="Fotogalerie ordinace" class="slider" id="slider">
-      <div class="slides">
-        <div class="slide" aria-label="Foto 1 – placeholder"></div>
-        <div class="slide" aria-label="Foto 2 – placeholder"></div>
-        <div class="slide" aria-label="Foto 3 – placeholder"></div>
-        <div class="slide" aria-label="Foto 4 – placeholder"></div>
-        <div class="slide" aria-label="Foto 5 – placeholder"></div>
+  <div class="container">
+    <!-- Photo slideshow -->
+    <section class="section" style="flex-basis:340px;">
+      <div class="section-title"><i>📸</i>Fotogalerie</div>
+      <div id="slideshow">
+        <img src="https://dhabbi.cz/wp-content/uploads/2022/01/ordinace-1.jpg" alt="Ordinace" class="active">
+        <img src="https://dhabbi.cz/wp-content/uploads/2022/01/ordinace-2.jpg" alt="Ordinace 2">
+        <img src="https://dhabbi.cz/wp-content/uploads/2022/01/ordinace-3.jpg" alt="Ordinace 3">
+        <!-- Add more images as desired -->
       </div>
-      <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
-      <button class="navbtn next" aria-label="Další snímek">›</button>
-      <div class="controls" aria-hidden="true"></div>
+      <script>
+        const slides = document.querySelectorAll('#slideshow img');
+        let index = 0;
+        setInterval(() => {
+          slides[index].classList.remove('active');
+          index = (index + 1) % slides.length;
+          slides[index].classList.add('active');
+        }, 2600);
+      </script>
     </section>
-
-    <!-- ORDINAČNÍ DOBA & MAP -->
-    <div class="hours-map-wrapper">
-      <section aria-label="Ordinační doba" class="hours-card">
-        <table class="hours-table" aria-describedby="hoursDescription">
-          <thead>
-            <tr><th scope="col">Den</th><th scope="col">Čas</th></tr>
-          </thead>
-          <tbody id="hoursTableBody"></tbody>
-        </table>
-        <p id="hoursDescription">Rezervujte jen telefonicky. Prosím nepsat.</p>
-      </section>
-
-      <section class="map-container" tabindex="0" role="link" aria-label="Adresa a mapa - Mlýnská 326/6 Teplice" id="mapSection">
-        <div class="address-map">Mlýnská 326/6, Teplice, 41501</div>
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
-            width="100%"
-            height="320"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa ordinace"
-            allowfullscreen
-          ></iframe>
+    <!-- Opening hours -->
+    <section class="section">
+      <div class="section-title"><i>⏰</i>Ordinační doba</div>
+      <table class="ordinace">
+        <tr><th>Den</th><th>Hodiny</th></tr>
+        <tr><td>Pondělí</td><td>07:00–12:00, 12:30–17:30</td></tr>
+        <tr><td>Úterý</td><td>15:00–17:30</td></tr>
+        <tr><td>Středa</td><td>15:00–17:30</td></tr>
+        <tr><td>Čtvrtek</td><td>07:00–12:00, 12:30–17:30</td></tr>
+        <tr><td>Pátek</td><td>07:00–12:00</td></tr>
+      </table>
+      <div style="margin-top:0.6rem;">
+        <span class="highlight">Telefonická objednání: </span>+420 705 128 840
+      </div>
+    </section>
+    <!-- Team intro -->
+    <section class="section">
+      <div class="section-title"><i>👨‍⚕️</i>Náš tým</div>
+      <div class="team-member">
+        <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al-Dhabbi">
+        <div>
+          <strong>MUDr. Yahia Al-Dhabbi</strong><br>
+          Oční lékař, vedoucí ordinace<br>
+          <span style="color:var(--blue2);font-size:1.03rem;">Specialista na diagnostiku a léčbu očních nemocí</span>
         </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- AKTUALITY -->
-  <section id="aktuality" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <h2>Aktuality</h2>
-    <div class="updates" id="updates" aria-live="polite" role="region" aria-label="Aktuality kliniky">
-      <article class="update" tabindex="0">
-        <time datetime="2025-08-01">1. 8. 2025</time>
-        <strong>Provoz beze změn.</strong> Aktuální ordinační doba viz výše.
-      </article>
-    </div>
-  </section>
-
-  <!-- SMLUVNÍ POJIŠŤOVNY -->
-  <section id="pojistovny" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <h2>Smluvní pojišťovny</h2>
-    <div class="ins-grid" tabindex="0">
-      <div class="insurance-logo"><img src="VZP.png" alt="Všeobecná zdravotní pojišťovna (VZP)" /></div>
-      <div class="insurance-logo"><img src="zpmv.png" alt="Zdravotní pojišťovna Ministerstva vnitra (ZPMV)" /></div>
-      <div class="insurance-logo"><img src="zps.png" alt="Zdravotní pojišťovna Škoda (ZPS)" /></div>
-      <div class="insurance-logo"><img src="OZP.png" alt="Oborová zdravotní pojišťovna (OZP)" /></div>
-      <div class="insurance-logo"><img src="VOZP.png" alt="Vojenská zdravotní pojišťovna (VOZP)" /></div>
-      <div class="insurance-logo"><img src="RBP.png" alt="Revírní bratrská pokladna (RBP)" /></div>
-      <div class="insurance-logo"><img src="CPZP.png" alt="Česká průmyslová zdravotní pojišťovna (ČPZP)" /></div>
-    </div>
-  </section>
-
-  <!-- O NÁS -->
-  <section id="o-nas" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <h2>O nás</h2>
-    <div class="doctor-section">
-      <div class="doctor-photo-wrapper">
-        <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al‑Dhabbi" class="doctor-photo" loading="lazy" width="220" height="auto" />
-        <h3 class="doctor-name">MUDr. Yahia Al‑Dhabbi</h3>
-        <span class="doctor-tag" aria-label="Oční lékař">Oční lékař</span>
       </div>
-      <div class="doctor-info">
-        <ul>
-          <li>Vystudoval všeobecné lékařství na LF UP v Olomouci v roce 1988.</li>
-          <li>Specializace v oboru oftalmologie I. stupně (LFUK FNKV, 1994).</li>
-          <li>Odborná a zdravotní způsobilost v oftalmologii.</li>
-          <li>Člen ČLK.</li>
-        </ul>
+      <!-- Add more team members if needed -->
+    </section>
+    <!-- Map -->
+    <section class="section" style="flex-basis:100%;">
+      <div class="section-title"><i>📍</i>Kde nás najdete</div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.8199234508177!2d13.828631816088257!3d50.64162287949881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a770a320f3507d%3A0xcca8864811ed6e4f!2sMUDr.%20Yahia%20Al-Dhabbi%20-%20O%C4%8Dn%C3%AD%20ordinace!5e0!3m2!1scs!2scz!4v1691583935051!5m2!1scs!2scz"
+          width="100%" height="220" style="border:0;" allowfullscreen loading="lazy"></iframe>
       </div>
-      <aside class="qr-section" aria-label="QR kód pro uložení kontaktu">
-        <p>Ulož mě</p>
-        <img src="https://qrcc.me/rk7a00zk0lpy" alt="QR kód pro uložení kontaktu" width="220" height="220" loading="lazy" />
-      </aside>
-    </div>
-  </section>
-
-  <!-- SLUZBY Section -->
-  <section id="sluzby-section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <div id="sluzby-info">
-      <h2>Další informace</h2>
-    </div>
-    <div id="sluzby-link">
-      <a href="sluzby.html" aria-label="Zobrazit služební stránku">Zobrazit Služby</a>
-      <a href="cenik.html" aria-label="Zobrazit ceník">Zobrazit Ceník</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <a href="#top" class="back-to-top" aria-label="Zpět na začátek stránky">Nahoru ↑</a>
+    </section>
+  </div>
+  <footer style="background:var(--blue1);text-align:center;color:var(--white);font-size:1rem;padding:1.2rem 0;">
+    &copy; 2025 Oční ordinace MUDr. Yahia Al-Dhabbi, Teplice. Vytvořeno pro moderní zdravotní péči.
   </footer>
-
-  <script>
-    // Fill ordinační doba table dynamically
-    const hours = [
-      { day: 'Pondělí', blocks: [['07:00', '12:00'], ['12:30', '17:30']] },
-      { day: 'Úterý', blocks: [['15:00', '17:30']] },
-      { day: 'Středa', blocks: [['15:00', '17:30']] },
-      { day: 'Čtvrtek', blocks: [['07:00', '12:00'], ['12:30', '17:30']] },
-      { day: 'Pátek', blocks: [['07:00', '12:00']] }
-    ];
-
-    const tbody = document.getElementById('hoursTableBody');
-    hours.forEach(({ day, blocks }) => {
-      const tr = document.createElement('tr');
-      const tdDay = document.createElement('td');
-      tdDay.textContent = day;
-      const tdTime = document.createElement('td');
-      tdTime.textContent = blocks.map(b => b.join(' - ')).join(' , ');
-      tr.appendChild(tdDay);
-      tr.appendChild(tdTime);
-      tbody.appendChild(tr);
-    });
-
-    // Map interaction: open Google Maps app on mobile, regular Google Maps on desktop
-    const mapSection = document.getElementById('mapSection');
-    mapSection.addEventListener('click', () => {
-      const url = 'https://maps.google.com/?q=Mlýnská+326/6,+Teplice';
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        window.open(`geo:50.6392606,13.8323696?q=Mlýnská+326/6,+Teplice`, '_blank');
-        setTimeout(() => window.open(url, '_blank'), 1000);
-      } else {
-        window.open(url, '_blank');
-      }
-    });
-
-    // Slideshow script
-    (function () {
-      const slider = document.getElementById('slider');
-      const slides = slider.querySelector('.slides');
-      const slideElements = slider.querySelectorAll('.slide');
-      const controls = slider.querySelector('.controls');
-      let index = 0, timer;
-
-      // Build dots
-      slideElements.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'dot';
-        dot.ariaLabel = 'Přejít na snímek ' + (i + 1);
-        dot.addEventListener('click', () => go(i));
-        controls.appendChild(dot);
-      });
-      const dots = [...controls.children];
-
-      function go(i) {
-        index = (i + slideElements.length) % slideElements.length;
-        slides.style.transform = `translateX(${-index * 100}%)`;
-        dots.forEach((dot, k) => dot.classList.toggle('active', k === index));
-        restart();
-      }
-      function next() { go(index + 1); }
-      function prev() { go(index - 1); }
-      slider.querySelector('.next').onclick = next;
-      slider.querySelector('.prev').onclick = prev;
-
-      function restart() {
-        clearInterval(timer);
-        timer = setInterval(next, 5000);
-      }
-      restart();
-      go(0);
-
-      let startX = null;
-      slider.addEventListener('pointerdown', e => { startX = e.clientX; });
-      slider.addEventListener('pointerup', e => {
-        if (startX === null) return;
-        const dx = e.clientX - startX;
-        if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-        startX = null;
-      }, { passive: true });
-    })();
-
-    // Year update
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
