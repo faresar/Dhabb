@@ -100,13 +100,13 @@ nav a:hover{color:var(--brand-700)}
       font-size:clamp(0.85rem,2.2vw,0.96rem);line-height:1.4;text-align:center;justify-content:center}
  
 /* ---------- HOURS ---------- */
-.hours-card{margin-top:0}
-.hours-grid{display:grid;gap:8px;margin-top:12px}
+.hours-card{margin-top:0;min-height:200px;display:flex;flex-direction:column}
+.hours-grid{display:grid;gap:8px;margin-top:12px;flex-grow:1}
 .hour-row{display:flex;justify-content:space-between;border:1px dashed var(--border);
           border-radius:10px;padding:8px 12px;font-size:clamp(0.85rem,2.2vw,0.95rem);
           align-items:center}
-.holidays-note{margin-top:12px;font-size:clamp(0.8rem,2vw,0.9rem);color:var(--muted);
-               text-align:center;font-style:italic}
+.holidays-note{margin-top:auto;font-size:clamp(0.8rem,2vw,0.9rem);color:var(--muted);
+               text-align:center;font-style:italic;padding-top:12px}
 @media(max-width:480px){
   .hour-row{flex-direction:column;align-items:flex-start;gap:4px;padding:10px 12px}
   .hour-row strong{font-size:0.9rem}
@@ -115,7 +115,7 @@ nav a:hover{color:var(--brand-700)}
  
 /* ---------- SLIDER ---------- */
 .slider{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#fff;
-        touch-action:pan-x;height:400px}
+        touch-action:pan-x;height:375px}
 @media(max-width:768px){.slider{height:300px}}
 @media(max-width:480px){.slider{height:250px}}
 
@@ -134,8 +134,49 @@ nav a:hover{color:var(--brand-700)}
 .dot:hover{background:rgba(255,255,255,0.8)}
 
 /* ---------- ACCESSIBILITY CARD ---------- */
-.accessibility-card{margin-top:12px}
+.accessibility-card{margin-top:12px;flex-grow:1;display:flex;align-items:center}
 .accessibility-note{font-size:clamp(0.85rem,2.2vw,0.9rem);color:var(--muted);line-height:1.4}
+ 
+/* ---------- CONTENT SECTIONS ---------- */
+.content-section{padding-block:clamp(24px,5vw,34px)}
+.section-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
+               margin-bottom:20px;text-align:left}
+.content-grid{display:grid;gap:20px}
+@media(min-width:768px){.content-grid{grid-template-columns:1fr 1fr;align-items:start}}
+
+/* ---------- AKTUALITY ---------- */
+.aktuality-content{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+                   padding:clamp(16px,3vw,20px);box-shadow:var(--shadow)}
+.aktuality-content ul{list-style:none;padding:0}
+.aktuality-content li{margin-bottom:12px;padding-left:20px;position:relative;
+                      font-size:clamp(0.9rem,2.2vw,1rem);line-height:1.5}
+.aktuality-content li::before{content:'•';position:absolute;left:0;color:var(--brand-700);
+                              font-weight:bold;font-size:1.2em}
+.aktuality-content strong{color:var(--brand-900)}
+
+/* ---------- INSURANCE SECTION ---------- */
+.insurance-section{padding-block:clamp(24px,5vw,34px);background:var(--surface)}
+.insurance-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
+                 margin-bottom:24px;text-align:center;text-transform:uppercase;letter-spacing:0.5px}
+.insurance-grid{display:grid;gap:16px;max-width:800px;margin:0 auto}
+.insurance-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;justify-items:center}
+.insurance-single{display:flex;justify-content:center}
+.insurance-logo{width:120px;height:80px;object-fit:contain;background:#fff;
+                border:1px solid var(--border);border-radius:8px;padding:8px;
+                box-shadow:var(--shadow-sm);transition:transform .3s ease}
+.insurance-logo:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+
+@media(max-width:768px){
+  .insurance-logo{width:100px;height:66px}
+  .insurance-row{grid-template-columns:repeat(2,1fr);gap:12px}
+  .insurance-single{grid-column:1/-1}
+}
+
+@media(max-width:480px){
+  .insurance-logo{width:90px;height:60px}
+  .insurance-row{grid-template-columns:1fr;gap:10px}
+  .insurance-single{grid-column:1}
+}
  
 /* ---------- SECTIONS ---------- */
 .section{padding-block:clamp(24px,5vw,34px)}
@@ -180,6 +221,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
   .cards-grid{grid-template-columns:1fr!important}
   .left-column{order:2}
   .slider{order:1}
+  .content-grid{grid-template-columns:1fr!important}
 }
 
 /* Loading state */
@@ -230,14 +272,14 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
         <!-- BUTTONS -->
         <div class="cta-row">
           <a href="tel:+420705128840" class="btn btn-solid">Volejte +420 705 128 840</a>
-          <a href="#kontakt" class="btn btn-outline">Kde nás najdete</a>
+          <a href="#kontakt" class="btn btn-outline">Mapa kde nás najdete</a>
         </div>
         
         <!-- HOURS CARD -->
         <section aria-label="Ordinační doba" class="card hours-card">
           <div class="warn">Rezervujte jen telefonicky. Prosím nepsat.</div>
           <div class="hours-grid" id="hoursBox"></div>
-          <div class="holidays-note">Ordinace nepracuje ve státní svátky.</div>
+          <div class="holidays-note">Ordinace je zavřena o státních svátcích.</div>
         </section>
 
         <!-- ACCESSIBILITY CARD -->
@@ -267,7 +309,48 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
   </div>
 </main>
 
-<!-- Add your other sections here if needed -->
+<!-- AKTUALITY SECTION -->
+<section id="aktuality" class="content-section">
+  <div class="container">
+    <h2 class="section-title">Aktuality</h2>
+    <div class="content-grid">
+      <div class="aktuality-content">
+        <ul>
+          <li><strong>Dovolená:</strong> 8-17.8 (Telefonické objednání v této době je možné)</li>
+          <li>V případě akutních potíží se prosím obraťte na Všeobecnou ambulanci Očního oddělení Nemocnice Teplice - pavilon A, 4. podlaží, telefon 417519570.</li>
+        </ul>
+      </div>
+      <div></div> <!-- Empty column for alignment on desktop -->
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE SECTION -->
+<section id="pojistovny" class="insurance-section">
+  <div class="container">
+    <h2 class="insurance-title">Smluvní pojišťovny</h2>
+    <div class="insurance-grid">
+      <!-- First row - 3 most important -->
+      <div class="insurance-row">
+        <img src="VZP.png" alt="Všeobecná zdravotní pojišťovna" class="insurance-logo">
+        <img src="VOZP.png" alt="Vojenská zdravotní pojišťovna" class="insurance-logo">
+        <img src="CPZP.png" alt="Česká průmyslová zdravotní pojišťovna" class="insurance-logo">
+      </div>
+      
+      <!-- Second row - 3 more -->
+      <div class="insurance-row">
+        <img src="OZP.png" alt="Oborová zdravotní pojišťovna" class="insurance-logo">
+        <img src="RBP.png" alt="Revírní bratrská pokladna" class="insurance-logo">
+        <img src="zpmv.png" alt="Zdravotní pojišťovna ministerstva vnitra" class="insurance-logo">
+      </div>
+      
+      <!-- Third row - 1 centered -->
+      <div class="insurance-single">
+        <img src="zps.png" alt="Zdravotní pojišťovna Škoda" class="insurance-logo">
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
