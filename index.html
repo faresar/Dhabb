@@ -44,8 +44,37 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
  
 /* ---------- NAV ---------- */
 nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-nav a{font-weight:600;color:var(--text);text-decoration:none;white-space:nowrap}
+nav a{font-weight:600;color:var(--text);text-decoration:none;white-space:nowrap;position:relative}
 nav a:hover{color:var(--brand-700)}
+
+/* Internal/anchor links - with underline */
+nav a[href^="#"]{
+  border-bottom:2px solid transparent;
+  transition:all 0.3s ease;
+}
+nav a[href^="#"]:hover{
+  border-bottom-color:var(--brand-500);
+}
+nav a[href^="#"]:before{
+  content:"§";
+  font-size:0.8em;
+  opacity:0.6;
+  margin-right:4px;
+}
+
+/* External links - with arrow */
+nav a:not([href^="#"]):not([href^="/"]):not([href*="ocni-ordinace"]):after{
+  content:"→";
+  margin-left:4px;
+  font-size:0.9em;
+  opacity:0.7;
+  transition:all 0.3s ease;
+}
+nav a:not([href^="#"]):not([href^="/"]):not([href*="ocni-ordinace"]):hover:after{
+  opacity:1;
+  transform:translateX(2px);
+}
+
 .btn{padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-block;
      min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center}
 .btn-solid{background:var(--brand-700);color:#fff;border:1px solid var(--brand-700);box-shadow:var(--shadow-sm)}
@@ -199,7 +228,7 @@ nav a:hover{color:var(--brand-700)}
 
 .doctor-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
              padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
-.doctor-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;
+.doctor-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;
               margin-bottom:16px;border:3px solid var(--brand-500);box-shadow:var(--shadow-sm)}
 .doctor-name{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:700;color:var(--brand-900);margin-bottom:8px}
 .doctor-title{display:inline-block;background:var(--brand-700);color:#fff;
@@ -212,9 +241,14 @@ nav a:hover{color:var(--brand-700)}
 .doctor-info li::before{content:'•';position:absolute;left:0;color:var(--brand-700);font-weight:bold}
 
 .qr-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-         padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
-.qr-title{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);margin-bottom:16px}
-.qr-code{width:200px;height:200px;object-fit:contain;border-radius:var(--radius);box-shadow:var(--shadow-sm);cursor:pointer}
+         padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center}
+.qr-title{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);margin-bottom:20px}
+.qr-code{width:240px;height:240px;object-fit:contain;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+
+/* Mobile-only clickable QR */
+@media(max-width:768px){
+  .qr-code{cursor:pointer}
+}
 
 /* ---------- MAP SECTION ---------- */
 .map-section{padding-block:clamp(24px,5vw,34px);background:var(--surface)}
@@ -310,9 +344,11 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
  
     <nav aria-label="Hlavní menu">
       <a href="#aktuality">Aktuality</a>
-      <a href="#sluzby">Služby</a>
-      <a href="#cenik">Ceník</a>
+      <a href="#lekar">Lékař</a>
       <a href="#pojistovny">Pojišťovny</a>
+      <a href="#mapa">Mapa</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="cenik.html">Ceník</a>
     </nav>
   </div>
 </header>
@@ -332,7 +368,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
         <!-- BUTTONS -->
         <div class="cta-row">
           <a href="tel:+420705128840" class="btn btn-solid">Volejte +420 705 128 840</a>
-          <a href="#kontakt" class="btn btn-outline">Mapa kde nás najdete</a>
+          <a href="#mapa" class="btn btn-outline">Mapa kde nás najdete</a>
         </div>
         
         <!-- HOURS CARD -->
@@ -415,7 +451,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 </section>
 
 <!-- DOCTOR SECTION -->
-<section class="doctor-section">
+<section id="lekar" class="doctor-section">
   <div class="container">
     <div class="doctor-grid">
       <!-- DOCTOR CARD -->
@@ -425,8 +461,8 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
         <span class="doctor-title">Oční lékař</span>
         <div class="doctor-info">
           <ul>
-            <li>Vystudoval jsem z všeobecné lékařské fakulty Palackého v Olomouci v r. 1988.</li>
-            <li>Specializoval jsem v oboru oftalmologie I. stupně z LFUK FNKV v Praze v roce 1994.</li>
+            <li>Vystudoval z všeobecné lékařské fakulty Palackého v Olomouci v r. 1988.</li>
+            <li>Specializoval se v oboru oftalmologie I. stupně z LFUK FNKV v Praze v roce 1994.</li>
             <li>Odborná a zdravotní způsobilost v oftalmologie.</li>
             <li>Člen ČLK.</li>
           </ul>
@@ -436,16 +472,14 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
       <!-- QR CARD -->
       <div class="qr-card">
         <h3 class="qr-title">Naskenujte a uložte kontakt</h3>
-        <a href="tel:+420705128840" class="qr-link">
-          <img src="2025QR.png" alt="QR kód pro kontakt" class="qr-code">
-        </a>
+        <img src="2025QR.png" alt="QR kód pro kontakt" class="qr-code" onclick="handleQRClick()">
       </div>
     </div>
   </div>
 </section>
 
 <!-- MAP SECTION -->
-<section id="kontakt" class="map-section">
+<section id="mapa" class="map-section">
   <div class="container">
     <h2 class="map-title">Mapa</h2>
     <div class="map-container">
@@ -477,10 +511,11 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
     </div>
     <div>
       <a href="#aktuality">Aktuality</a><br>
-      <a href="#sluzby">Služby</a><br>
-      <a href="#cenik">Ceník</a><br>
+      <a href="#lekar">Lékař</a><br>
+      <a href="sluzby.html">Služby</a><br>
+      <a href="cenik.html">Ceník</a><br>
       <a href="#pojistovny">Pojišťovny</a><br>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#mapa">Kontakt</a>
     </div>
     <div>
       © <span id="year"></span> ALDHABBI S.R.O
@@ -613,6 +648,14 @@ hours.forEach(h=>{
    reset();
  },{passive:true});
 })();
+
+/* ----------- QR CODE MOBILE CLICK ----------- */
+function handleQRClick() {
+  // Only work on mobile devices (screen width less than 768px)
+  if (window.innerWidth <= 768) {
+    window.open('https://qrcc.me/rk7a00zk0lpy', '_blank');
+  }
+}
 
 /* ----------- BACK TO TOP BUTTON ----------- */
 (function(){
