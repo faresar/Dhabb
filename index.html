@@ -122,6 +122,13 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
 
 .nav-external a.current{color:var(--brand-700);font-weight:700}
 
+  .btn{padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-block;
+     min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center}
+.btn-solid{background:var(--brand-700);color:#fff;border:1px solid var(--brand-700);box-shadow:var(--shadow-sm)}
+.btn-solid:hover{background:var(--brand-900)}
+.btn-outline{background:#fff;border:1px solid var(--border);color:var(--brand-700)}
+.btn-outline:hover{background:var(--brand-700);color:#fff}
+
  
 /* ---------- MOBILE MENU ---------- */
 .menu-toggle{display:none;background:none;border:0;font-size:1.9rem;color:var(--brand-900);
@@ -786,6 +793,7 @@ document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
+
 
 
 
