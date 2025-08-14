@@ -3,9 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
-<meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty.">
+<title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice - MUDr. Yahia Al-Dhabbi</title>
+<meta name="description" content="Oční ordinace v Teplicích - MUDr. Yahia Al-Dhabbi. Specializace v oftalmologii, přijímáme nové pacienty. Objednání telefonicky +420 705 128 840. Mlýnská 326/6, Teplice.">
+<meta name="keywords" content="oční ordinace, Teplice, oftalmolog, MUDr. Yahia Al-Dhabbi, Al-Dhabbi, oční lékař, oční vyšetření, pojišťovny, VZP, VOZP, CPZP">
+<meta name="author" content="ALDHABBI S.R.O">
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="">
+<meta property="og:title" content="ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice - MUDr. Yahia Al-Dhabbi">
+<meta property="og:description" content="Oční ordinace v Teplicích - MUDr. Yahia Al-Dhabbi. Specializace v oftalmologii, přijímáme nové pacienty. Objednání telefonicky +420 705 128 840.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.dhabbi.cz">
+<meta property="og:image" content="https://www.dhabbi.cz/2025-logo-2.png">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice">
+<meta name="twitter:description" content="Oční ordinace v Teplicích - MUDr. Yahia Al-Dhabbi. Specializace v oftalmologii, přijímáme nové pacienty.">
+<link rel="canonical" href="https://www.dhabbi.cz">
 <link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<!-- Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "ALDHABBI S.R.O – OČNÍ ORDINACE",
+  "image": "https://www.dhabbi.cz/2025-logo-2.png",
+  "description": "Oční ordinace v Teplicích - MUDr. Yahia Al-Dhabbi. Specializace v oftalmologii, přijímáme nové pacienty.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mlýnská 326/6",
+    "addressLocality": "Teplice",
+    "postalCode": "41501",
+    "addressCountry": "CZ"
+  },
+  "telephone": "+420705128840",
+  "email": "dhabbiocni@gmail.com",
+  "url": "https://www.dhabbi.cz",
+  "sameAs": [],
+  "openingHours": [
+    "Mo 07:00-12:00,12:30-17:30",
+    "Tu 15:00-17:30",
+    "We 15:00-17:30",
+    "Th 07:00-12:00,12:30-17:30",
+    "Fr 07:00-12:00"
+  ],
+  "medicalSpecialty": "Oftalmologie",
+  "physician": {
+    "@type": "Physician",
+    "name": "MUDr. Yahia Al-Dhabbi",
+    "medicalSpecialty": "Oftalmologie"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "50.6392606",
+    "longitude": "13.8323696"
+  }
+}
+</script>
  
 <style>
 /* ---------- CSS VARIABLES ---------- */
@@ -21,6 +76,7 @@
   --radius:14px;
   --shadow:0 6px 22px rgba(10,79,122,.10);
   --shadow-sm:0 2px 8px rgba(10,79,122,.08);
+  --header-height:70px;
 }
 
 /* ---------- FONT IMPORTS ---------- */
@@ -28,7 +84,7 @@
  
 /* ---------- RESET ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-height)}
 body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
      line-height:1.6;color:var(--text);background:var(--bg);overflow-x:hidden}
  
@@ -37,7 +93,7 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
 .site-header{position:sticky;top:0;z-index:50;background:#fffefef5;
              backdrop-filter:saturate(160%) blur(10px);
              border-bottom:1px solid var(--border)}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:70px;flex-wrap:wrap}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:var(--header-height);flex-wrap:wrap}
  
 .brand{display:flex;align-items:center;text-decoration:none;gap:12px;flex-shrink:0}
 .brand img{height:48px;object-fit:contain;width:auto}
@@ -81,18 +137,18 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
   
   .nav-internal,.nav-external{flex-direction:column;margin:0;width:100%}
   
-  /* Mobile internal links - with light blue background */
-  .nav-internal{background:color-mix(in oklab,var(--brand-500) 25%,white);
-                border-radius:12px;padding:16px;margin-bottom:20px}
-  .nav-internal a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center;
-                  color:var(--brand-900);font-weight:700}
-  .nav-internal a:hover{background:color-mix(in oklab,var(--brand-500) 35%,white)}
-  
-  /* Mobile external links - darker styling */
-  .nav-external{background:var(--surface);border-radius:12px;padding:16px}
+  /* Mobile external links first - darker styling */
+  .nav-external{background:var(--surface);border-radius:12px;padding:16px;margin-bottom:20px;order:1}
   .nav-external a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center;
                   color:var(--brand-900);font-weight:600}
   .nav-external a:hover{background:var(--brand-500);color:#fff}
+  
+  /* Mobile internal links - with light blue background */
+  .nav-internal{background:color-mix(in oklab,var(--brand-500) 25%,white);
+                border-radius:12px;padding:16px;order:2}
+  .nav-internal a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center;
+                  color:var(--brand-900);font-weight:700}
+  .nav-internal a:hover{background:color-mix(in oklab,var(--brand-500) 35%,white)}
   
   .menu-toggle{display:flex;align-items:center;justify-content:center}
 }
@@ -224,7 +280,7 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
 
 .doctor-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
              padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
-.doctor-photo{width:220px;height:220px;border-radius:16px;object-fit:cover;
+.doctor-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;
               margin-bottom:16px;border:3px solid var(--brand-500);box-shadow:var(--shadow-sm)}
 .doctor-name{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:700;color:var(--brand-900);margin-bottom:8px}
 .doctor-title{display:inline-block;background:var(--brand-700);color:#fff;
@@ -291,7 +347,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 .footer-grid a{color:var(--brand-700);text-decoration:none}
 .footer-grid a:hover{text-decoration:underline}
 
-.footer-main{display:flex;flex-direction:column;gap:4px}
+.footer-main{display:flex;flex-direction:column;gap:2px}
 .footer-external{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
 .footer-links{display:flex;gap:16px;margin-bottom:12px}
 .footer-links a{font-weight:600}
@@ -354,7 +410,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
     <div class="nav-container">
       <!-- INTERNAL NAVIGATION - CENTER WITH LIGHT BLUE -->
       <nav class="nav-internal" aria-label="Sekce stránky">
-        <a href="#uvod">Úvod</a>
         <a href="#aktuality">Aktuality</a>
         <a href="#lekar">Lékař</a>
         <a href="#pojistovny">Pojišťovny</a>
@@ -363,6 +418,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 
       <!-- EXTERNAL NAVIGATION - RIGHT SIDE DARKER -->
       <nav class="nav-external" aria-label="Externí stránky">
+        <a href="#uvod">Úvod</a>
         <a href="sluzby.html">Služby</a>
         <a href="cenik.html">Ceník</a>
       </nav>
@@ -559,7 +615,7 @@ function closeMenu(){
 }
 
 toggleBtn.addEventListener('click',toggleMenu);
-overlay.addEventListener('click',toggleMenu);
+overlay.addEventListener('click',closeMenu);
 
 // Close menu when clicking any link
 const navLinks = document.querySelectorAll('.nav-internal a, .nav-external a');
@@ -570,7 +626,7 @@ navLinks.forEach(link => {
 // Close menu on escape
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&navContainer.classList.contains('open')){
-    toggleMenu();
+    closeMenu();
   }
 });
  
