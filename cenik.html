@@ -57,12 +57,14 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
 /* ---------- NAV ---------- */
 .nav-container{display:flex;align-items:center;gap:24px;flex:1;justify-content:center}
 
-.nav-internal{display:flex;align-items:center;gap:8px;background:color-mix(in oklab,var(--brand-500) 20%,white);
-               padding:8px 16px;border-radius:20px}
+/* Internal navigation - center with tighter light blue background */
+.nav-internal{display:flex;align-items:center;gap:4px;background:color-mix(in oklab,var(--brand-500) 20%,white);
+               padding:4px 8px;border-radius:20px}
 .nav-internal a{font-weight:600;color:var(--brand-900);text-decoration:none;white-space:nowrap;
-                padding:6px 12px;border-radius:12px;transition:all 0.3s ease}
+                padding:8px 12px;border-radius:12px;transition:all 0.3s ease}
 .nav-internal a:hover{background:color-mix(in oklab,var(--brand-500) 30%,white);color:var(--brand-900)}
 
+/* External navigation - right side with darker color */
 .nav-external{display:flex;align-items:center;gap:12px;margin-left:24px}
 .nav-external a{font-weight:600;color:var(--brand-900);text-decoration:none;white-space:nowrap;
                 transition:all 0.3s ease}
@@ -109,6 +111,7 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
   
   .menu-toggle{display:flex;align-items:center;justify-content:center}
 }
+
 
 
 /* ---------- HERO ---------- */
@@ -351,6 +354,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 </footer>
  
 <script>
+/* ----------- HAMBURGER TOGGLE ----------- */
 const toggleBtn=document.querySelector('.menu-toggle');
 const navContainer=document.querySelector('.nav-container');
 const overlay=document.querySelector('.menu-overlay');
@@ -372,16 +376,32 @@ function closeMenu(){
 toggleBtn.addEventListener('click',toggleMenu);
 overlay.addEventListener('click',closeMenu);
 
+// Enhanced click-outside functionality
+document.addEventListener('click', function(e) {
+  // Check if menu is open and click is outside menu area
+  if (navContainer.classList.contains('open')) {
+    const isClickInsideMenu = navContainer.contains(e.target);
+    const isClickOnToggle = toggleBtn.contains(e.target);
+    
+    if (!isClickInsideMenu && !isClickOnToggle) {
+      closeMenu();
+    }
+  }
+});
+
+// Close menu when clicking any link
 const navLinks = document.querySelectorAll('.nav-internal a, .nav-external a');
 navLinks.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
+// Close menu on escape
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&navContainer.classList.contains('open')){
     closeMenu();
   }
 });
+
 
 (function(){
   const backToTopBtn = document.getElementById('backToTop');
@@ -406,4 +426,5 @@ document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
+
 
