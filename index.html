@@ -1,669 +1,677 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
-  <meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty." />
-  <meta name="theme-color" content="#0d6efd" />
-  <link rel="icon" href="favicon.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALDHABBI S.R.O – OČNÍ ORDINACE | Teplice</title>
+<meta name="description" content="ALDHABBI S.R.O – OČNÍ ORDINACE v Teplicích. Rezervujte jen telefonicky: +420 705 128 840. Přijímáme nové pacienty.">
+<link rel="icon" href="favicon.png">
+ 
+<style>
+/* ---------- CSS VARIABLES ---------- */
+:root{
+  --brand-900:#0a4f7a;
+  --brand-700:#1173a6;
+  --brand-500:#2ea3d4;
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#5a6270;
+  --surface:#f6f9fc;
+  --border:#e7edf3;
+  --radius:14px;
+  --shadow:0 6px 22px rgba(10,79,122,.10);
+  --shadow-sm:0 2px 8px rgba(10,79,122,.08);
+}
 
-  <style>
-    :root {
-      --brand-900: #0a4f7a;
-      --brand-700: #1173a6;
-      --brand-500: #2ea3d4;
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #5a6270;
-      --surface: #f6f9fc;
-      --border: #e7edf3;
-      --radius: 0;
-      --shadow: 0 6px 22px rgba(10, 79, 122, 0.1);
-      --shadow-sm: 0 2px 8px rgba(10, 79, 122, 0.08);
-    }
+/* ---------- FONT IMPORTS ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+ 
+/* ---------- RESET ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+     line-height:1.6;color:var(--text);background:var(--bg);overflow-x:hidden}
+ 
+/* ---------- LAYOUT ---------- */
+.container{max-width:1180px;margin-inline:auto;padding-inline:16px}
+.site-header{position:sticky;top:0;z-index:50;background:#fffefef5;
+             backdrop-filter:saturate(160%) blur(10px);
+             border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:70px;flex-wrap:wrap}
+ 
+.brand{display:flex;align-items:center;text-decoration:none;gap:12px;flex-shrink:0}
+.brand img{height:48px;object-fit:contain;width:auto}
+ 
+/* ---------- NAV ---------- */
+.nav-container{display:flex;align-items:center;gap:24px;flex:1;justify-content:space-between}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior:smooth; }
-    body {
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.6;
-    }
-    .container { max-width:1180px;margin:0 auto;padding:0 16px;}
-    .site-header {
-      position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);
-      border-bottom:1px solid var(--border);
-      padding:0 20px;
-      user-select:none;
-    }
-    .nav {
-      display: flex; align-items:center; justify-content:space-between;
-      min-height:70px; flex-wrap:nowrap; gap:12px; position:relative;
-    }
-    .brand {
-      display:flex;align-items:center;gap:14px;text-decoration:none;user-select:none;flex:1 1 auto;
-    }
-    .brand img { width:56px;height:56px;object-fit:contain;display:block;}
-    .brand-title {display:flex;flex-direction:column;line-height:1.1;user-select:none;font-weight:600;color:var(--brand-900);font-size:1rem;white-space:nowrap;margin-top:6px;}
-    .brand-title .dept {font-weight:900;letter-spacing:.15em;color:var(--brand-700);font-size:1.15rem;text-transform:uppercase;line-height:1.1;font-family:"Segoe UI Black","Arial Black",sans-serif;margin-top:-4px;}
-    #menu-toggle {
-      display:none;
-      background:transparent;
-      border:none;
-      font-size:2.5rem;
-      cursor:pointer;
-      color:var(--brand-900);
-      margin-left:20px;
-    }
-    .nav-links {
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-shrink:0;
-      position:relative;
-      justify-content: center;
-      margin:0 auto;
-      width:100%;
-    }
-    .nav-links a {
-      color:var(--text);
-      font-weight:600;
-      padding:10px 16px;
-      border-radius:12px;
-      border:1px solid transparent;
-      text-decoration:none;
-      transition: background-color .22s, border-color .15s;
-      user-select:none;
-      font-size:1.06rem;
-      margin: 0 2px;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      background-color: #e8f0fa;
-      border: 1px solid var(--brand-700);
-      color: var(--brand-700);
-      text-decoration: none;
-    }
-    .nav-links a.uvod {
-      background: var(--brand-500);
-      color: #fff;
-      border: 1px solid var(--brand-700);
-      font-weight: 700;
-    }
-    .nav-links {
-      justify-content: center;
-      /* Centering menu links */
-    }
+/* Internal navigation - center with light blue background */
+.nav-internal{display:flex;align-items:center;gap:8px;background:color-mix(in oklab,var(--brand-500) 20%,white);
+               padding:8px 16px;border-radius:20px;margin-left:auto;margin-right:auto}
+.nav-internal a{font-weight:600;color:var(--brand-900);text-decoration:none;white-space:nowrap;
+                padding:6px 12px;border-radius:12px;transition:all 0.3s ease}
+.nav-internal a:hover{background:color-mix(in oklab,var(--brand-500) 30%,white);color:var(--brand-900)}
 
-    /* MOBILE NAV MENU */
-    @media (max-width:900px) {
-      .site-header .container { padding: 0 10px;}
-      .nav-links {
-        flex-direction:column;
-        background:#fff;
-        box-shadow:0 6px 22px rgba(10,79,122,.11);
-        position:absolute;top:70px;right:0;left:0;z-index:999;
-        padding:18px;display:none;
-      }
-      .nav-links.show {
-        display:flex;
-      }
-      #menu-toggle { display:block; }
-    }
+/* External navigation - right side with darker color */
+.nav-external{display:flex;align-items:center;gap:12px;margin-left:auto}
+.nav-external a{font-weight:600;color:var(--brand-900);text-decoration:none;white-space:nowrap;
+                transition:all 0.3s ease}
+.nav-external a:hover{color:var(--brand-700)}
 
-    .phone-call-container {
-      max-width:1180px;
-      margin:24px auto 0 auto;
-      padding:12px 20px;
-      border:1px solid var(--brand-700);
-      background:var(--brand-700);
-      color:#fff;font-weight:700;
-      font-size:1.1rem;
-      border-radius:12px;
-      display:flex;
-      justify-content:center;
-      user-select:none;
-      cursor:pointer;
-      text-decoration:none;
-      width:fit-content;
-    }
-    .phone-call-container:hover {
-      background:var(--brand-900);
-      border-color:var(--brand-900);
-      color:#fff;
-    }
+.btn{padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-block;
+     min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center}
+.btn-solid{background:var(--brand-700);color:#fff;border:1px solid var(--brand-700);box-shadow:var(--shadow-sm)}
+.btn-solid:hover{background:var(--brand-900)}
+.btn-outline{background:#fff;border:1px solid var(--border);color:var(--brand-700)}
+.btn-outline:hover{background:var(--brand-700);color:#fff}
+ 
+/* ---------- MOBILE MENU ---------- */
+.menu-toggle{display:none;background:none;border:0;font-size:1.9rem;color:var(--brand-900);
+             padding:8px;min-height:44px;min-width:44px}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:49}
+.menu-overlay.open{display:block}
 
-    .hero {padding:28px 0 0 0;background:transparent;}
-    .hero-content {max-width:1180px;margin:0 auto 48px auto;padding:0 16px;}
-    .tag{
-      display: inline-block;
-      background: color-mix(in oklab,var(--brand-500) 15%,white);
-      color:var(--brand-900);
-      border:1px solid var(--border);
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:700;
-      margin-bottom:12px;
-      white-space:nowrap;
-      user-select:none;
-    }
-    .headline {
-      font-size:2rem;
-      font-weight:700;
-      line-height:1.15;
-      margin-bottom:16px;
-    }
-    .note{color:var(--muted);font-size:1rem;line-height:1.3;margin-bottom:24px;max-width:700px;}
+@media(max-width:768px){
+  .nav{position:relative}
+  .nav-container{position:fixed;inset:0 0 auto auto;width:280px;max-width:85%;
+                 background:#fff;height:100dvh;flex-direction:column;justify-content:flex-start;
+                 padding:80px 20px 20px;transform:translateX(100%);transition:transform .3s ease;
+                 box-shadow:var(--shadow);z-index:50}
+  .nav-container.open{transform:translateX(0)}
+  .nav-internal,.nav-external{flex-direction:column;background:transparent;padding:0;margin:0}
+  .nav-internal a,.nav-external a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center}
+  .nav-internal a:hover,.nav-external a:hover{background:var(--surface)}
+  .menu-toggle{display:flex;align-items:center;justify-content:center}
+}
+ 
+/* ---------- HERO ---------- */
+.hero{padding-block:clamp(20px,4vw,28px);background:linear-gradient(180deg,
+      color-mix(in oklab,var(--brand-500) 10%,white),transparent 60%)}
+.hero-grid{display:grid;gap:clamp(16px,4vw,24px);align-items:start}
+@media(min-width:768px){.hero-grid{grid-template-columns:1fr;align-items:center}}
+ 
+.hero-content{margin-bottom:24px}
+.headline{font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-block:.2em .1em;line-height:1.2;font-weight:700;color:var(--brand-900);letter-spacing:-0.01em}
+.address{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--muted);font-weight:500;margin-bottom:18px;margin-top:4px}
+.tag{display:inline-block;background:color-mix(in oklab,var(--brand-500) 15%,white);
+     color:var(--brand-900);border:1px solid var(--border);
+     padding:6px 10px;border-radius:999px;font-weight:700;font-size:clamp(0.8rem,2.5vw,0.9rem)}
+.note{color:var(--muted);font-size:clamp(0.85rem,2.2vw,0.9rem);line-height:1.5}
+ 
+/* ---------- MAIN LAYOUT ---------- */
+.main-layout{display:grid;gap:20px;margin-top:0}
+@media(min-width:768px){
+  .main-layout{grid-template-columns:auto 1fr;align-items:start}
+}
 
-    /* SLIDESHOW */
-    .slider{
-      position:relative;
-      overflow:hidden;
-      border-radius:0;
-      border:1px solid var(--border);
-      background:#fff;
-      width:100%;
-      max-width:1180px;
-      margin:0 auto;
-      user-select:none;
-      height:480px;
-      margin-bottom:48px;
-    }
-    .slides{display:flex;transition:transform .6s ease;height:100%;}
-    .slide{min-width:100%;height:100%;background:#dfeffd center/cover no-repeat;}
-    .slide:nth-child(1){background-image:url('clinic-1.jpg');}
-    .slide:nth-child(2){background-image:url('clinic-2.jpg');}
-    .slide:nth-child(3){background-image:url('clinic-3.jpg');}
-    .slide:nth-child(4){background-image:url('clinic-4.jpg');}
-    .slide:nth-child(5){background-image:url('clinic-5.jpg');}
-    .navbtn {
-      position:absolute;
-      top:50%;
-      background:#ffffffd9;
-      border:1px solid var(--border);
-      width:42px;height:42px;border-radius:0;
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      user-select:none;
-      transform:translateY(-50%);
-      z-index:1;
-    }
-    .navbtn.prev{left:10px;}
-    .navbtn.next{right:10px;}
-    .controls{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;gap:8px;user-select:none;z-index:1;}
-    .dot{width:10px;height:10px;border-radius:50%;background:#c8d9e7;border:1px solid #9ab6c9;cursor:pointer;}
-    .dot.active{background:var(--brand-700);border-color:var(--brand-900);}
-    .hours-map-wrapper{
-      display:flex;align-items:stretch;gap:24px;max-width:1180px;margin:0 auto 40px auto;padding:0 16px;user-select:none;
-    }
-    .hours-card,.map-container{
-      width:50%;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px 18px 18px 18px;box-shadow:var(--shadow);
-      display:flex;flex-direction:column;justify-content:space-between;font-weight:700;box-sizing:border-box;min-height:390px;max-height:480px;
-    }
-    .hours-card{font-size:16px;}
-    .hours-table{
-      width:100%;border-collapse:collapse;border-radius:var(--radius);overflow:hidden;flex-grow:1;table-layout:fixed;
-    }
-    .hours-table th,.hours-table td{
-      padding:10px 16px;border-bottom:1px solid var(--border);text-align:center;width:50%;vertical-align:middle;
-    }
-    .hours-table th{background:var(--brand-500);color:#fff;letter-spacing:.02em;}
-    .hours-table td:first-child{text-align:left;padding-left:18px;font-weight:600;}
-    .hours-table tr:last-child td{border-bottom:none;}
-    #hoursDescription{margin-top:12px;font-weight:700;color:#b80000;font-size:1rem;text-align:center;}
-    .map-container{padding-bottom:0;}
-    .address-map{
-      padding:12px 16px 8px 16px;font-weight:700;text-align:center;color:var(--brand-900);font-size:1.3rem;border-bottom:1px solid var(--border);user-select:none;
-    }
-    .map{flex-grow:1;overflow:hidden;border-radius:0;margin-top:0;height:350px;}
-    .map iframe{width:100%;height:100%;border:none;pointer-events:auto;border-radius:0 0 var(--radius) var(--radius);}
-    .updates{max-width:1180px;margin:0 auto 40px auto;padding:0 16px;}
-    .updates > h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: var(--brand-900);
-      font-weight: 800;
-    }
-    .update{border-left:4px solid var(--brand-500);padding:10px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);font-size:1rem;line-height:1.3;margin-bottom:16px;margin-left:auto;margin-right:auto;max-width:680px;}
-    .update time{display:block;font-size:.92rem;color:var(--muted);margin-bottom:6px;font-weight:700;}
-    .insurances{
-      margin:0 auto 40px auto;max-width:1180px;text-align:center;user-select:none;padding:0 16px;background:transparent;
-    }
-    .insurances h2{margin-bottom:18px;color:var(--brand-900);font-weight:800;text-align:center;}
-    .ins-grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;justify-items:center;max-width:830px;margin:0 auto;
-    }
-    .insurance-logo{
-      background:linear-gradient(180deg,#f8fcff,#f4f8fb);
-      border:1px solid var(--border);border-radius:12px;
-      width:300px;height:140px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:box-shadow.3s ease;overflow:hidden;
-    }
-    .insurance-logo img{max-width:270px;max-height:120px;object-fit:contain;display:block;margin:auto;}
-    .insurance-logo:hover{box-shadow:0 12px 30px rgba(46,163,212,0.4);}
-    .doctor-section{
-      display:flex;max-width:1180px;margin:0 auto 40px auto;padding:0 16px;gap:38px;justify-content:flex-start;align-items:flex-start;user-select:none;
-    }
-    .doctor-photo-wrapper{
-      flex-shrink:0;display:flex;flex-direction:column;align-items:center;width:270px;margin-right:12px;
-    }
-    .doctor-photo {
-      border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow-sm);width:220px;height:220px;object-fit:cover;display:block;
-    }
-    .doctor-name {
-      text-align:center;
-      font-weight:700;
-      font-size:1.2rem;
-      margin:10px 0 10px 0;
-      user-select:none;
-    }
-    .doctor-tag {
-      background:var(--brand-700);
-      color:#fff;
-      padding:7px 16px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:1.08rem;
-      user-select:none;
-      pointer-events:none;
-      box-shadow:var(--shadow-sm);
-      white-space:nowrap;
-      font-family:"Segoe UI Black","Arial Black",sans-serif;
-      text-align:center;
-      margin-top:0;
-      width:90%;
-      margin-bottom:0;
-    }
-    .doctor-info{
-      flex:1;
-      font-size:1.08rem;
-      line-height:1.45;
-      padding-top:5px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      margin-right:10px;
-    }
-    .doctor-info ul{padding-left:20px;margin:0;}
-    .doctor-info ul li{margin-bottom:10px;}
-    .qr-section{
-      width:220px;flex-shrink:0;text-align:center;user-select:none;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;gap:10px;padding-top:32px;
-    }
-    .qr-section p{font-weight:700;color:var(--brand-700);font-size:1.18rem;user-select:none;margin:0;}
-    .qr-section img{width:220px;height:220px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow-sm);cursor:pointer;transition:box-shadow.3s ease;background:#fff;}
-    .qr-section img:hover{box-shadow:0 10px 25px rgba(46,163,212,0.4);}
-    #sluzby-section{max-width:1180px;margin:0 auto 40px auto;padding:0 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:48px;user-select:none;}
-    #sluzby-info{font-size:1rem;color:var(--text);}
-    #sluzby-info h2{font-weight:800;color:var(--brand-900);margin-bottom:10px;}
-    #sluzby-link{display:flex;gap:16px;}
-    #sluzby-link a{border:1px solid var(--brand-700);padding:10px 20px;border-radius:12px;background:#fff;color:var(--brand-700);font-weight:700;text-decoration:none;text-align:center;box-shadow:var(--shadow-sm);transition:background-color.25s ease,color.25s ease;white-space:nowrap;user-select:none;min-width:140px;}
-    #sluzby-link a:hover{background:var(--brand-700);color:#fff;}
-    footer{
-      border-top:1px solid var(--border);
-      background:#fff;
-      margin:0 auto 20px auto;
-      max-width:1180px;
-      user-select:none;
-      padding:18px 16px 8px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      font-size: 1rem;
-    }
-    .footer-left {
-      text-align: left; flex: 2 1 320px; color: var(--muted);
-    }
-    .footer-center {
-      text-align: center; flex: 1 1 200px;
-    }
-    .footer-right {
-      text-align: right; flex: 1 1 120px; font-size: 0.97rem; color: var(--brand-700);
-    }
-    .footer-company {
-      font-weight:600;
-      color:var(--brand-900);
-      font-size:1rem;
-    }
-    .footer-links {
-      margin:14px 0 4px 0;
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-    }
-    .footer-links a {
-      border:1px solid var(--brand-700);
-      background:#fff;
-      color:var(--brand-700);
-      font-weight:700;
-      font-size:1rem;
-      padding:8px 22px;
-      border-radius:10px;
-      text-decoration:none;
-      transition:background-color.25s,border-color.25s;
-      box-shadow:var(--shadow-sm);
-      user-select:none;
-    }
-    .footer-links a:hover{background:var(--brand-700);color:#fff;}
-    .footer-ico { margin-top:2px;font-size:.97rem; color:var(--brand-700);}
-    .footer-copyright{text-align:center;width:100%;font-size:0.88rem;color:var(--muted);margin-top:4px;}
-    :focus-visible { outline:3px solid color-mix(in oklab,var(--brand-500) 50%,white); outline-offset:2px;border-radius:10px;}
-    @media (max-width:900px) {
-      .nav { flex-wrap:wrap; }
-      .phone-call-container { font-size:.95rem; padding:8px 10px;}
-      .hours-map-wrapper { flex-direction:column; align-items:center; margin-bottom:40px; padding:0 16px;}
-      .hours-card, .map-container { max-width:100%!important; width:100%!important; min-height:0; max-height:none;}
-      .doctor-section{flex-direction:column;align-items:center;}
-      .doctor-photo-wrapper{width:220px;}
-      .doctor-info{width:100%;margin-top:16px;text-align:center;justify-content:start;}
-      .qr-section{width:200px;margin-top:24px;margin-left:auto;margin-right:auto;}
-      #sluzby-section{flex-direction:column;gap:24px;}
-    }
-  </style>
+.left-section{display:flex;flex-direction:column;gap:12px;width:100%}
+@media(min-width:768px){
+  .left-section{width:auto;min-width:300px}
+}
 
-  <!-- JSON-LD unchanged -->
-  <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"MedicalClinic",
-    "name":"ALDHABBI S.R.O – OČNÍ ORDINACE",
-    "telephone":"+420705128840",
-    "address":{"@type":"PostalAddress","streetAddress":"Mlýnská 326/6","addressLocality":"Teplice","postalCode":"41501","addressCountry":"CZ"},
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"07:00","closes":"12:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"12:30","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"15:00","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"15:00","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"07:00","closes":"12:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"12:30","closes":"17:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"12:00"}
-    ],
-    "medicalSpecialty":"Ophthalmologic","url":"https://example.cz"
-  }</script>
-  <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"Physician",
-    "name":"MUDr. Yahia Al‑Dhabbi",
-    "medicalSpecialty":"Ophthalmology",
-    "worksFor":{"@type":"MedicalClinic","name":"ALDHABBI S.R.O – OČNÍ ORDINACE"},
-    "address":{"@type":"PostalAddress","streetAddress":"Mlýnská 326/6","addressLocality":"Teplice","postalCode":"41501","addressCountry":"CZ"},
-    "telephone":"+420705128840"
-  }</script>
+.right-section{display:grid;gap:8px;width:100%}
+@media(min-width:768px){
+  .right-section{grid-template-rows:1fr auto}
+}
+
+.cta-row{display:flex;flex-direction:column;gap:12px;margin-bottom:12px}
+@media(min-width:480px){.cta-row{flex-direction:row;flex-wrap:wrap}}
+
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+      padding:clamp(14px,3vw,18px);box-shadow:var(--shadow);height:fit-content}
+.warn{display:flex;align-items:center;gap:8px;color:#b80000;font-weight:800;
+      font-size:clamp(0.85rem,2.2vw,0.96rem);line-height:1.4;text-align:center;justify-content:center}
+ 
+/* ---------- HOURS ---------- */
+.hours-card{margin-top:0;min-height:320px;display:flex;flex-direction:column}
+.hours-grid{display:grid;gap:8px;margin-top:12px;flex-grow:1}
+.hour-row{display:flex;justify-content:space-between;border:1px dashed var(--border);
+          border-radius:10px;padding:8px 12px;font-size:clamp(0.85rem,2.2vw,0.95rem);
+          align-items:center}
+.holidays-note{margin-top:auto;font-size:clamp(0.8rem,2vw,0.9rem);color:var(--muted);
+               text-align:center;font-style:italic;padding-top:12px}
+@media(max-width:480px){
+  .hour-row{flex-direction:column;align-items:flex-start;gap:4px;padding:10px 12px}
+  .hour-row strong{font-size:0.9rem}
+  .hour-row span{font-size:0.85rem;color:var(--muted)}
+}
+ 
+/* ---------- SLIDER ---------- */
+.slider{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#fff;
+        touch-action:pan-x;height:347.5px;width:100%}
+@media(max-width:768px){.slider{height:278px}}
+@media(max-width:480px){.slider{height:222px}}
+
+.slides{display:flex;transition:transform .5s ease;height:100%}
+.slide{min-width:100%;height:100%;background:#dfeffd center/cover no-repeat}
+
+.navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#ffffffd9;
+        border:1px solid var(--border);width:44px;height:44px;border-radius:50%;
+        display:grid;place-items:center;font-size:1.6rem;cursor:pointer;z-index:2}
+.prev{left:10px}.next{right:10px}
+
+.controls{position:absolute;bottom:15px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.5);
+     cursor:pointer;transition:all .3s ease;border:1px solid rgba(255,255,255,0.7)}
+.dot.active{background:rgba(255,255,255,0.9);transform:scale(1.2)}
+.dot:hover{background:rgba(255,255,255,0.8)}
+
+/* ---------- ACCESSIBILITY NOTE ---------- */
+.accessibility-note{font-size:clamp(0.85rem,2.2vw,0.9rem);color:var(--muted);line-height:1.4;
+                   background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+                   padding:12px;box-shadow:var(--shadow-sm);
+                   min-height:62px;display:flex;align-items:center}
+ 
+/* ---------- CONTENT SECTIONS ---------- */
+.content-section{padding-block:clamp(24px,5vw,34px)}
+.section-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
+               margin-bottom:20px;text-align:center}
+.full-width-content{width:100%}
+
+/* ---------- AKTUALITY ---------- */
+.aktuality-content{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+                   padding:clamp(16px,3vw,20px);box-shadow:var(--shadow);width:100%}
+.aktuality-content ul{list-style:none;padding:0}
+.aktuality-content li{margin-bottom:12px;padding-left:20px;position:relative;
+                      font-size:clamp(0.9rem,2.2vw,1rem);line-height:1.5}
+.aktuality-content li::before{content:'•';position:absolute;left:0;color:var(--brand-700);
+                              font-weight:bold;font-size:1.2em}
+.aktuality-content strong{color:var(--brand-900)}
+
+/* ---------- INSURANCE SECTION ---------- */
+.insurance-section{padding-block:clamp(24px,5vw,34px);background:var(--surface)}
+.insurance-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
+                 margin-bottom:32px;text-align:center;text-transform:uppercase;letter-spacing:0.5px}
+.insurance-grid{display:grid;gap:24px;max-width:1000px;margin:0 auto}
+.insurance-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;justify-items:center}
+.insurance-single{display:flex;justify-content:center}
+.insurance-logo{width:280px;height:180px;object-fit:contain;background:#fff;
+                border:2px solid var(--border);border-radius:12px;padding:16px;
+                box-shadow:var(--shadow);transition:all .3s ease}
+.insurance-logo:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(10,79,122,.15);
+                      border-color:var(--brand-500)}
+
+@media(max-width:768px){
+  .insurance-logo{width:220px;height:140px;padding:14px}
+  .insurance-row{grid-template-columns:repeat(2,1fr);gap:20px}
+  .insurance-single{grid-column:1/-1}
+}
+
+@media(max-width:480px){
+  .insurance-logo{width:180px;height:115px;padding:12px}
+  .insurance-row{grid-template-columns:1fr;gap:16px}
+  .insurance-single{grid-column:1}
+  .insurance-grid{gap:20px}
+}
+
+/* ---------- DOCTOR SECTION ---------- */
+.doctor-section{padding-block:clamp(24px,5vw,34px)}
+.doctor-grid{display:grid;gap:20px;max-width:1000px;margin:0 auto}
+@media(min-width:768px){.doctor-grid{grid-template-columns:1fr 1fr}}
+
+.doctor-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+             padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
+.doctor-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;
+              margin-bottom:16px;border:3px solid var(--brand-500);box-shadow:var(--shadow-sm)}
+.doctor-name{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:700;color:var(--brand-900);margin-bottom:8px}
+.doctor-title{display:inline-block;background:var(--brand-700);color:#fff;
+              padding:4px 12px;border-radius:20px;font-size:clamp(0.85rem,2vw,0.9rem);
+              font-weight:600;margin-bottom:16px}
+.doctor-info{text-align:left;width:100%}
+.doctor-info ul{list-style:none;padding:0}
+.doctor-info li{margin-bottom:8px;padding-left:16px;position:relative;
+                font-size:clamp(0.85rem,2.2vw,0.95rem);line-height:1.4}
+.doctor-info li::before{content:'•';position:absolute;left:0;color:var(--brand-700);font-weight:bold}
+
+.qr-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+         padding:clamp(18px,3vw,24px);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center}
+.qr-title{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);
+           margin-bottom:20px;text-align:center}
+.qr-code{width:240px;height:240px;object-fit:contain;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+
+/* Mobile-only clickable QR */
+@media(max-width:768px){
+  .qr-code{cursor:pointer}
+}
+
+/* ---------- MAP SECTION ---------- */
+.map-section{padding-block:clamp(24px,5vw,34px);background:var(--surface)}
+.map-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;color:var(--brand-900);
+           margin-bottom:24px;text-align:center}
+.map-container{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+               overflow:hidden;box-shadow:var(--shadow);max-width:1000px;margin:0 auto}
+.map-container iframe{border:0;display:block}
+
+/* ---------- BACK TO TOP BUTTON ---------- */
+.back-to-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;
+             background:var(--brand-700);color:#fff;border:none;border-radius:50%;
+             display:none;cursor:pointer;box-shadow:var(--shadow);
+             font-size:20px;z-index:100;transition:all 0.3s ease}
+.back-to-top:hover{background:var(--brand-900);transform:translateY(-2px)}
+.back-to-top.visible{display:flex;align-items:center;justify-content:center}
+
+@media(max-width:768px){
+  .back-to-top{width:45px;height:45px;bottom:20px;right:20px;font-size:18px}
+}
+ 
+/* ---------- SECTIONS ---------- */
+.section{padding-block:clamp(24px,5vw,34px)}
+.grid-2{display:grid;gap:clamp(16px,4vw,20px)}
+@media(min-width:768px){.grid-2{grid-template-columns:1.1fr .9fr}}
+ 
+.ins-grid{display:grid;gap:14px;margin-top:16px}
+@media(min-width:768px){.ins-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:767px){.ins-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.ins-grid{grid-template-columns:1fr}}
+
+.ins{height:clamp(70px,15vw,84px);border:1px dashed var(--border);border-radius:12px;
+     background:linear-gradient(180deg,#f8fcff,#f4f8fb);
+     display:grid;place-items:center;color:var(--muted);font-weight:700;
+     font-size:clamp(0.8rem,2.2vw,0.9rem);text-align:center;padding:8px}
+ 
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
+       font-size:clamp(0.8rem,2.2vw,0.9rem)}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:20px;padding-block:22px}
+@media(min-width:768px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-grid>div{min-width:0}
+.footer-grid a{color:var(--brand-700);text-decoration:none}
+.footer-grid a:hover{text-decoration:underline}
+ 
+/* ---------- ACCESSIBILITY & MOBILE IMPROVEMENTS ---------- */
+:focus-visible{outline:3px solid color-mix(in oklab,var(--brand-500) 50%,white);
+               outline-offset:2px;border-radius:10px}
+
+/* Touch-friendly improvements */
+@media(max-width:768px){
+  .btn{min-height:48px;font-size:1rem}
+  .menu-toggle{min-height:48px;min-width:48px}
+  .navbtn{width:48px;height:48px}
+}
+
+/* Text scaling improvements */
+@media(max-width:480px){
+  .container{padding-inline:12px}
+  .hero{padding-block:16px}
+  .section{padding-block:20px}
+  .main-layout{grid-template-columns:1fr!important}
+  .left-section{order:2}
+  .right-section{order:1}
+  .doctor-grid{grid-template-columns:1fr!important}
+}
+
+/* Loading state */
+.slider.loading .slides{opacity:0.3}
+.slider.loading::after{
+  content:'Načítání fotografií...';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,0.9);
+  padding:10px 20px;
+  border-radius:8px;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+</style>
 </head>
+ 
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="ALDHABBI S.R.O domů">
-        <img src="2025-Logo.png" alt="Logo ALDHABBI S.R.O" />
-        <span class="brand-title">
-          <span class="name">ALDHABBI S.R.O</span>
-          <span class="dept">OČNÍ ORDINACE</span>
-        </span>
-      </a>
-      <button id="menu-toggle" aria-label="Menu">&#9776;</button>
-      <div class="nav-links" id="nav-links">
-        <a href="#uvod" class="uvod">Úvod</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="Domů">
+      <img src="2025-logo-2.png" alt="ALDHABBI S.R.O – OČNÍ ORDINACE">
+    </a>
+ 
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="menu-overlay"></div>
+ 
+    <div class="nav-container">
+      <!-- INTERNAL NAVIGATION - CENTER WITH LIGHT BLUE -->
+      <nav class="nav-internal" aria-label="Sekce stránky">
         <a href="#aktuality">Aktuality</a>
-        <a href="#sluzby">Služby</a>
-        <a href="#cenik">Ceník</a>
+        <a href="#lekar">Lékař</a>
         <a href="#pojistovny">Pojišťovny</a>
-      </div>
-    </div>
-  </header>
+        <a href="#mapa">Mapa</a>
+      </nav>
 
-  <!-- PHONE CALL BOX -->
-  <a href="tel:+420705128840" class="phone-call-container" aria-label="Volejte +420 705 128 840">Volejte: +420 705 128 840</a>
-
-  <!-- HERO -->
-  <main id="top" class="hero">
-    <div class="hero-content" id="uvod">
-      <span class="tag">Přijímáme nové pacienty</span>
-      <h1 class="headline">Oční ordinace – Teplice</h1>
-      <p class="note">
-        Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
-      </p>
-    </div>
-
-    <!-- SLIDESHOW -->
-    <section aria-label="Fotogalerie ordinace" class="slider" id="slider">
-      <div class="slides">
-        <div class="slide" aria-label="Foto 1 – placeholder"></div>
-        <div class="slide" aria-label="Foto 2 – placeholder"></div>
-        <div class="slide" aria-label="Foto 3 – placeholder"></div>
-        <div class="slide" aria-label="Foto 4 – placeholder"></div>
-        <div class="slide" aria-label="Foto 5 – placeholder"></div>
-      </div>
-      <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
-      <button class="navbtn next" aria-label="Další snímek">›</button>
-      <div class="controls" aria-hidden="true"></div>
-    </section>
-
-    <!-- ORDINAČNÍ DOBA & MAP -->
-    <div class="hours-map-wrapper">
-      <section aria-label="Ordinační doba" class="hours-card">
-        <table class="hours-table" aria-describedby="hoursDescription">
-          <thead>
-            <tr><th scope="col">Den</th><th scope="col">Čas</th></tr>
-          </thead>
-          <tbody id="hoursTableBody"></tbody>
-        </table>
-        <p id="hoursDescription">Rezervujte jen telefonicky. Prosím nepsat.</p>
-      </section>
-
-      <section class="map-container" tabindex="0" role="link" aria-label="Adresa a mapa - Mlýnská 326/6 Teplice" id="mapSection">
-        <div class="address-map">Mlýnská 326/6, Teplice, 41501</div>
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
-            width="100%"
-            height="320"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa ordinace"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- AKTUALITY -->
-  <section id="aktuality" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <h2 style="text-align:center;">Aktuality</h2>
-    <div class="updates" id="updates" aria-live="polite" role="region" aria-label="Aktuality kliniky">
-      <article class="update" tabindex="0" style="margin-left:auto;margin-right:auto;max-width:680px;">
-        <time datetime="2025-08-01">1. 8. 2025</time>
-        <strong>Provoz beze změn.</strong> Aktuální ordinační doba viz výše.
-      </article>
-    </div>
-  </section>
-
-  <!-- SMLUVNÍ POJIŠŤOVNY -->
-  <section id="pojistovny" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <h2 style="text-align:center;">Smluvní pojišťovny</h2>
-    <div class="ins-grid" tabindex="0">
-      <div class="insurance-logo"><img src="vzp.png" alt="VZP" /></div>
-      <div class="insurance-logo"><img src="zpmv.png" alt="ZPMV" /></div>
-      <div class="insurance-logo"><img src="zps.png" alt="ZPS" /></div>
-      <div class="insurance-logo"><img src="ozp.png" alt="OZP" /></div>
-      <div class="insurance-logo"><img src="vozp.png" alt="VOZP" /></div>
-      <div class="insurance-logo"><img src="rbp.png" alt="RBP" /></div>
-      <div class="insurance-logo"><img src="cpzp.png" alt="CPZP" /></div>
-    </div>
-  </section>
-
-  <!-- O NÁS -->
-  <section id="o-nas" class="section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <h2 style="text-align:center;">O nás</h2>
-    <div class="doctor-section">
-      <div class="doctor-photo-wrapper">
-        <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al‑Dhabbi" class="doctor-photo" loading="lazy" width="220" height="220" style="border-radius:12px;object-fit:cover;" />
-        <h3 class="doctor-name">MUDr. Yahia Al‑Dhabbi</h3>
-        <span class="doctor-tag" aria-label="Oční lékař">Oční lékař</span>
-      </div>
-      <div class="doctor-info">
-        <ul>
-          <li>Vystudoval všeobecné lékařství na LF UP v Olomouci v roce 1988.</li>
-          <li>Specializace v oboru oftalmologie I. stupně (LFUK FNKV, 1994).</li>
-          <li>Odborná a zdravotní způsobilost v oftalmologii.</li>
-          <li>Člen ČLK.</li>
-        </ul>
-      </div>
-      <aside class="qr-section" aria-label="QR kód pro uložení kontaktu">
-        <p>Ulož mě</p>
-        <img src="https://qrcc.me/rk7a00zk0lpy" alt="QR kód pro uložení kontaktu" width="220" height="220" style="object-fit:cover; border-radius:14px; background:#fff;" loading="lazy" />
-      </aside>
-    </div>
-  </section>
-
-  <!-- SLUZBY Section -->
-  <section id="sluzby-section" style="max-width: 1180px; margin: 0 auto 40px auto; padding: 0 16px;">
-    <div id="sluzby-info">
-      <h2>Další informace</h2>
-    </div>
-    <div id="sluzby-link">
-      <a href="sluzby.html" aria-label="Zobrazit služební stránku">Zobrazit Služby</a>
-      <a href="cenik.html" aria-label="Zobrazit ceník">Zobrazit Ceník</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-left">
-      <div class="footer-company">ALDHABBI S.R.O – OČNÍ ORDINACE</div>
-      Mlýnská 326/6, Teplice, 41501<br>
-      Tel: <a href="tel:+420705128840">+420 705 128 840</a><br>
-      Email: <a href="mailto:info@aldhabbi.cz">info@aldhabbi.cz</a>
-    </div>
-    <div class="footer-center">
-      <div class="footer-links">
+      <!-- EXTERNAL NAVIGATION - RIGHT SIDE DARKER -->
+      <nav class="nav-external" aria-label="Externí stránky">
         <a href="sluzby.html">Služby</a>
         <a href="cenik.html">Ceník</a>
-      </div>
-      <div class="footer-copyright">
-        © <span id="year"></span> ALDHABBI S.R.O
-      </div>
+      </nav>
     </div>
-    <div class="footer-right">
-      <div class="footer-ico">IČO: 23313382</div>
+  </div>
+</header>
+ 
+<main id="top" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="tag">Přijímáme nové pacienty</span>
+      <h1 class="headline">Oční ordinace - Teplice</h1>
+      <p class="address">Mlýnská 326/6, Teplice, 41501</p>
     </div>
-  </footer>
 
-  <script>
-    // Hamburger mobile menu functionality
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    let mobileMenuActive = false;
-    menuToggle.addEventListener('click', function(){
-      mobileMenuActive = !mobileMenuActive;
-      navLinks.classList.toggle('show', mobileMenuActive);
-    });
-    navLinks.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', function () {
-        if(window.innerWidth < 900){
-          mobileMenuActive = false;
-          navLinks.classList.remove('show');
-        }
-      })
-    );
-    function responsiveMenuCheck(){
-      if(window.innerWidth<900){
-        menuToggle.style.display="block";
-        navLinks.classList.remove('show');
-      }else{
-        menuToggle.style.display="none";
-        navLinks.classList.remove('show');
-        navLinks.style.display="flex";
-        navLinks.style.flexDirection="row";
-        navLinks.style.position="";
-      }
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+      <!-- LEFT SECTION -->
+      <div class="left-section">
+        <!-- BUTTONS -->
+        <div class="cta-row">
+          <a href="tel:+420705128840" class="btn btn-solid">Volejte +420 705 128 840</a>
+          <a href="#mapa" class="btn btn-outline">Mapa kde nás najdete</a>
+        </div>
+        
+        <!-- HOURS CARD -->
+        <section aria-label="Ordinační doba" class="card hours-card">
+          <div class="warn">Rezervujte jen telefonicky. Prosím nepsat.</div>
+          <div class="hours-grid" id="hoursBox"></div>
+          <div class="holidays-note">Ordinace je zavřena o státních svátcích.</div>
+        </section>
+      </div>
+
+      <!-- RIGHT SECTION -->
+      <div class="right-section">
+        <!-- SLIDER CARD -->
+        <div class="card" style="padding:0;overflow:hidden">
+          <div class="slider loading" id="slider" aria-label="Fotogalerie ordinace">
+            <div class="slides">
+              <div class="slide" style="background-image:url('clinic-1.jpg')"></div>
+              <div class="slide" style="background-image:url('clinic-2.jpg')"></div>
+              <div class="slide" style="background-image:url('clinic-3.jpg')"></div>
+              <div class="slide" style="background-image:url('clinic-4.jpg')"></div>
+              <div class="slide" style="background-image:url('clinic-5.jpg')"></div>
+              <div class="slide" style="background-image:url('clinic-6.jpg')"></div>
+              <div class="slide" style="background-image:url('clinic-7.jpg')"></div>
+            </div>
+            <button class="navbtn prev" aria-label="Předchozí snímek">‹</button>
+            <button class="navbtn next" aria-label="Další snímek">›</button>
+            <div class="controls" aria-hidden="true"></div>
+          </div>
+        </div>
+        
+        <!-- ACCESSIBILITY NOTE -->
+        <div class="accessibility-note">
+          Ordinace se nachází v prvním patře bez výtahu, což může zhoršovat dostupnost pro osoby se sníženou pohyblivostí.
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- AKTUALITY SECTION -->
+<section id="aktuality" class="content-section">
+  <div class="container">
+    <h2 class="section-title">Aktuality</h2>
+    <div class="full-width-content">
+      <div class="aktuality-content">
+        <ul>
+          <li><strong>Dovolená:</strong> 8-17.8 (Telefonické objednání v této době je možné)</li>
+          <li>V případě akutních potíží se prosím obraťte na Všeobecnou ambulanci Očního oddělení Nemocnice Teplice - pavilon A, 4. podlaží, telefon 417519570.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE SECTION -->
+<section id="pojistovny" class="insurance-section">
+  <div class="container">
+    <h2 class="insurance-title">Smluvní pojišťovny</h2>
+    <div class="insurance-grid">
+      <!-- First row - 3 most important -->
+      <div class="insurance-row">
+        <img src="VZP.png" alt="Všeobecná zdravotní pojišťovna" class="insurance-logo">
+        <img src="VOZP.png" alt="Vojenská zdravotní pojišťovna" class="insurance-logo">
+        <img src="CPZP.png" alt="Česká průmyslová zdravotní pojišťovna" class="insurance-logo">
+      </div>
+      
+      <!-- Second row - 3 more -->
+      <div class="insurance-row">
+        <img src="OZP.png" alt="Oborová zdravotní pojišťovna" class="insurance-logo">
+        <img src="RBP.png" alt="Revírní bratrská pokladna" class="insurance-logo">
+        <img src="zpmv.png" alt="Zdravotní pojišťovna ministerstva vnitra" class="insurance-logo">
+      </div>
+      
+      <!-- Third row - 1 centered -->
+      <div class="insurance-single">
+        <img src="zps.png" alt="Zdravotní pojišťovna Škoda" class="insurance-logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR SECTION -->
+<section id="lekar" class="doctor-section">
+  <div class="container">
+    <div class="doctor-grid">
+      <!-- DOCTOR CARD -->
+      <div class="doctor-card">
+        <img src="yahia-avatar.jpg" alt="MUDr. Yahia Al-Dhabbi" class="doctor-photo">
+        <h3 class="doctor-name">MUDr. Yahia Al-Dhabbi</h3>
+        <span class="doctor-title">Oční lékař</span>
+        <div class="doctor-info">
+          <ul>
+            <li>Vystudoval z všeobecné lékařské fakulty Palackého v Olomouci v r. 1988.</li>
+            <li>Specializoval se v oboru oftalmologie I. stupně z LFUK FNKV v Praze v roce 1994.</li>
+            <li>Odborná a zdravotní způsobilost v oftalmologie.</li>
+            <li>Člen ČLK.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- QR CARD -->
+      <div class="qr-card">
+        <h3 class="qr-title">Naskenujte a uložte kontakt</h3>
+        <img src="2025QR.png" alt="QR kód pro kontakt" class="qr-code" onclick="handleQRClick()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section id="mapa" class="map-section">
+  <div class="container">
+    <h2 class="map-title">Mapa</h2>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.346236038126!2d13.8323696!3d50.6392606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ef2945c8267%3A0x992046a98f691a6d!2sMl%C3%BDnsk%C3%A1%20326%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1667075594043!5m2!1sen!2scz"
+        width="100%"
+        height="448"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa ordinace"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button class="back-to-top" id="backToTop" aria-label="Zpět nahoru">↑</button>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <strong>ALDHABBI S.R.O – OČNÍ ORDINACE</strong><br>
+      Mlýnská 326/6, Teplice 41501<br>
+      Tel: <a href="tel:+420705128840">+420 705 128 840</a><br>
+      Email: <a href="mailto:dhabbiocni@gmail.com">dhabbiocni@gmail.com</a> (Objednání jen telefonicky!)<br>
+      IČO: 23313382
+    </div>
+    <div>
+      <a href="#aktuality">Aktuality</a><br>
+      <a href="#lekar">Lékař</a><br>
+      <a href="sluzby.html">Služby</a><br>
+      <a href="cenik.html">Ceník</a><br>
+      <a href="#pojistovny">Pojišťovny</a><br>
+      <a href="#mapa">Kontakt</a>
+    </div>
+    <div>
+      © <span id="year"></span> ALDHABBI S.R.O
+    </div>
+  </div>
+</footer>
+ 
+<script>
+/* ----------- HAMBURGER TOGGLE ----------- */
+const toggleBtn=document.querySelector('.menu-toggle');
+const navContainer=document.querySelector('.nav-container');
+const overlay=document.querySelector('.menu-overlay');
+
+function toggleMenu(){
+  const isOpen=navContainer.classList.toggle('open');
+  overlay.classList.toggle('open',isOpen);
+  toggleBtn.setAttribute('aria-expanded',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+toggleBtn.addEventListener('click',toggleMenu);
+overlay.addEventListener('click',toggleMenu);
+
+// Close menu on escape
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&navContainer.classList.contains('open')){
+    toggleMenu();
+  }
+});
+ 
+/* ----------- HOURS RENDER ----------- */
+const hours=[
+  {d:'Pondělí',b:[['07:00','12:00'],['12:30','17:30']]},
+  {d:'Úterý',b:[['15:00','17:30']]},
+  {d:'Středa',b:[['15:00','17:30']]},
+  {d:'Čtvrtek',b:[['07:00','12:00'],['12:30','17:30']]},
+  {d:'Pátek',b:[['07:00','12:00']]}
+];
+const box=document.getElementById('hoursBox');
+hours.forEach(h=>{
+  const row=document.createElement('div');
+  row.className='hour-row';
+  row.innerHTML=`<strong>${h.d}</strong><span>${h.b.map(b=>b.join(' – ')).join(', ')}</span>`;
+  box.append(row);
+});
+ 
+/* ----------- SLIDER ----------- */
+(function(){
+ const slider=document.getElementById('slider');
+ const track=slider.querySelector('.slides');
+ const slides=[...track.children];
+ const dotsWrap=slider.querySelector('.controls');
+ let i=0,timer,startX=null,startY=null,isDragging=false;
+ let imagesLoaded=0;
+ const totalImages=slides.length;
+ 
+ // Create dots
+ slides.forEach((s,idx)=>{
+   const d=document.createElement('button');
+   d.className='dot';
+   d.setAttribute('aria-label',`Slide ${idx+1}`);
+   d.onclick=()=>go(idx);
+   dotsWrap.append(d);
+ });
+ const dots=[...dotsWrap.children];
+ 
+ // Wait for all images to load
+ function checkImageLoad(){
+   imagesLoaded++;
+   if(imagesLoaded>=totalImages){
+     slider.classList.remove('loading');
+     go(0); // Start slideshow
+   }
+ }
+ 
+ // Load images
+ slides.forEach((slide,idx)=>{
+   const img=new Image();
+   const bgImage=slide.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/);
+   if(bgImage){
+     img.onload=checkImageLoad;
+     img.onerror=checkImageLoad; // Count failed loads too
+     img.src=bgImage[1];
+   }else{
+     checkImageLoad(); // No image, count as loaded
+   }
+ });
+ 
+ function go(n){
+   if(slider.classList.contains('loading'))return; // Don't start until loaded
+   i=(n+slides.length)%slides.length;
+   track.style.transform=`translateX(${-i*100}%)`;
+   dots.forEach((d,k)=>d.classList.toggle('active',k===i));
+   reset();
+ }
+ function next(){go(i+1)}
+ function prev(){go(i-1)}
+ slider.querySelector('.next').onclick=next;
+ slider.querySelector('.prev').onclick=prev;
+ function reset(){clearInterval(timer);timer=setInterval(next,5000)}
+ 
+ // Improved touch handling
+ slider.addEventListener('touchstart',e=>{
+   if(slider.classList.contains('loading'))return;
+   startX=e.touches[0].clientX;
+   startY=e.touches[0].clientY;
+   isDragging=false;
+   clearInterval(timer);
+ },{passive:true});
+ 
+ slider.addEventListener('touchmove',e=>{
+   if(!startX||!startY||slider.classList.contains('loading'))return;
+   const deltaX=Math.abs(e.touches[0].clientX-startX);
+   const deltaY=Math.abs(e.touches[0].clientY-startY);
+   if(deltaX>deltaY&&deltaX>10){
+     isDragging=true;
+     e.preventDefault();
+   }
+ },{passive:false});
+ 
+ slider.addEventListener('touchend',e=>{
+   if(!startX||!isDragging||slider.classList.contains('loading'))return;
+   const endX=e.changedTouches[0].clientX;
+   const dx=startX-endX;
+   if(Math.abs(dx)>50){
+     dx>0?next():prev();
+   }
+   startX=startY=null;
+   isDragging=false;
+   reset();
+ },{passive:true});
+})();
+
+/* ----------- QR CODE MOBILE CLICK ----------- */
+function handleQRClick() {
+  // Only work on mobile devices (screen width less than 768px)
+  if (window.innerWidth <= 768) {
+    window.open('https://qrcc.me/rk7a00zk0lpy', '_blank');
+  }
+}
+
+/* ----------- BACK TO TOP BUTTON ----------- */
+(function(){
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
     }
-    window.addEventListener("resize",responsiveMenuCheck);
-    responsiveMenuCheck();
-
-    // Fill ordinační doba table dynamically
-    const hours = [
-      { day: 'Pondělí', blocks: [['07:00', '12:00'], ['12:30', '17:30']] },
-      { day: 'Úterý', blocks: [['15:00', '17:30']] },
-      { day: 'Středa', blocks: [['15:00', '17:30']] },
-      { day: 'Čtvrtek', blocks: [['07:00', '12:00'], ['12:30', '17:30']] },
-      { day: 'Pátek', blocks: [['07:00', '12:00']] }
-    ];
-
-    const tbody = document.getElementById('hoursTableBody');
-    hours.forEach(({ day, blocks }) => {
-      const tr = document.createElement('tr');
-      const tdDay = document.createElement('td');
-      tdDay.textContent = day;
-      const tdTime = document.createElement('td');
-      tdTime.textContent = blocks.map(b => b.join(' - ')).join(' , ');
-      tr.appendChild(tdDay);
-      tr.appendChild(tdTime);
-      tbody.appendChild(tr);
+  });
+  
+  // Smooth scroll to top when clicked
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-
-    // Map interaction: open Google Maps app on mobile, regular Google Maps on desktop
-    const mapSection = document.getElementById('mapSection');
-    mapSection.addEventListener('click', () => {
-      const url = 'https://maps.google.com/?q=Mlýnská+326/6,+Teplice';
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        window.open(`geo:50.6392606,13.8323696?q=Mlýnská+326/6,+Teplice`, '_blank');
-        setTimeout(() => window.open(url, '_blank'), 1000);
-      } else {
-        window.open(url, '_blank');
-      }
-    });
-
-    // Slideshow script
-    (function () {
-      const slider = document.getElementById('slider');
-      const slides = slider.querySelector('.slides');
-      const slideElements = slider.querySelectorAll('.slide');
-      const controls = slider.querySelector('.controls');
-      let index = 0, timer;
-
-      slideElements.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'dot';
-        dot.ariaLabel = 'Přejít na snímek ' + (i + 1);
-        dot.addEventListener('click', () => go(i));
-        controls.appendChild(dot);
-      });
-      const dots = [...controls.children];
-
-      function go(i) {
-        index = (i + slideElements.length) % slideElements.length;
-        slides.style.transform = `translateX(${-index * 100}%)`;
-        dots.forEach((dot, k) => dot.classList.toggle('active', k === index));
-        restart();
-      }
-      function next() { go(index + 1); }
-      function prev() { go(index - 1); }
-      slider.querySelector('.next').onclick = next;
-      slider.querySelector('.prev').onclick = prev;
-
-      function restart() {
-        clearInterval(timer);
-        timer = setInterval(next, 5000);
-      }
-      restart();
-      go(0);
-
-      let startX = null;
-      slider.addEventListener('pointerdown', e => { startX = e.clientX; });
-      slider.addEventListener('pointerup', e => {
-        if (startX === null) return;
-        const dx = e.clientX - startX;
-        if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-        startX = null;
-      }, { passive: true });
-    })();
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  });
+})();
+ 
+/* ----------- YEAR ----------- */
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
