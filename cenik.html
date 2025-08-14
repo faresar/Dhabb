@@ -87,26 +87,29 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
   .nav{position:relative}
   .nav-container{position:fixed;inset:0 0 auto auto;width:280px;max-width:85%;
                  background:#fff;height:100dvh;flex-direction:column;justify-content:flex-start;
-                 padding:80px 20px 20px;transform:translateX(100%);transition:transform .3s ease;
-                 box-shadow:var(--shadow);z-index:50}
+                 padding:80px 20px 40px;transform:translateX(100%);transition:transform .3s ease;
+                 box-shadow:var(--shadow);z-index:50;overflow-y:auto}
   .nav-container.open{transform:translateX(0)}
   
-  .nav-internal,.nav-external{flex-direction:column;margin:0;width:100%}
+  .nav-internal,.nav-external{flex-direction:column;margin:0;width:100%;flex-shrink:0}
   
+  /* Mobile external links first - darker styling */
   .nav-external{background:var(--surface);border-radius:12px;padding:16px;margin-bottom:20px;order:1}
   .nav-external a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center;
                   color:var(--brand-900);font-weight:600}
   .nav-external a:hover{background:var(--brand-500);color:#fff}
   .nav-external a.current{background:var(--brand-700);color:#fff}
   
+  /* Mobile internal links - with light blue background - adaptive height */
   .nav-internal{background:color-mix(in oklab,var(--brand-500) 25%,white);
-                border-radius:12px;padding:16px;order:2}
+                border-radius:12px;padding:16px;order:2;min-height:fit-content}
   .nav-internal a{margin-block:8px;padding:12px 16px;width:100%;border-radius:8px;text-align:center;
                   color:var(--brand-900);font-weight:700}
   .nav-internal a:hover{background:color-mix(in oklab,var(--brand-500) 35%,white)}
   
   .menu-toggle{display:flex;align-items:center;justify-content:center}
 }
+
 
 /* ---------- HERO ---------- */
 .hero{padding-block:clamp(40px,6vw,60px);background:linear-gradient(180deg,
@@ -238,7 +241,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
   <div class="container">
     <div class="hero-content">
       <h1 class="page-title">Ceník služeb</h1>
-      <p class="page-subtitle">Přehled cen za péči nehrazenou z veřejného zdravotního pojištění</p>
+  
     </div>
   </div>
 </main>
@@ -403,3 +406,4 @@ document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
+
