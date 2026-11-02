@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ceník - ALDHABBI – OČNÍ ORDINACE | Teplice</title>
-<meta name="description" content="Ceník očních služeb nehrazených z pojištění. Kompletní vyšetření, řidičský průkaz, pachymetrie. MUDr. Yahia Al-Dhabbi - Teplice.">
-<meta name="keywords" content="ceník oční ordinace, ceny očních vyšetření, řidičský průkaz, pachymetrie, oftalmolog Teplice">
+<meta name="description" content="Ceník očních služeb nehrazených z veřejného zdravotního pojištění. Vyšetření pro samoplátce, posudek pro řidičský průkaz, vyšetření pro zaměstnavatele. MUDr. Yahia Al-Dhabbi - Teplice.">
+<meta name="keywords" content="ceník oční ordinace, oční vyšetření samoplátce, řidičský průkaz, oftalmolog Teplice">
 <meta name="author" content="ALDHABBI S.R.O">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.dhabbi.cz/cenik.html">
@@ -140,6 +140,8 @@ body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helve
               line-height:1.4;padding-right:20px}
 .service-price{font-size:clamp(1rem,2.5vw,1.2rem);font-weight:700;color:var(--brand-900);
                white-space:nowrap}
+.service-note{display:block;font-size:.85em;font-weight:400;color:var(--muted);margin-top:4px;line-height:1.4}
+.pricing-footnote{max-width:900px;margin:16px auto 0;font-size:.95rem;color:var(--muted);text-align:center;line-height:1.5}
 
 @media(max-width:768px){
   .pricing-row{grid-template-columns:1fr;gap:8px;text-align:center}
@@ -252,37 +254,53 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
 <section class="content-section">
   <div class="container">
     <div class="pricing-header">
-      <h2 class="pricing-title">Ceník péče NEHRAZENÉ z veřejného zdravotního pojištění</h2>
+      <h2 class="pricing-title">Ceník služeb nehrazených z veřejného zdravotního pojištění</h2>
+      <p class="pricing-subtitle">Ceny platí pouze v případech, kdy služba není v daném případě hrazena z veřejného zdravotního pojištění.</p>
     </div>
-    
+
     <div class="pricing-table">
       <div class="pricing-row">
-        <div class="service-name">Pachymetrie (měření tloušťky rohovky)</div>
-        <div class="service-price">100 Kč / oko</div>
-      </div>
-      <div class="pricing-row">
-        <div class="service-name">Kompletní vyšetření bez pojištění – samoplátce</div>
+        <div class="service-name">
+          Kompletní oční vyšetření – pacienti bez nároku na úhradu z veřejného zdravotního pojištění (samoplátci)
+          <span class="service-note">Týká se např. pacientů pojištěných u zdravotní pojišťovny, s níž ordinace nemá smlouvu, a osob bez veřejného zdravotního pojištění. Neodkladná péče je z tohoto ceníku vyňata a hradí se z veřejného zdravotního pojištění.</span>
+        </div>
         <div class="service-price">2500 Kč</div>
       </div>
       <div class="pricing-row">
-        <div class="service-name">Kontrolní vyšetření bez pojištění – samoplátce</div>
+        <div class="service-name">
+          Kontrolní oční vyšetření – pacienti bez nároku na úhradu z veřejného zdravotního pojištění (samoplátci)
+          <span class="service-note">Platí za stejných podmínek jako u kompletního vyšetření.</span>
+        </div>
         <div class="service-price">1000 Kč</div>
+      </div>
+      <div class="pricing-row">
+        <div class="service-name">
+          Oční vyšetření pro posouzení zdravotní způsobilosti k řízení motorových vozidel (řidičský průkaz)
+          <span class="service-note">Vyšetření prováděné na žádost pacienta, nikoli za účelem léčby.</span>
+        </div>
+        <div class="service-price">700 Kč</div>
+      </div>
+      <div class="pricing-row">
+        <div class="service-name">
+          Oční vyšetření pro zaměstnavatele (posouzení zdravotní způsobilosti na žádost zaměstnavatele)
+          <span class="service-note">Neplatí pro běžné diagnostické a léčebné vyšetření hrazené z veřejného zdravotního pojištění.</span>
+        </div>
+        <div class="service-price">500 Kč</div>
+      </div>
+
+      <!-- ODSTRANĚNO Z VEŘEJNÉHO ZOBRAZENÍ (ponecháno pro případné pozdější použití po právní/pojišťovací kontrole)
+
+      <div class="pricing-row">
+        <div class="service-name">Pachymetrie (měření tloušťky rohovky)</div>
+        <div class="service-price">100 Kč / oko</div>
       </div>
       <div class="pricing-row">
         <div class="service-name">Vystavení receptu do 24h</div>
         <div class="service-price">100 Kč</div>
       </div>
       <div class="pricing-row">
-        <div class="service-name">Řidičský průkaz</div>
-        <div class="service-price">700 Kč</div>
-      </div>
-      <div class="pricing-row">
         <div class="service-name">Vyšetření stability slzného filmu – obě oči</div>
         <div class="service-price">200 Kč</div>
-      </div>
-      <div class="pricing-row">
-        <div class="service-name">Vyšetření pro zaměstnavatele</div>
-        <div class="service-price">500 Kč</div>
       </div>
       <div class="pricing-row">
         <div class="service-name">Výpis z dokumentace</div>
@@ -300,7 +318,11 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
         <div class="service-name">Nadstandartní vyšetření – vyšetření mimo ordinační hodiny, tedy mimo běžné objednací hodiny</div>
         <div class="service-price">2500 Kč</div>
       </div>
+
+      -->
     </div>
+
+    <p class="pricing-footnote">O ceně služby vás informujeme před jejím poskytnutím a službu poskytneme pouze s vaším souhlasem. Po zaplacení vám vystavíme doklad s přehledem poskytnutých služeb a cen.</p>
   </div>
 </section>
 
@@ -309,11 +331,11 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:28px;
     <div class="info-card">
       <h2 class="info-title">Důležité informace</h2>
       <p class="info-text">
-        Výše uvedené ceny se vztahují na služby <span class="info-highlight">nehrazené z veřejného zdravotního pojištění</span>. 
-        Mnohé vyšetření a léčebné postupy jsou plně hrazeny pojišťovnami v rámci standardní péče.
+        Ceník se vztahuje pouze na služby, které v konkrétním případě <span class="info-highlight">nejsou hrazeny z veřejného zdravotního pojištění</span>.
+        Za zdravotní služby hrazené z veřejného zdravotního pojištění v příslušném rozsahu nepožadujeme od pacientů přímou úhradu.
       </p>
       <p class="info-text">
-        Pro získání informací o hrazení konkrétního výkonu z pojištění nebo objednání se prosím obraťte na naši ordinaci telefonicky.
+        Odmítnutí placené služby není podmínkou pro poskytnutí péče hrazené z pojištění. Máte-li pochybnost, zda je konkrétní výkon hrazen, obraťte se na nás telefonicky ještě před vyšetřením.
       </p>
     </div>
   </div>
@@ -426,7 +448,3 @@ document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
-
-
-
-
